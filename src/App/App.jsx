@@ -1,10 +1,11 @@
 import { MantineProvider } from "@mantine/core"
+import { AppRouter } from "../router/router"
 
 function App() {
 
   return (
     <MantineProvider>
-      <h1>App</h1>
+      <AppRouter />
     </MantineProvider>
   )
 }
