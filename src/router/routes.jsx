@@ -7,10 +7,11 @@ import { Property } from "../property/property";
 import { Login } from "../Authentication/login";
 import { RequestTour } from "../tour";
 import { MakeOffer } from "../offer/offer";
+import { routesEndPoints } from "../constants";
 
 export const routes = [
   {
-    path: "/",
+    path: routesEndPoints.HOME,
     element: <MainLayout />,
     children: [
       {
@@ -18,22 +19,22 @@ export const routes = [
         element: <Home />,
       },
       {
-        path: "/rent",
+        path: routesEndPoints.PROPERTIES,
         children: [
           {
             index: true,
             element: <Properties />,
           },
           {
-            path: "/rent/property/:id",
+            path: routesEndPoints.PROPERTY,
             element: <Property />,
             children: [
               {
-                path: "/rent/property/:id/tour",
+                path: routesEndPoints.PROPERTY_TOUR,
                 element: <RequestTour />,
               },
               {
-                path: "/rent/property/:id/offer",
+                path: routesEndPoints.PROPERTY_OFFER,
                 element: <MakeOffer />,
               },
             ],
@@ -41,36 +42,13 @@ export const routes = [
         ],
       },
       {
-        path: "/buy",
-        children: [
-          {
-            index: true,
-            element: <Properties />,
-          },
-          {
-            path: "/buy/property/:id",
-            element: <Property />,
-            children: [
-              {
-                path: "/buy/property/:id/tour",
-                element: <RequestTour />,
-              },
-              {
-                path: "/buy/property/:id/offer",
-                element: <MakeOffer />,
-              },
-            ],
-          },
-        ],
-      },
-      {
-        path: "/about",
+        path: routesEndPoints.ABOUT,
         element: <About />,
       },
     ],
   },
   {
-    paht: "/login",
+    paht: routesEndPoints.LOGIN,
     element: <MainLayout />,
     children: [
       {

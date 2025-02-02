@@ -1,0 +1,11 @@
+.button{
+    color: #00c898;
+}
+
+.button:hover {
+    color: #a4e2d6; 
+}
+
+.label {
+    font-size: 30px;
+}
