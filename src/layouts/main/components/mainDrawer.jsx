@@ -4,7 +4,6 @@ import { Conditional } from "../../../components/conditional";
 import useAppAuthentication from "../../../hooks/useAppAuthentication";
 import { useAppNavigation } from "../../../hooks";
 import { routesEndPoints } from "../../../constants";
-import classes from '../CSS/index.module.css'
 
 export const MainDrawer = (props) => {
   const navigateToLogin = useAppNavigation(routesEndPoints.LOGIN);

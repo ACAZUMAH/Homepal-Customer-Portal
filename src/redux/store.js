@@ -17,6 +17,7 @@ const persistConfig = {
   version: 1,
   storage,
   blacklist: ["notifications"],
+  debug: true
 };
 
 const persistReducers = persistReducer(persistConfig, rootReducer);
@@ -29,7 +30,8 @@ const store = configureStore({
             ignoreActions: [FLUSH, REGISTER, REHYDRATE, PAUSE, PERSIST, PURGE]
         }
     })
-  }
+  },
+  devTools: import.meta.env.NODE_ENV !== "production"
 });
 
 export const persistor = persistStore(store);

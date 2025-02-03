@@ -1,11 +1,11 @@
 import {
   Anchor,
+  Box,
   Burger,
   Button,
   Center,
   Container,
   Group,
-  NavLink,
   Space,
   Title,
 } from "@mantine/core";
@@ -16,7 +16,8 @@ import classes from '../CSS/index.module.css'
 import { Conditional } from "../../../components/conditional";
 import { MainDrawer } from "./mainDrawer";
 import useAppAuthentication from "../../../hooks/useAppAuthentication";
-import { IconHeart, IconHome } from "@tabler/icons-react";
+import { IconHeart, IconHeartFilled, IconHome } from "@tabler/icons-react";
+import { DropDownMenu } from "./dropDownMenu";
 
 export const MainHeader = () => {
   const [opened, setOpened] = useState(false);
@@ -43,7 +44,7 @@ export const MainHeader = () => {
                 navigateToHome();
               }}
             >
-              <Title c="#00c898" fs="bold" order={1} size="39">
+              <Title c="#00c898" fs="italic" order={1} size="2.5rem">
                 HomePal
               </Title>
             </Anchor>
@@ -53,7 +54,6 @@ export const MainHeader = () => {
               variant="transparent"
               component="a"
               visibleFrom="sm"
-              fw="bold"
               fz="xl"
               classNames={{
                 label: classes.button,
@@ -71,7 +71,6 @@ export const MainHeader = () => {
               variant="transparent"
               component="a"
               visibleFrom="sm"
-              fw="bold"
               fz="xl"
               classNames={{
                 label: classes.button,
@@ -88,7 +87,6 @@ export const MainHeader = () => {
             <Conditional condition={!isAuthenticated}>
               <Button
                 c="#00c898"
-                fw="bold"
                 fz="xl"
                 component="a"
                 variant="transparent"
@@ -106,24 +104,28 @@ export const MainHeader = () => {
                 }}
                 c="#00c898"
                 variant="transparent"
-                fw="bold"
                 fz="xl"
               >
-                <IconHome size={35} stroke={1.5} /> My list
+                <IconHome size="2rem" stroke={1.5} /> My list
               </Button>
+
               <Button
                 classNames={{
                   label: classes.button,
                 }}
                 c="#00c898"
                 variant="transparent"
-                fw="bold"
                 fz="xl"
               >
-                <IconHeart size={35} stroke={1.5} /> Fovorite
+                <IconHeart size="2rem" stroke={1.5} /> Fovorite
               </Button>
+              <Space w="80" />
+              <DropDownMenu />
             </Conditional>
           </Group>
+          <Box hiddenFrom="sm">
+            <DropDownMenu />
+          </Box>
         </Group>
         <MainDrawer opened={opened} onClose={() => setOpened(!opened)} />
       </Container>
