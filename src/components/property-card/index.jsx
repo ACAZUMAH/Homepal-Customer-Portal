@@ -5,7 +5,6 @@ import {
   Image,
   Skeleton,
   Text,
-  Flex,
   Stack,
   ActionIcon,
   Button,
@@ -16,8 +15,7 @@ import {
   IconBath,
   IconMapPin,
   IconRulerMeasure,
-  IconPlus,
-  IconDotsVertical,
+
   IconHeart,
   IconChevronRight
 } from "@tabler/icons-react";
