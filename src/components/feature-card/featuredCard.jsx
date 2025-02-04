@@ -28,7 +28,7 @@ export const FeatureCard = ({ title, icon }) => {
         size="sm"
         style={{ position: "absolute", top: 10, right: 10 }}
       >
-        <IconArrowUpRight size={16} />
+        <IconArrowUpRight stroke={1.5} size={16} />
       </ActionIcon>
     </Card>
   );

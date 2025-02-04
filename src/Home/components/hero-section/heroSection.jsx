@@ -16,7 +16,7 @@ export const HeroSection = (props) => {
   return (
     <>
       <BackgroundImage src={background}>
-        <Box ml={111} pt={250}>
+        <Box ml={157} pt={250}>
           <Title c="#00c898" fw="bold" size="3.3rem">
             Discover The Home That
           </Title>
@@ -32,7 +32,7 @@ export const HeroSection = (props) => {
             to find the home of your dreams
           </Text>
         </Box>
-        <Box ml={111}>
+        <Box ml={157}>
           <SegmentedControl
             radius="xs"
             size="lg"

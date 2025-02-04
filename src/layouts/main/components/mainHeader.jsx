@@ -98,27 +98,29 @@ export const MainHeader = () => {
               </Button>
             </Conditional>
             <Conditional condition={isAuthenticated}>
-              <Button
-                classNames={{
-                  label: classes.button,
-                }}
-                c="#00c898"
-                variant="transparent"
-                fz="xl"
-              >
-                <IconHome size="2rem" stroke={1.5} /> My list
-              </Button>
+              <Box visibleFrom="lg">
+                <Button
+                  classNames={{
+                    label: classes.button,
+                  }}
+                  c="#00c898"
+                  variant="transparent"
+                  fz="xl"
+                >
+                  <IconHome size="2rem" stroke={1.5} /> My list
+                </Button>
 
-              <Button
-                classNames={{
-                  label: classes.button,
-                }}
-                c="#00c898"
-                variant="transparent"
-                fz="xl"
-              >
-                <IconHeart size="2rem" stroke={1.5} /> Fovorite
-              </Button>
+                <Button
+                  classNames={{
+                    label: classes.button,
+                  }}
+                  c="#00c898"
+                  variant="transparent"
+                  fz="xl"
+                >
+                  <IconHeart size="2rem" stroke={1.5} /> Fovorite
+                </Button>
+              </Box>
               <Space w="80" />
               <DropDownMenu />
             </Conditional>

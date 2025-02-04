@@ -2,7 +2,7 @@ import React from "react";
 import { HeroSection } from "./components/hero-section";
 import { SearchSection } from "./components/search-section";
 //import { FeaturedSection } from "./components/featuredSection";
-import { FeaturesProperties } from "./components/featuresProperties";
+import { FeaturedProperties } from "./components/featuresProperties";
 import { FeatureGrid } from "./components/featured-Grid";
 
 export const Home = () => {
@@ -20,7 +20,7 @@ export const Home = () => {
       <HeroSection OnChangeMode={searchMode}/>
       <SearchSection OnSearch={getSerachData} />
       <FeatureGrid />
-      <FeaturesProperties />
+      <FeaturedProperties />
     </>
   );
 };

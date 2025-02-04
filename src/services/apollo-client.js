@@ -1,14 +1,29 @@
 import { ApolloClient, InMemoryCache, ApolloLink, createHttpLink } from "@apollo/client";
+import { setContext } from "@apollo/client/link/context"
+import store from '../redux/store'
+
+const middleware = setContext(async (_, { headers }) => {
+    const token = store.getState().authentication.token
+
+    return {
+        heaaders: {
+            ...headers,
+            Authorization: token ? `Bearer ${token}` : ""
+        }
+    }
+})
 
 const httpLink = createHttpLink({
-    uri: ``,
+    uri: `${import.meta.env.VITE_API_BASE_URL}/graphql`,
     fetchOptions: { mode: "cors" }
 })
 
 const link = ApolloLink.from([
-    httpLink
+    middleware,
+    httpLink,
 ])
-const cache = InMemoryCache({})
+
+const cache = new InMemoryCache({})
 
 export const client = new ApolloClient({
     link,

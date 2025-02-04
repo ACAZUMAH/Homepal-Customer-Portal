@@ -14,13 +14,10 @@
   color: #fff;
 }
 
-.Card {
-  display: "flex";
-  flex-direction: "column";
-  align-items: "center";
-  justify-content: "center";
-  position: "relative";
-  text-align: "center";
-  height: 140;
-  transition: "transform 0.2s";
+.morePBtn{
+    color: #00c898;
+}
+
+.morePBtn:hover {
+    color: #a4e2d6; 
 }

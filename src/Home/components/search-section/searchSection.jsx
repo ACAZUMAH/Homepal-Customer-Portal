@@ -28,16 +28,22 @@ export const SearchSection = (props) => {
 
   return (
     <>
-      {" "}
       <Paper
         shadow="md"
         radius="md"
         mr={550}
-        ml={111}
+        ml={157}
         bg="var(--mantine-color-blue-light)"
-        h={80}
+        h="auto"
+        visibleFrom="md"
       >
-        <Flex flex="grow" p="18px" gap={8}>
+        <Flex
+          flex="grow"
+          p="18px"
+          gap={8}
+          direction={{ base: "column", md: "row" }}
+          align="stretch"
+        >
           <TextInput
             flex="3"
             size="md"
@@ -74,7 +80,7 @@ export const SearchSection = (props) => {
               label: classes.button,
             }}
             onClick={HandleSearch}
-            leftSection={ <IconSearch stroke={1.5} size={20} />}
+            leftSection={<IconSearch stroke={1.5} size={20} />}
           >
             Search
           </Button>

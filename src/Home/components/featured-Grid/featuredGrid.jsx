@@ -26,15 +26,11 @@ const features = [
 
 export const FeatureGrid = () => (
   <>
-    <Container mt="5rem" h={300} size="92%">
+    <Container mt="5rem" size="85%">
       <SimpleGrid
-        cols={4}
         spacing="lg"
         breakpoints={[{ maxWidth: "sm", cols: 2 }]}
-        styles={{
-          transition: "transform 0.2s",
-        }}
-        sx={{ "&:hover": { transform: "scale(1.05)" } }}
+        cols={{ base: 1, xs: 2, md: 2, xl: 4 }}
       >
         {features.map((feature, index) => (
           <FeatureCard key={index} title={feature.title} icon={feature.icon} />
