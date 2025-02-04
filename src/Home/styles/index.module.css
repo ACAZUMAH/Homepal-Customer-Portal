@@ -1,0 +1,26 @@
+.custom {
+  transition: color 0.2s ease;
+}
+
+.custom:hover {
+  color: #005e83;
+}
+
+.custom[data-active] {
+  color: #00c898;
+}
+
+.button {
+  color: #fff;
+}
+
+.Card {
+  display: "flex";
+  flex-direction: "column";
+  align-items: "center";
+  justify-content: "center";
+  position: "relative";
+  text-align: "center";
+  height: 140;
+  transition: "transform 0.2s";
+}

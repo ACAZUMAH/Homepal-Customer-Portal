@@ -13,7 +13,7 @@ export const MainLayout = () => {
         <AppShell.Main>
             <Outlet />
         </AppShell.Main>
-        <AppShell.Footer>
+        <AppShell.Footer pos="relative">
             <MainFooter />
         </AppShell.Footer>
       </AppShell>
