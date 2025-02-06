@@ -10,7 +10,7 @@ export const MainLayout = () => {
         <AppShell.Header>
             <MainHeader />
         </AppShell.Header>
-        <AppShell.Main>
+        <AppShell.Main mih="90vh">
             <Outlet />
         </AppShell.Main>
         <AppShell.Footer pos="relative">

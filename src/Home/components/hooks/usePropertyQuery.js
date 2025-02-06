@@ -26,7 +26,7 @@ const useGetPropertiesGql = gql`
 
 export const usePropertiesQuery = (filter = { }) => {
     const { data, ...result } = useQuery(useGetPropertiesGql, {
-        variables: { filter },
+        variables: { filter: filter },
         fetchPolicy: "network-only",
         notifyOnNetworkStatusChange: true
     })

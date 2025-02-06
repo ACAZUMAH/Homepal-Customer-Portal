@@ -15,7 +15,7 @@ import {
   IconBath,
   IconMapPin,
   IconRulerMeasure,
-
+  IconPlus,
   IconHeart,
   IconChevronRight
 } from "@tabler/icons-react";
@@ -24,6 +24,7 @@ import { useAppNavigation } from "../../hooks";
 import { getPropertytUrl } from "./helper";
 import { Conditional } from "../conditional";
 import useAppAuthentication from "../../hooks/useAppAuthentication";
+import classes from "./styles/inde.module.css"
 
 export const PropertyCard = (props) => {
   const propertyurl = getPropertytUrl(props._id);
@@ -113,6 +114,9 @@ export const PropertyCard = (props) => {
               href={propertyurl}
               variant="transparent"
               c="#00c898"
+              classNames={{
+                label: classes.btn
+              }}
               onClick={(e) => {
                 e.preventDefault();
                 navigateToProperty();

@@ -26,7 +26,7 @@ const features = [
 
 export const FeatureGrid = () => (
   <>
-    <Container mt="5rem" size="85%">
+    <Container mb="5rem" mt="8rem" size="87%">
       <SimpleGrid
         spacing="lg"
         breakpoints={[{ maxWidth: "sm", cols: 2 }]}

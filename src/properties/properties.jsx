@@ -1,7 +1,10 @@
-import React from 'react'
+import { Container } from "@mantine/core";
+import React from "react";
 
 export const Properties = () => {
   return (
-    <div>properties</div>
-  )
-}
+    <>
+      <Container></Container>
+    </>
+  );
+};

@@ -1,26 +1,36 @@
-import React from "react";
+import { useEffect, useState } from "react";
 import { HeroSection } from "./components/hero-section";
-import { SearchSection } from "./components/search-section";
-//import { FeaturedSection } from "./components/featuredSection";
 import { FeaturedProperties } from "./components/featuresProperties";
 import { FeatureGrid } from "./components/featured-Grid";
+import { usePropertiesQuery } from "./components/hooks/usePropertyQuery";
+import { FAQSection } from "./components/FAQs/FAQSection";
 
 export const Home = () => {
+  const [filter, setFilter] = useState({ limit: 12 });
 
   const getSerachData = (data) => {
-    console.log(data)
-  }
+    setFilter({
+      ...data,
+      price: data.price ? Number(data.price): null,
+      search: data.type || data.address,
+      limit: 12
+    })
+  };
 
-  const searchMode = (mode) => {
-    console.log(mode)
-  }
+  console.log(filter)
+  
+  const { properties, loading, error } = usePropertiesQuery(filter);
+
+  console.log(properties, error, loading)
+  
+  useEffect(() => {}, [filter])
 
   return (
     <>
-      <HeroSection OnChangeMode={searchMode}/>
-      <SearchSection OnSearch={getSerachData} />
+      <HeroSection onSearch={getSerachData} />
       <FeatureGrid />
-      <FeaturedProperties />
+      <FeaturedProperties properties={properties} loading={loading} />
+      <FAQSection />
     </>
   );
 };

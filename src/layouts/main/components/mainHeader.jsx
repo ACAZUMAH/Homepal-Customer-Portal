@@ -63,7 +63,7 @@ export const MainHeader = () => {
                 navigateToProperties();
               }}
             >
-              buy
+              Buy
             </Button>
 
             <Button

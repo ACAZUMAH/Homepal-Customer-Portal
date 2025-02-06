@@ -3,11 +3,11 @@
 }
 
 .custom:hover {
-  color: #005e83;
+  color: #00c898;
 }
 
 .custom[data-active] {
-  color: #00c898;
+  color: #005e83;
 }
 
 .button {

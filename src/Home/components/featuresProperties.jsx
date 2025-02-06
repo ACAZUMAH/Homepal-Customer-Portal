@@ -9,21 +9,21 @@ import {
   Group,
   Button,
 } from "@mantine/core";
-import { usePropertiesQuery } from "./hooks/usePropertyQuery";
 import { IconArrowRight } from "@tabler/icons-react";
 import { useAppNavigation } from "../../hooks";
 import { routesEndPoints } from "../../constants";
 import classes from "../styles/index.module.css"
 import { PropertyCard, PropertyLoader } from "../../components/property-card";
 
-export const FeaturedProperties = () => {
-  const { properties, loading } = usePropertiesQuery({ limit: 10 })
+export const FeaturedProperties = (props) => {
+  //const { properties, loading } = usePropertiesQuery({ limit: 10 })
+
 
   const navigateToProperties = useAppNavigation(routesEndPoints.PROPERTIES);
 
   return (
-    <Conditional condition={true}>
-      <Container size="85%" py={40} mt="5rem">
+    <Conditional condition={ props.loading || props.properties.length }>
+      <Container size="87%" py={40}>
         <Stack>
           <Title c="#00c898" order={1} size="2.5rem">
             Featured Properties
@@ -56,8 +56,8 @@ export const FeaturedProperties = () => {
             </Button>
           </Group>
         <SimpleGrid cols={{ base: 1, xs: 2, md: 3, xl: 4}}>
-          {properties.map((property, index) => (<PropertyCard key={index} { ...property } />))}
-          <Conditional condition={loading}>
+          {props.properties.map((property, index) => (<PropertyCard key={index} { ...property } />))}
+          <Conditional condition={props.loading}>
             {Array(10).fill(1).map((_, index) => ( <PropertyLoader key={index}/>))}
           </Conditional>
         </SimpleGrid>

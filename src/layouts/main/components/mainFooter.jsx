@@ -2,12 +2,12 @@ import {
   Text,
   Title,
   Container,
-  Group,
   Stack,
   Anchor,
-  Space,
   Flex,
   Button,
+  Grid,
+  Center,
 } from "@mantine/core";
 import { useAppNavigation } from "../../../hooks";
 import { routesEndPoints } from "../../../constants";
@@ -21,108 +21,140 @@ import classes from "../CSS/index.module.css";
 
 export const MainFooter = () => {
   const navigateToProperties = useAppNavigation(routesEndPoints.PROPERTIES);
+
   return (
     <>
-      <Container pt="xl" pb="xl">
-        <Group gap={50}>
-          <Stack gap={10}>
+      <Container size="87%">
+        <Grid mt={50}>
+          <Grid.Col span={4}>
             <Title c="#00c898" fs="italic" order={1} size="2.5rem">
               HomePal
             </Title>
-            <Stack gap={10}>
-              <Flex align="center" justify="space-between">
-                <Button
-                  classNames={{
-                    label: classes.button,
-                  }}
-                  href=""
-                  component="a"
-                  c="#00c898"
-                  variant="transparent"
-                >
-                  <IconMail />
-                </Button>
-                <Button
-                  classNames={{
-                    label: classes.button,
-                  }}
-                  href=""
-                  component="a"
-                  c="#00c898"
-                  variant="transparent"
-                >
-                  <IconBrandYoutube />
-                </Button>
-                <Button
-                  classNames={{
-                    label: classes.button,
-                  }}
-                  href=""
-                  component="a"
-                  c="#00c898"
-                  variant="transparent"
-                >
-                  <IconBrandX />
-                </Button>
-                <Button
-                  classNames={{
-                    label: classes.button,
-                  }}
-                  href=""
-                  component="a"
-                  c="#00c898"
-                  variant="transparent"
-                >
-                  <IconBrandInstagram />
-                </Button>
-              </Flex>
-            </Stack>
-            <Text c="#00c898" size="xl">
-              @{new Date().getFullYear()} HomePal. All Right Reserved
-            </Text>
-          </Stack>
-          <Space w="50" />
-          <Stack gap={10}>
-            <Text size="xl">
-              Home
-            </Text>
-            <Stack gap={10}>
-              <Anchor
-                component="a"
-                size="xl"
-                c="#00c898"
-                onClick={() => {
-                  navigateToProperties();
+          </Grid.Col>
+          <Grid.Col span={4}>
+            <Flex justify="space-between" align="flex-start" wrap="nowrap">
+              <Stack gap={10}>
+                <Text size="xl">Category</Text>
+                <Stack gap={10}>
+                  <Anchor size="xl" c="#00c898" href={routesEndPoints.HOME}>
+                    Home
+                  </Anchor>
+                  <Anchor
+                    size="xl"
+                    c="#00c898"
+                    onClick={() => {
+                      navigateToProperties();
+                    }}
+                  >
+                    Buy
+                  </Anchor>
+                  <Anchor
+                    size="xl"
+                    c="#00c898"
+                    onClick={() => {
+                      navigateToProperties();
+                    }}
+                  >
+                    Rent
+                  </Anchor>
+                </Stack>
+              </Stack>
+
+              <Stack gap={10}>
+                <Text size="xl">Legal</Text>
+                <Stack gap={10}>
+                  <Anchor size="xl" c="#00c898" href={routesEndPoints.HOME}>
+                    Terms of use
+                  </Anchor>
+                  <Anchor
+                    size="xl"
+                    c="#00c898"
+                    onClick={() => {
+                      navigateToProperties();
+                    }}
+                  >
+                    Policies
+                  </Anchor>
+                </Stack>
+              </Stack>
+
+              <Stack gap={10}>
+                <Text size="xl">Contact Us</Text>
+                <Stack gap={10}>
+                  <Anchor
+                    c="#00c898"
+                    component="a"
+                    size="xl"
+                    onClick={() => null}
+                  >
+                    Contact Us
+                  </Anchor>
+                  <Anchor
+                    c="#00c898"
+                    component="a"
+                    size="xl"
+                    onClick={() => null}
+                  >
+                    Listing Your Property
+                  </Anchor>
+                </Stack>
+              </Stack>
+            </Flex>
+          </Grid.Col>
+          <Grid.Col span={4}>
+            <Flex align="center" justify="flex-end">
+              <Button
+                classNames={{
+                  label: classes.button,
                 }}
-              >
-                Buy
-              </Anchor>
-              <Anchor
+                href=""
                 component="a"
-                size="xl"
                 c="#00c898"
-                onClick={() => {
-                  navigateToProperties();
-                }}
+                variant="transparent"
               >
-                Rent
-              </Anchor>
-            </Stack>
-          </Stack>
-          <Stack gap={10}>
-            <Text size="xl">
-              Contact Us
-            </Text>
-            <Stack gap={10}>
-              <Anchor c="#00c898" component="a" size="xl" onClick={() => null}>
-                Contact Us
-              </Anchor>
-              <Anchor c="#00c898" component="a" size="xl" onClick={() => null}>
-                listing Your Property
-              </Anchor>
-            </Stack>
-          </Stack>
-        </Group>
+                <IconMail />
+              </Button>
+              <Button
+                classNames={{
+                  label: classes.button,
+                }}
+                href=""
+                component="a"
+                c="#00c898"
+                variant="transparent"
+              >
+                <IconBrandYoutube />
+              </Button>
+              <Button
+                classNames={{
+                  label: classes.button,
+                }}
+                href=""
+                component="a"
+                c="#00c898"
+                variant="transparent"
+              >
+                <IconBrandX />
+              </Button>
+              <Button
+                classNames={{
+                  label: classes.button,
+                }}
+                href=""
+                component="a"
+                c="#00c898"
+                variant="transparent"
+              >
+                <IconBrandInstagram />
+              </Button>
+            </Flex>
+          </Grid.Col>
+        </Grid>
+        <Center pt={60} pb={25}>
+        <Text c="#00c898" size="xl">
+          @{new Date().getFullYear()} HomePal. All Right Reserved
+        </Text>
+        </Center>
       </Container>
     </>
   );

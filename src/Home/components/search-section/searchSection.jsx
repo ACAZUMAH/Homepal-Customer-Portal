@@ -50,7 +50,7 @@ export const SearchSection = (props) => {
             radius="xl"
             placeholder="Property type"
             value={type}
-            onChange={(event) => setType(event.target.value)}
+            onChange={(event) => setType(event.currentTarget.value)}
             leftSection={<IconBuilding stroke={1.5} size={20} />}
           />
           <TextInput
@@ -59,7 +59,7 @@ export const SearchSection = (props) => {
             radius="xl"
             placeholder="location"
             value={address}
-            onChange={(event) => setAddress(event.target.value)}
+            onChange={(event) => setAddress(event.currentTarget.value)}
             leftSection={<IconMapPin stroke={1.5} size={20} />}
           />
           <TextInput
@@ -68,7 +68,7 @@ export const SearchSection = (props) => {
             radius="xl"
             placeholder="Price"
             value={price}
-            onChange={(event) => setPrice(event.target.value)}
+            onChange={(event) => setPrice(event.currentTarget.value)}
             leftSection={<IconCurrencyDollar stroke={1.5} size={20} />}
           />
           <Button

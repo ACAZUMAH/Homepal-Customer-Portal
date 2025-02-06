@@ -1,3 +1,8 @@
+.main {
+    background-color: var(--mantine-color-gray-0) !important
+}
+
+
 .button{
     color: #00c898;
 }
