@@ -63,24 +63,7 @@ export const MainHeader = () => {
                 navigateToProperties();
               }}
             >
-              Buy
-            </Button>
-
-            <Button
-              c="#00c898"
-              variant="transparent"
-              component="a"
-              visibleFrom="sm"
-              fz="xl"
-              classNames={{
-                label: classes.button,
-              }}
-              onClick={(e) => {
-                e.preventDefault();
-                navigateToProperties();
-              }}
-            >
-              Rent
+              Properties
             </Button>
           </Group>
           <Group visibleFrom="sm" gap={2} display="flex">

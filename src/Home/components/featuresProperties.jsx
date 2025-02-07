@@ -16,8 +16,6 @@ import classes from "../styles/index.module.css"
 import { PropertyCard, PropertyLoader } from "../../components/property-card";
 
 export const FeaturedProperties = (props) => {
-  //const { properties, loading } = usePropertiesQuery({ limit: 10 })
-
 
   const navigateToProperties = useAppNavigation(routesEndPoints.PROPERTIES);
 
@@ -58,7 +56,7 @@ export const FeaturedProperties = (props) => {
         <SimpleGrid cols={{ base: 1, xs: 2, md: 3, xl: 4}}>
           {props.properties.map((property, index) => (<PropertyCard key={index} { ...property } />))}
           <Conditional condition={props.loading}>
-            {Array(10).fill(1).map((_, index) => ( <PropertyLoader key={index}/>))}
+            {Array(12).fill(1).map((_, index) => ( <PropertyLoader key={index}/>))}
           </Conditional>
         </SimpleGrid>
       </Container>

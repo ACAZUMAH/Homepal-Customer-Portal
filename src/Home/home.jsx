@@ -16,13 +16,9 @@ export const Home = () => {
       limit: 12
     })
   };
-
-  console.log(filter)
   
   const { properties, loading, error } = usePropertiesQuery(filter);
 
-  console.log(properties, error, loading)
-  
   useEffect(() => {}, [filter])
 
   return (

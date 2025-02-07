@@ -13,17 +13,9 @@ const useGetPropertiesGql = gql`
         mode
         imageUrls
       }
-      PageInfo {
-        page
-        total
-        limit
-        hasNextPage
-      }
     }
   }
-
 `;
-
 export const usePropertiesQuery = (filter = { }) => {
     const { data, ...result } = useQuery(useGetPropertiesGql, {
         variables: { filter: filter },
@@ -32,8 +24,7 @@ export const usePropertiesQuery = (filter = { }) => {
     })
 
     const properties = data?.listings.edges || []
-    const pageInfo = data?.listings.PageInfo
 
-    return { properties, pageInfo, ...result }
+    return { properties, ...result }
 };
 

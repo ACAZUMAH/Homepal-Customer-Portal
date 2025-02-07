@@ -94,13 +94,10 @@ export const PropertyCard = (props) => {
 
           <Group spacing="xs">
             <IconBed size={20} stroke={1.5} />
-            <Text fz="md">{props.bedrooms}</Text>
+            <Text fz="md">{props.bedrooms} bedrooms</Text>
 
             <IconBath size={20} stroke={1.5} />
-            <Text fz="md">{props.bathrooms}</Text>
-
-            <IconRulerMeasure size={20} stroke={1.5} />
-            <Text fz="md">1200 sq ft</Text>
+            <Text fz="md">{props.bathrooms} bathrooms</Text>
           </Group>
           <Group justify="space-between">
             <Group gap={0} spacing="xs">
