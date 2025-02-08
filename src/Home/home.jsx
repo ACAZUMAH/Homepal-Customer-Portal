@@ -17,7 +17,7 @@ export const Home = () => {
     })
   };
   
-  const { properties, loading, error } = usePropertiesQuery(filter);
+  const { properties, loading } = usePropertiesQuery(filter);
 
   useEffect(() => {}, [filter])
 

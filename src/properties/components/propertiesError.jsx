@@ -1,5 +1,4 @@
-import { Stack, Image, Box, Title, Text, Button } from "@mantine/core";
-import errorSvgImage from "/src/assets/images/empty-error.svg";
+import { Stack, Box, Title, Text, Button } from "@mantine/core";
 import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 import { useAppNavigation } from "../../hooks";
 import { routesEndPoints } from "../../constants";
@@ -15,11 +14,10 @@ export const PropertiesError = () => {
             loop
             autoplay
           />
-
           <Title order={1} c="#00c898" ta="center">
             Oops! Something went wrong
           </Title>
-          <Text size="lg" ta="center">
+          <Text size="xl" ta="center">
             We encountered an issue while fetching properties. Our technical team
             is working to resolve it as quickly as possible.
           </Text>

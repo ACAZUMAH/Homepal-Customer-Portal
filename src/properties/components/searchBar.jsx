@@ -3,18 +3,38 @@ import {
   Flex,
   Select,
   Button,
+  TextInput,
+  MultiSelect,
+  Menu,
 } from "@mantine/core";
-import React from "react";
+import React, { useState } from "react";
 import {
   IconBuilding,
   IconCurrencyDollar,
   IconMapPin,
-  IconAdjustmentsHorizontal,
   IconChevronDown,
   IconSearch,
 } from "@tabler/icons-react";
 
-export const SearchBar = () => {
+export const SearchBar = (props) => {
+  const [mode, setMode] = useState("")
+  const [type, setType] = useState("");
+  const [address, setAddress] = useState("");
+  const [price, setPrice] = useState("");
+
+  const handleSearch = () => {
+    const filter = {
+      type,
+      address,
+      price,
+      mode
+    }
+    props.onSearch(filter)
+    setType("")
+    setAddress("")
+    setPrice("")
+  };
+
   return (
     <>
       <Paper
@@ -34,49 +54,60 @@ export const SearchBar = () => {
           <Select
             flex="1"
             data={["Buy", "Rent"]}
-            defaultValue="Buy"
+            placeholder="mode"
             radius="xl"
             size="md"
+            value={mode}
+            onChange={setMode}
             rightSection={<IconChevronDown />}
-          ></Select>
-          <Select
+            styles={{
+              input: {
+                backgroundColor: "#f0f7fd",
+              },
+            }}
+          />
+          <TextInput
             flex="2"
-            data={[]}
             radius="xl"
             size="md"
             placeholder="Property type"
-            leftSection={<IconBuilding />}
-            rightSection={<IconChevronDown />}
-          ></Select>
-          <Select
+            leftSection={<IconBuilding stroke={1.5} />}
+            value={type}
+            onChange={(e) => setType(e.target.value)}
+            styles={{
+              input: {
+                backgroundColor: "#f0f7fd",
+              },
+            }}
+          />
+          <TextInput
             flex="4"
-            data={[]}
             radius="xl"
             size="md"
             placeholder="Location"
-            leftSection={<IconMapPin />}
-            rightSection={<IconChevronDown />}
-          ></Select>
-          <Select
+            leftSection={<IconMapPin stroke={1.5} />}
+            value={address}
+            onChange={(e) => setAddress(e.target.value)}
+            styles={{
+              input: {
+                backgroundColor: "#f0f7fd",
+              },
+            }}
+          />
+          <TextInput
             flex="3"
-            data={[]}
             radius="xl"
             size="md"
             placeholder="Price"
-            leftSection={<IconCurrencyDollar />}
-            rightSection={<IconChevronDown />}
-          ></Select>
-          <Button
-            variant="outline"
-            radius="xl"
-            flex="1"
-            color="#005e83"
-            size="md"
-            leftSection={<IconAdjustmentsHorizontal />}
-          >
-            Filter
-          </Button>
-
+            leftSection={<IconCurrencyDollar stroke={1.5} />}
+            value={price}
+            onChange={(e) => setPrice(e.target.value)}
+            styles={{
+              input: {
+                backgroundColor: "#f0f7fd",
+              },
+            }}
+          />
           <Button
             radius="xl"
             underline="always"
@@ -84,6 +115,7 @@ export const SearchBar = () => {
             flex="1"
             size="md"
             c="#fff"
+            onClick={handleSearch}
             leftSection={<IconSearch stroke={1.5} size={20} />}
           >
             Save Search
@@ -92,4 +124,4 @@ export const SearchBar = () => {
       </Paper>
     </>
   );
-}
+};
