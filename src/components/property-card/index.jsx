@@ -115,9 +115,9 @@ export const PropertiesCard = (props) => {
                 navigateToProperty();
               }}
               size="md"
-              rightSection={<IconChevronRight stroke={1.5} />}
+              rightSection={<IconChevronRight size={15} stroke={1.5} />}
             >
-              view Details
+              view Details 
             </Button>
           </Group>
         </Stack>

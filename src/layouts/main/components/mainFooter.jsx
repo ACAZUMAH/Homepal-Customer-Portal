@@ -26,8 +26,8 @@ export const MainFooter = () => {
 
   return (
     <>
-      <Container pt="xl" pb="xl" size="xl">
-        <Grid visibleFrom="sm">
+      <Container pb="xl" size="xl">
+        <Grid pt="xl" visibleFrom="sm">
           <Grid.Col span={4}>
             <Group align="center">
               <Image sizes="md" h="xl" fit="contain" src={logo} />
@@ -127,7 +127,7 @@ export const MainFooter = () => {
             </Flex>
           </Grid.Col>
         </Grid>
-        <Center pt={40}>
+        <Center pt="xl">
           <Text c="#00c898">
             @{new Date().getFullYear()} HomePal. All Right Reserved
           </Text>
