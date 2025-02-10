@@ -8,25 +8,27 @@ import {
   Group,
   Space,
   Title,
+  Image,
 } from "@mantine/core";
 import { useState } from "react";
 import { useAppNavigation } from "../../../hooks";
 import { routesEndPoints } from "../../../constants";
-import classes from '../CSS/index.module.css'
+import classes from "../CSS/index.module.css";
 import { Conditional } from "../../../components/conditional";
 import { MainDrawer } from "./mainDrawer";
 import useAppAuthentication from "../../../hooks/useAppAuthentication";
-import { IconHeart, IconHeartFilled, IconHome } from "@tabler/icons-react";
+import { IconHeart, IconHome } from "@tabler/icons-react";
 import { DropDownMenu } from "./dropDownMenu";
+import logo from "../../../assets/images/HomePal Svg.svg";
 
 export const MainHeader = () => {
   const [opened, setOpened] = useState(false);
   const navigateToHome = useAppNavigation(routesEndPoints.HOME);
   const navigateToProperties = useAppNavigation(routesEndPoints.PROPERTIES);
-  const { isAuthenticated } = useAppAuthentication()
+  const { isAuthenticated } = useAppAuthentication();
   return (
     <>
-      <Container px="md" size="90%" h="100%">
+      <Container px="md" fluid h="100%" size="90%">
         <Group justify="space-between" h="100%">
           <Center hiddenFrom="sm">
             <Burger
@@ -44,17 +46,18 @@ export const MainHeader = () => {
                 navigateToHome();
               }}
             >
-              <Title c="#00c898" fs="italic" order={1} size="2.5rem">
-                HomePal
-              </Title>
+              <Group gap={1}>
+                <Image h="xl" fit="contain" src={logo} />
+                <Title c="#00c898" fs="italic" order={1}>
+                  HomePal
+                </Title>
+              </Group>
             </Anchor>
-            <Space w="80" />
             <Button
               c="#00c898"
               variant="transparent"
               component="a"
               visibleFrom="sm"
-              fz="xl"
               classNames={{
                 label: classes.button,
               }}
@@ -70,7 +73,6 @@ export const MainHeader = () => {
             <Conditional condition={!isAuthenticated}>
               <Button
                 c="#00c898"
-                fz="xl"
                 component="a"
                 variant="transparent"
                 classNames={{
@@ -88,7 +90,6 @@ export const MainHeader = () => {
                   }}
                   c="#00c898"
                   variant="transparent"
-                  fz="xl"
                 >
                   <IconHome size="2rem" stroke={1.5} /> My list
                 </Button>
@@ -99,7 +100,6 @@ export const MainHeader = () => {
                   }}
                   c="#00c898"
                   variant="transparent"
-                  fz="xl"
                 >
                   <IconHeart size="2rem" stroke={1.5} /> Fovorite
                 </Button>
@@ -108,9 +108,11 @@ export const MainHeader = () => {
               <DropDownMenu />
             </Conditional>
           </Group>
-          <Box hiddenFrom="sm">
-            <DropDownMenu />
-          </Box>
+          <Conditional condition={isAuthenticated}>
+            <Box hiddenFrom="sm">
+              <DropDownMenu />
+            </Box>
+          </Conditional>
         </Group>
         <MainDrawer opened={opened} onClose={() => setOpened(!opened)} />
       </Container>

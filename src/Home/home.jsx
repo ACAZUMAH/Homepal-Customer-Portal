@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { HeroSection } from "./components/hero-section";
-import { FeaturedProperties } from "./components/featuresProperties";
+import { FeaturedProperties } from "./components/featuredProperties/featuresProperties";
 import { FeatureGrid } from "./components/featured-Grid";
 import { usePropertiesQuery } from "./components/hooks/usePropertyQuery";
 import { FAQSection } from "./components/FAQs/FAQSection";

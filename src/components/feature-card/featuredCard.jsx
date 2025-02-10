@@ -18,15 +18,15 @@ export const FeatureCard = ({ title, icon }) => {
         height: 160,
       }}
     >
-      <Center style={{ fontSize: "24px", marginBottom: "10px" }}>{icon}</Center>
-      <Text size="xl" weight={500}>
+      <Center style={{ fontSize: "20px", marginBottom: "10px" }}>{icon}</Center>
+      <Text size="md" weight={500}>
         {title}
       </Text>
       <ActionIcon
         variant="subtle"
         color="gray"
-        size="sm"
-        style={{ position: "absolute", top: 10, right: 10 }}
+        size="md"
+        style={{ position: "absolute", top: 5, right: 5 }}
       >
         <IconArrowUpRight stroke={1.5} size={16} />
       </ActionIcon>

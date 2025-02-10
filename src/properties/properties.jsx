@@ -8,7 +8,7 @@ import {
   Pagination,
   Group,
   Select,
-  Space
+  Space,
 } from "@mantine/core";
 import { useState } from "react";
 import {
@@ -16,7 +16,7 @@ import {
   IconArrowRight,
   IconChevronDown,
 } from "@tabler/icons-react";
-import { PropertyCard, PropertyLoader } from "../components/property-card";
+import { PropertiesCard, PropertiesLoader } from "../components/property-card";
 import { useGetPropertiesWithPages } from "./hooks";
 import { Conditional } from "../components/conditional";
 import { EmptyProperties } from "./components/emptyProperties";
@@ -25,29 +25,29 @@ import { SearchBar } from "./components/searchBar";
 
 export const Properties = (props) => {
   const [filters, setFilters] = useState({});
-  const [sort, setSort] = useState("Oldest")
-  const [page, setPage] = useState(1)
+  const [sort, setSort] = useState("Oldest");
+  const [page, setPage] = useState(1);
 
   const search = (filters) => {
     setFilters({ ...filters });
   };
 
   let mode;
-  if(filters.mode === "Buy"){
-    mode = "SALE"
-  }else if(filters.mode === "Rent"){
-    mode = "RENT"
-  }else{
-    mode = null
+  if (filters.mode === "Buy") {
+    mode = "SALE";
+  } else if (filters.mode === "Rent") {
+    mode = "RENT";
+  } else {
+    mode = null;
   }
 
   const { pageInfo, properties, loading, error } = useGetPropertiesWithPages({
     ...filters,
     sort: sort,
     price: filters.price ? Number(filters.price) : null,
-    mode, 
+    mode,
     limit: 16,
-    page
+    page,
   });
 
   const showErrorAlert = !loading && error;
@@ -58,32 +58,31 @@ export const Properties = (props) => {
     <>
       <Container size="87%" py="xl" pos="relative">
         <Center mt={40}>
-          <Stack gap={20}>
-            <Title c="#00c898" fw="bold" order={1} size="3.5rem">
+          <Stack gap={15}>
+            <Title c="#00c898" fw="bold" size="3rem" visibleFrom="sm">
               Find Your Perfect Home to Own
             </Title>
-            <Stack gap={8}>
-              <Text size="1.5rem">
-                Explore a curated selection of properties that match your dreams
-                and budget.
-              </Text>
-              <Text size="1.5rem">
-                Start your journey to homeownership today.
-              </Text>
-            </Stack>
+            <Title c="#00c898" fw="bold" hiddenFrom="sm">
+              Find Your Perfect Home to Own
+            </Title>
+            <Text size="lg" visibleFrom="sm">
+              Explore a curated selection of properties that match your dreams
+              and budget.
+              <br />
+              Start your journey to homeownership today.
+            </Text>
           </Stack>
         </Center>
         <SearchBar onSearch={search} />
         <Conditional condition={loading || properties}>
-          <Title mt={70} c="#00c898" order={1} size="2.5rem">
+          <Title mt={70} c="#00c898" order={1} size="2rem">
             Explore available Properties
           </Title>
           <Group justify="space-between" gap="xs">
-            <Text mt={15} size="xl">
+            <Text mt={15} size="md">
               Browse through a variety of homes and apartments to find your
               ideal property.
             </Text>
-            <Space w={500} />
             <Group justify="flex-end">
               <Text size="md">Sort By:</Text>
               <Select
@@ -99,13 +98,13 @@ export const Properties = (props) => {
           </Group>
           <SimpleGrid mt="xl" mb={50} cols={{ base: 1, xs: 2, md: 3, xl: 4 }}>
             {properties.map((property, index) => (
-              <PropertyCard key={index} {...property} />
+              <PropertiesCard key={index} {...property} />
             ))}
             <Conditional condition={loading}>
               {Array(16)
                 .fill(1)
                 .map((_, index) => (
-                  <PropertyLoader key={index} />
+                  <PropertiesLoader key={index} />
                 ))}
             </Conditional>
           </SimpleGrid>

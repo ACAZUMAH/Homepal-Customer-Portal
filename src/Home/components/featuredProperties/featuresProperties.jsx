@@ -1,5 +1,5 @@
 import React from "react";
-import { Conditional } from "../../components/conditional";
+import { Conditional } from "../../../components/conditional";
 import {
   Container,
   Text,
@@ -10,10 +10,10 @@ import {
   Button,
 } from "@mantine/core";
 import { IconArrowRight } from "@tabler/icons-react";
-import { useAppNavigation } from "../../hooks";
-import { routesEndPoints } from "../../constants";
-import classes from "../styles/index.module.css"
-import { PropertyCard, PropertyLoader } from "../../components/property-card";
+import { useAppNavigation } from "../../../hooks";
+import { routesEndPoints } from "../../../constants";
+import classes from "../../styles/index.module.css"
+import { PropertiesCard, PropertiesLoader } from "../../../components/property-card";
 
 export const FeaturedProperties = (props) => {
 
@@ -21,12 +21,12 @@ export const FeaturedProperties = (props) => {
 
   return (
     <Conditional condition={ props.loading || props.properties.length }>
-      <Container size="87%" py={40}>
+      <Container size="xl" py={40}>
         <Stack>
-          <Title c="#00c898" order={1} size="2.5rem">
+          <Title c="#00c898" order={1} size="2rem">
             Featured Properties
           </Title>
-          <Text size="xl">
+          <Text size="md">
             Explore our curated selection of featured properties. Each listing
             showcases exceptional <br />
             homes and investment opportunities availabel. Click "View Details"
@@ -34,12 +34,11 @@ export const FeaturedProperties = (props) => {
           </Text>
         </Stack>
           <Group justify="space-between" mb="xl" mt="xl">
-            <Title fw={500}>Properties:</Title>
+            <Title fw={400} visibleFrom="sm">Properties:</Title>
             <Button
               component="a"
               variant="transparent"
               c="#00c898"
-              fz="lg"
               classNames={{
                 label: classes.morePBtn,
               }}
@@ -54,9 +53,9 @@ export const FeaturedProperties = (props) => {
             </Button>
           </Group>
         <SimpleGrid cols={{ base: 1, xs: 2, md: 3, xl: 4}}>
-          {props.properties.map((property, index) => (<PropertyCard key={index} { ...property } />))}
+          {props.properties.map((property, index) => (<PropertiesCard key={index} { ...property } />))}
           <Conditional condition={props.loading}>
-            {Array(12).fill(1).map((_, index) => ( <PropertyLoader key={index}/>))}
+            {Array(12).fill(1).map((_, index) => ( <PropertiesLoader key={index}/>))}
           </Conditional>
         </SimpleGrid>
       </Container>

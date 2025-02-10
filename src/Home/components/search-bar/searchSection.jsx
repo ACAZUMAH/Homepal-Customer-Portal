@@ -12,7 +12,7 @@ import {
   IconMapPin,
   IconSearch,
 } from "@tabler/icons-react";
-import classes from "./styles/index.module.css";
+import classes from "../../styles/index.module.css";
 
 export const SearchBar = (props) => {
   const [value, setValue] = useState("Buy");
@@ -37,28 +37,29 @@ export const SearchBar = (props) => {
   return (
     <>
       <Paper
-        shadow="xl"
-        radius="5rem"
+        shadow="md"
         bg="var(--mantine-color-white)"
         h="auto"
         pos="absolute"
-        bottom="-50px"
-        left="35.7%"
-        w="70%"
+        bottom={{ base: "-12rem", md: "-40px" }}
+        left={{ base: "50%", md: "43.7%" }}
+        w={{ base: "70%", md: "85%" }}
         mx="auto"
         style={{ transform: "translateX(-50%)", zIndex: 10 }}
-        visibleFrom="md"
+        withBorder
+        className={classes["search-container"]}
       >
         <Flex
           flex="grow"
-          p="20px"
+          p="15px"
           gap={8}
           direction={{ base: "column", md: "row" }}
-          align="stretch"
+          align={{ base: "center", md: "stretch" }}
         >
           <TextInput
+            w={{ base: "100%", md: "auto" }}
             flex="3"
-            size="md"
+            size="sm"
             radius="xl"
             styles={{
               input: {
@@ -73,8 +74,9 @@ export const SearchBar = (props) => {
             }
           />
           <TextInput
+            w={{ base: "100%", md: "auto" }}
             flex="4"
-            size="md"
+            size="sm"
             radius="xl"
             placeholder="location"
             styles={{
@@ -87,8 +89,9 @@ export const SearchBar = (props) => {
             leftSection={<IconMapPin color="#005e83" stroke={1.5} size={20} />}
           />
           <TextInput
+            w={{ base: "100%", md: "auto" }}
             flex="2"
-            size="md"
+            size="sm"
             radius="xl"
             placeholder="Price"
             styles={{
@@ -103,9 +106,10 @@ export const SearchBar = (props) => {
             }
           />
           <SegmentedControl
+            w={{ base: "100%", md: "auto" }}
             flex="2"
             radius="xl"
-            size="md"
+            size="sm"
             classNames={{
               label: classes.custom,
             }}
@@ -116,9 +120,10 @@ export const SearchBar = (props) => {
             transitionTimingFunction="linear"
           />
           <Button
+            w={{ base: "100%", md: "auto" }}
             flex="1"
             color="#005e83"
-            size="md"
+            size="sm"
             radius="xl"
             onClick={HandleSearch}
             leftSection={<IconSearch stroke={1.5} size={20} />}

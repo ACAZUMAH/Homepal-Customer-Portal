@@ -1,5 +1,5 @@
 import { Drawer, NavLink } from "@mantine/core";
-import { IconHome, IconHeart, IconList, IconLogin, IconHomeDollar, IconLogout } from "@tabler/icons-react";
+import { IconHome, IconHeart, IconList, IconLogin, IconHomeDollar, IconLogout, IconBuilding } from "@tabler/icons-react";
 import { Conditional } from "../../../components/conditional";
 import useAppAuthentication from "../../../hooks/useAppAuthentication";
 import { useAppNavigation } from "../../../hooks";
@@ -9,6 +9,7 @@ export const MainDrawer = (props) => {
   const navigateToLogin = useAppNavigation(routesEndPoints.LOGIN);
   const navigateToProperties = useAppNavigation(routesEndPoints.PROPERTIES)
   const { isAuthenticated } = useAppAuthentication();
+
   return (
     <>
       <Drawer
@@ -25,7 +26,7 @@ export const MainDrawer = (props) => {
               navigateToLogin();
               props.onClose();
             }}
-            leftSection={<IconLogin size={40} stroke={1.5} />}
+            leftSection={<IconLogin stroke={1.5} />}
           />
         </Conditional>
 
@@ -33,46 +34,29 @@ export const MainDrawer = (props) => {
           component="a"
           href={routesEndPoints.HOME}
           label="Home"
-          leftSection={<IconHome size={40} stroke={1.5}></IconHome>}
+          leftSection={<IconHome stroke={1.5}></IconHome>}
         />
 
         <NavLink
           component="a"
-          label="Buy"
+          label="Properties"
           href={routesEndPoints.PROPERTIES}
           onClick={() => {
             navigateToProperties();
             props.onClose();
           }}
-          leftSection={<IconHomeDollar size={40} stroke={1.5} />}
-        />
-
-        <NavLink
-          component="a"
-          label="Rent"
-          href={routesEndPoints.PROPERTIES}
-          onClick={() => {
-            navigateToProperties();
-            props.onClose();
-          }}
-          leftSection={<IconHomeDollar size={40} stroke={1.5} />}
+          leftSection={<IconBuilding stroke={1.5} />}
         />
 
         <Conditional condition={isAuthenticated}>
           <NavLink
             label="My list"
-            leftSection={<IconList size={40} stroke={1.5} />}
+            leftSection={<IconList  stroke={1.5} />}
           />
-        </Conditional>
-
-        <Conditional condition={isAuthenticated}>
           <NavLink
             label="favorite"
-            leftSection={<IconHeart size={40} stroke={1.5} />}
+            leftSection={<IconHeart stroke={1.5} />}
           />
-        </Conditional>
-
-        <Conditional condition={isAuthenticated}>
           <NavLink
             component="a"
             c="red"
@@ -80,7 +64,7 @@ export const MainDrawer = (props) => {
             onClick={() => {
               props.onClose();
             }}
-            leftSection={<IconLogout size={40} stroke={1.5} />}
+            leftSection={<IconLogout stroke={1.5} />}
           />
         </Conditional>
       </Drawer>

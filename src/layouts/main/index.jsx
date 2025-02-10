@@ -6,7 +6,7 @@ import { MainFooter } from "./components/mainFooter";
 export const MainLayout = () => {
   return (
     <>
-      <AppShell header={{ height: 85 }}>
+      <AppShell header={{ height: 70 }}>
         <AppShell.Header>
             <MainHeader />
         </AppShell.Header>

@@ -1,6 +1,5 @@
 import {
   Text,
-  Title,
   Container,
   Stack,
   Anchor,
@@ -8,6 +7,8 @@ import {
   Button,
   Grid,
   Center,
+  Image,
+  Group,
 } from "@mantine/core";
 import { useAppNavigation } from "../../../hooks";
 import { routesEndPoints } from "../../../constants";
@@ -18,81 +19,65 @@ import {
   IconMail,
 } from "@tabler/icons-react";
 import classes from "../CSS/index.module.css";
+import logo from "../../../assets/images/HomePal Svg.svg";
 
 export const MainFooter = () => {
   const navigateToProperties = useAppNavigation(routesEndPoints.PROPERTIES);
 
   return (
     <>
-      <Container size="87%">
-        <Grid mt={50}>
+      <Container pt="xl" pb="xl" size="xl">
+        <Grid visibleFrom="sm">
           <Grid.Col span={4}>
-            <Title c="#00c898" fs="italic" order={1} size="2.5rem">
-              HomePal
-            </Title>
+            <Group align="center">
+              <Image sizes="md" h="xl" fit="contain" src={logo} />
+            </Group>
           </Grid.Col>
           <Grid.Col span={4}>
             <Flex justify="space-between" align="flex-start" wrap="nowrap">
               <Stack gap={10}>
-                <Text size="xl">Category</Text>
+                <Text size="md">Category</Text>
                 <Stack gap={10}>
-                  <Anchor size="xl" c="#00c898" href={routesEndPoints.HOME}>
+                  <Anchor c="#00c898" href={routesEndPoints.HOME}>
                     Home
                   </Anchor>
                   <Anchor
-                    size="xl"
+                    size="md"
                     c="#00c898"
                     onClick={() => {
                       navigateToProperties();
                     }}
                   >
-                    Buy
-                  </Anchor>
-                  <Anchor
-                    size="xl"
-                    c="#00c898"
-                    onClick={() => {
-                      navigateToProperties();
-                    }}
-                  >
-                    Rent
+                    Properties
                   </Anchor>
                 </Stack>
               </Stack>
-
               <Stack gap={10}>
-                <Text size="xl">Legal</Text>
+                <Text size="md">Legal</Text>
                 <Stack gap={10}>
-                  <Anchor size="xl" c="#00c898" href={routesEndPoints.HOME}>
+                  <Anchor size="md" c="#00c898">
                     Terms of use
                   </Anchor>
-                  <Anchor
-                    size="xl"
-                    c="#00c898"
-                    onClick={() => {
-                      navigateToProperties();
-                    }}
-                  >
+                  <Anchor size="md" c="#00c898" onClick={() => {}}>
                     Policies
                   </Anchor>
                 </Stack>
               </Stack>
-
               <Stack gap={10}>
-                <Text size="xl">Contact Us</Text>
+                <Text size="md">Contact Us</Text>
                 <Stack gap={10}>
                   <Anchor
+                    size="md"
                     c="#00c898"
                     component="a"
-                    size="xl"
                     onClick={() => null}
                   >
                     Contact Us
                   </Anchor>
                   <Anchor
+                    size="md"
                     c="#00c898"
                     component="a"
-                    size="xl"
                     onClick={() => null}
                   >
                     Listing Your Property
@@ -111,6 +96,7 @@ export const MainFooter = () => {
                 component="a"
                 c="#00c898"
                 variant="transparent"
+                size="md"
               >
                 <IconMail />
               </Button>
@@ -122,6 +108,7 @@ export const MainFooter = () => {
                 component="a"
                 c="#00c898"
                 variant="transparent"
+                size="md"
               >
                 <IconBrandYoutube />
               </Button>
@@ -133,27 +120,17 @@ export const MainFooter = () => {
                 component="a"
                 c="#00c898"
                 variant="transparent"
+                size="md"
               >
                 <IconBrandX />
-              </Button>
-              <Button
-                classNames={{
-                  label: classes.button,
-                }}
-                href=""
-                component="a"
-                c="#00c898"
-                variant="transparent"
-              >
-                <IconBrandInstagram />
               </Button>
             </Flex>
           </Grid.Col>
         </Grid>
-        <Center pt={60} pb={25}>
-        <Text c="#00c898" size="xl">
-          @{new Date().getFullYear()} HomePal. All Right Reserved
-        </Text>
+        <Center pt={40}>
+          <Text c="#00c898">
+            @{new Date().getFullYear()} HomePal. All Right Reserved
+          </Text>
         </Center>
       </Container>
     </>

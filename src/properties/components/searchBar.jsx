@@ -1,12 +1,4 @@
-import {
-  Paper,
-  Flex,
-  Select,
-  Button,
-  TextInput,
-  MultiSelect,
-  Menu,
-} from "@mantine/core";
+import { Paper, Flex, Select, Button, TextInput } from "@mantine/core";
 import React, { useState } from "react";
 import {
   IconBuilding,
@@ -17,7 +9,7 @@ import {
 } from "@tabler/icons-react";
 
 export const SearchBar = (props) => {
-  const [mode, setMode] = useState("")
+  const [mode, setMode] = useState("");
   const [type, setType] = useState("");
   const [address, setAddress] = useState("");
   const [price, setPrice] = useState("");
@@ -27,19 +19,19 @@ export const SearchBar = (props) => {
       type,
       address,
       price,
-      mode
-    }
-    props.onSearch(filter)
-    setType("")
-    setAddress("")
-    setPrice("")
+      mode,
+    };
+    props.onSearch(filter);
+    setType("");
+    setAddress("");
+    setPrice("");
   };
 
   return (
     <>
       <Paper
         shadow="md"
-        radius="xl"
+        radius="3rem"
         mt="xl"
         p="md"
         bg="var(--mantine-color-white)"
@@ -56,7 +48,6 @@ export const SearchBar = (props) => {
             data={["Buy", "Rent"]}
             placeholder="mode"
             radius="xl"
-            size="md"
             value={mode}
             onChange={setMode}
             rightSection={<IconChevronDown />}
@@ -69,7 +60,6 @@ export const SearchBar = (props) => {
           <TextInput
             flex="2"
             radius="xl"
-            size="md"
             placeholder="Property type"
             leftSection={<IconBuilding stroke={1.5} />}
             value={type}
@@ -83,7 +73,6 @@ export const SearchBar = (props) => {
           <TextInput
             flex="4"
             radius="xl"
-            size="md"
             placeholder="Location"
             leftSection={<IconMapPin stroke={1.5} />}
             value={address}
@@ -97,7 +86,6 @@ export const SearchBar = (props) => {
           <TextInput
             flex="3"
             radius="xl"
-            size="md"
             placeholder="Price"
             leftSection={<IconCurrencyDollar stroke={1.5} />}
             value={price}
@@ -113,12 +101,11 @@ export const SearchBar = (props) => {
             underline="always"
             color="#005e83"
             flex="1"
-            size="md"
             c="#fff"
             onClick={handleSearch}
             leftSection={<IconSearch stroke={1.5} size={20} />}
           >
-            Save Search
+            Search
           </Button>
         </Flex>
       </Paper>

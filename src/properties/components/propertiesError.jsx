@@ -14,10 +14,10 @@ export const PropertiesError = () => {
             loop
             autoplay
           />
-          <Title order={1} c="#00c898" ta="center">
+          <Title order={2} c="#00c898" ta="center">
             Oops! Something went wrong
           </Title>
-          <Text size="xl" ta="center">
+          <Text size="md" ta="center">
             We encountered an issue while fetching properties. Our technical team
             is working to resolve it as quickly as possible.
           </Text>

@@ -1,5 +1,4 @@
 import {
-  Anchor,
   Card,
   Group,
   Image,
@@ -14,7 +13,6 @@ import {
   IconCurrencyDollar,
   IconBath,
   IconMapPin,
-  IconRulerMeasure,
   IconPlus,
   IconHeart,
   IconChevronRight
@@ -26,7 +24,7 @@ import { Conditional } from "../conditional";
 import useAppAuthentication from "../../hooks/useAppAuthentication";
 import classes from "./styles/inde.module.css"
 
-export const PropertyCard = (props) => {
+export const PropertiesCard = (props) => {
   const propertyurl = getPropertytUrl(props._id);
 
   const navigateToProperty = useAppNavigation(propertyurl);
@@ -35,9 +33,9 @@ export const PropertyCard = (props) => {
 
   return (
     <>
-      <Card shadow="sm" padding="xs" radius="md" withBorder h={500}>
+      <Card shadow="sm" padding="xs" radius="md" withBorder h={450}>
         <Card.Section>
-          <Image src={photo} h={300} alt={props.name} />
+          <Image src={photo} h={250} alt={props.name} />
         </Card.Section>
         <Conditional condition={isAuthenticated}>
           <ActionIcon
@@ -83,43 +81,41 @@ export const PropertyCard = (props) => {
           </ActionIcon>
         </Conditional>
         <Stack justify="space-between" pt="10" gap={15}>
-          <Text fz="h3" size="1.5rem">
-            {props.name}
-          </Text>
+          <Text fw="medium" size="md">{props.name}</Text>
 
-          <Group gap={0} spacing="xs">
-            <IconMapPin stroke={1.5} />
-            <Text fz="md">{props.address}</Text>
+          <Group gap={4}>
+            <IconMapPin size={20} stroke={1.5} />
+            <Text size="md">{props.address}</Text>
           </Group>
 
-          <Group spacing="xs">
+          <Group gap={5}>
             <IconBed size={20} stroke={1.5} />
-            <Text fz="md">{props.bedrooms} bedrooms</Text>
+            <Text size="md">{props.bedrooms} bedrooms</Text>
 
             <IconBath size={20} stroke={1.5} />
             <Text fz="md">{props.bathrooms} bathrooms</Text>
           </Group>
           <Group justify="space-between">
             <Group gap={0} spacing="xs">
-              <IconCurrencyDollar size={34} color="#00c898" stroke={1.5} />
-              <Text fw="medium" size="2rem" c="#00c898">
+              <IconCurrencyDollar color="#00c898" stroke={1.5} />
+              <Text fw="bold" size="xl" c="#00c898">
                 {props.price}
               </Text>
             </Group>
             <Button
-            component="a"
+              component="a"
               href={propertyurl}
               variant="transparent"
               c="#00c898"
               classNames={{
-                label: classes.btn
+                label: classes.btn,
               }}
               onClick={(e) => {
                 e.preventDefault();
                 navigateToProperty();
               }}
               size="md"
-              rightSection={<IconChevronRight stroke={1.5}/>}
+              rightSection={<IconChevronRight stroke={1.5} />}
             >
               view Details
             </Button>
@@ -130,6 +126,6 @@ export const PropertyCard = (props) => {
   );
 };
 
-export const PropertyLoader = () => {
+export const PropertiesLoader = () => {
   return <Skeleton h={500} />;
 };

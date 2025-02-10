@@ -7,6 +7,7 @@ import {
   IconHeartStar,
 } from "@tabler/icons-react";
 import { FeatureCard } from "../../../components/feature-card";
+import classes from '../../styles/index.module.css'
 
 const features = [
   {
@@ -26,7 +27,7 @@ const features = [
 
 export const FeatureGrid = () => (
   <>
-    <Container mb="5rem" mt="8rem" size="87%">
+    <Container className={classes.featuredGrid} size="xl">
       <SimpleGrid
         spacing="lg"
         breakpoints={[{ maxWidth: "sm", cols: 2 }]}

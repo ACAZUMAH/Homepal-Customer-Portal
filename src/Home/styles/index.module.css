@@ -17,3 +17,24 @@
 .morePBtn:hover {
     color: #a4e2d6; 
 }
+
+.search-container {
+  border-radius: 5rem;
+}
+
+@media (max-width: 820px) {
+  .search-container {
+    border-radius: 1rem;
+  }
+}
+
+.featuredGrid {
+  margin-top: 8rem;
+  margin-bottom: 3rem;
+}
+
+@media (max-width: 820px) {
+.featuredGrid {
+  margin-top: 15rem;
+}
+}

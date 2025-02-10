@@ -1,0 +1,6 @@
+
+.carousel {
+  & :global(.mantine-Carousel-indicator) {
+    background-color: var(--mantine-color-brand-5) !important;
+  }
+}

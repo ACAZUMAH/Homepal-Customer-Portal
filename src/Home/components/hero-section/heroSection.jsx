@@ -8,34 +8,29 @@ import {
   Container,
 } from "@mantine/core";
 import background from "../../../assets/images/hero.png";
-import { SearchBar } from "../../../components/search-bar/searchSection";
+import { SearchBar } from "../search-bar/index";
 
 export const HeroSection = ({ onSearch }) => {
 
   return (
     <>
-      <BackgroundImage src={background}>
-        <Container size="87%">
-          <Box pt={250} pb={50}>
-            <Title c="#00c898" fw="bold" size="3.8rem">
-              Discover The Home That
-            </Title>
-            <Title c="#00c898" fw="bold" size="3.8rem">
-              You've Always Dreamt Of
+      <BackgroundImage fit="cover" src={background} h={500}>
+        <Container size="xl">
+          <Box pt={180} pb={50}>
+            <Title c="#00c898" fw="bold" size="3rem">
+              Discover The Home That <br /> You've Always Dreamt Of
             </Title>
             <Space h="10" />
-            <Text size="xl">
+            <Text size="lg" pb="40" visibleFrom="sm">
               Start your journey to discover the perfect property. Browse our
-              listings
-            </Text>
-            <Text pb="100" size="xl">
-              to find the home of your dreams
+              <br />
+              listings to find the home of your dreams
             </Text>
           </Box>
         </Container>
       </BackgroundImage>
-      <Container size="87%" pos="relative">
-        <SearchBar onSearch={onSearch}/>
+      <Container size="xl" pos="relative">
+        <SearchBar onSearch={onSearch} />
       </Container>
     </>
   );
