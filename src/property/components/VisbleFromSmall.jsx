@@ -17,7 +17,7 @@ export const VisbleFromSm = (props) => {
   return (
     <>
       <Box visibleFrom="sm">
-        <Box pt={15} pos="relative">
+        <Box mt={15} pos="relative">
           <Image
             radius="md"
             fit="contian"
@@ -27,13 +27,7 @@ export const VisbleFromSm = (props) => {
           />
         </Box>
         <Group justify="center" mt="md">
-          <Carousel
-            slideSize="20%"
-            align="start"
-            slideGap="md"
-            controlsOffset="xs"
-            loop
-          >
+          <Carousel slideSize="20%" align="start" slideGap="md" controlsOffset="xs" withIndicators loop >
             {props.photos.map((photos, index) => (
               <Carousel.Slide key={index}>
                 <Image
@@ -46,14 +40,7 @@ export const VisbleFromSm = (props) => {
             ))}
           </Carousel>
         </Group>
-        <Flex
-          mt={80}
-          flex="grow"
-          h="100%"
-          gap={20}
-          direction={{ base: "column", md: "row", sm: "row" }}
-          align="stretch"
-        >
+        <Flex mt={80} flex="grow" h="100%" gap={20} direction="row" align="stretch">
           <Stack flex="2" gap={20}>
             <Stack>
               <Title order={2} fw="medium">
@@ -61,7 +48,7 @@ export const VisbleFromSm = (props) => {
               </Title>
               <Text>{props.description}</Text>
             </Stack>
-            <Card shadow="sm" radius="md" p="lg" mt={80} withBorder>
+            <Card shadow="sm" radius="md" p="lg" mt={70} withBorder>
               <Group justify="space-between">
                 <Title fw={400} order={3}>
                   {props.name}
@@ -108,15 +95,7 @@ export const VisbleFromSm = (props) => {
             ))}
           </Grid>
         </Card>
-        <Card
-          shadow="sm"
-          radius="md"
-          p="lg"
-          withBorder
-          h="auto"
-          w={816}
-          mt={40}
-        >
+        <Card shadow="sm" radius="md" p="lg" withBorder h="auto" w={816} mt={40}>
           <Group justify="space-between" mb={20}>
             <Title fw={500} order={3}>
               Address

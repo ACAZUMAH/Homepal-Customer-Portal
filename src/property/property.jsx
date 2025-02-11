@@ -24,6 +24,8 @@ import { Conditional } from "../components/conditional";
 import { useAppNavigation } from "../hooks";
 import { routesEndPoints } from "../constants";
 import { HiddenFromSm, VisbleFromSm } from "./components/";
+import { PropertyError } from "./components/propertyError";
+import { PropertyLoader } from "./components/propertyLoader";
 
 export const Property = () => {
   const parems = useParams();
@@ -38,9 +40,11 @@ export const Property = () => {
 
   const showData = !loading && !error;
 
+  const showError = error && !loading 
+
   return (
     <>
-      <Container size="xl" mt={30} mb={30}>
+      <Container size="xl" mt={30} mb={50}>
         <Conditional condition={showData}>
           <Group justify="space-between">
             <Button
@@ -75,6 +79,12 @@ export const Property = () => {
           </Group>
           <HiddenFromSm { ...data }/>
           <VisbleFromSm { ...data }/>
+        </Conditional>
+        <Conditional condition={showError}>
+          <PropertyError />
+        </Conditional>
+        <Conditional condition={loading}>
+          <PropertyLoader />
         </Conditional>
       </Container>
     </>

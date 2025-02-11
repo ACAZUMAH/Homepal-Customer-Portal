@@ -53,6 +53,7 @@ export const Properties = (props) => {
   const showErrorAlert = !loading && error;
   const showEmptyAlert = !properties.length && !loading && !error;
   const showPagenation = properties.length && !loading && !error;
+  const showSortAndData = properties.length || loading && !error
 
   return (
     <>
@@ -74,7 +75,7 @@ export const Properties = (props) => {
           </Stack>
         </Center>
         <SearchBar onSearch={search} />
-        <Conditional condition={loading || properties}>
+        <Conditional condition={showSortAndData}>
           <Title mt={70} c="#00c898" order={1} size="2rem">
             Explore available Properties
           </Title>
