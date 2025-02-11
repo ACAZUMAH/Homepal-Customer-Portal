@@ -48,17 +48,17 @@ export const routes = [
     ],
   },
   {
-    paht: routesEndPoints.LOGIN,
+    path: routesEndPoints.LOGIN,
     element: <MainLayout />,
     children: [
       {
-        poath: "",
+        path: "",
         element: <Login />,
       },
     ],
   },
   {
     path: "*",
-    element: <Navigate to="/" />,
+    element: <Navigate to={routesEndPoints.HOME} />,
   },
 ];

@@ -22,9 +22,12 @@ import { DropDownMenu } from "./dropDownMenu";
 import logo from "../../../assets/images/HomePal Svg.svg";
 
 export const MainHeader = () => {
+
   const [opened, setOpened] = useState(false);
   const navigateToHome = useAppNavigation(routesEndPoints.HOME);
   const navigateToProperties = useAppNavigation(routesEndPoints.PROPERTIES);
+  const navigateToLogin = useAppNavigation(routesEndPoints.LOGIN)
+
   const { isAuthenticated } = useAppAuthentication();
   return (
     <>
@@ -77,6 +80,10 @@ export const MainHeader = () => {
                 variant="transparent"
                 classNames={{
                   label: classes.button,
+                }}
+                onClick={(e) => {
+                  e.preventDefault()
+                  navigateToLogin()
                 }}
               >
                 Login

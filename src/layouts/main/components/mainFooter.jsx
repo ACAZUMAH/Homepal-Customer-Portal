@@ -13,13 +13,13 @@ import {
 import { useAppNavigation } from "../../../hooks";
 import { routesEndPoints } from "../../../constants";
 import {
-  IconBrandInstagram,
   IconBrandX,
   IconBrandYoutube,
   IconMail,
 } from "@tabler/icons-react";
 import classes from "../CSS/index.module.css";
 import logo from "../../../assets/images/HomePal Svg.svg";
+import { Notifications } from "@mantine/notifications";
 
 export const MainFooter = () => {
   const navigateToProperties = useAppNavigation(routesEndPoints.PROPERTIES);
@@ -78,7 +78,11 @@ export const MainFooter = () => {
                     size="md"
                     c="#00c898"
                     component="a"
-                    onClick={() => null}
+                    onClick={() => { Notifications.show({
+                      title: "",
+                      message: "Admin portal is under development",
+                      color: "#00c898"
+                    })}}
                   >
                     Listing Your Property
                   </Anchor>

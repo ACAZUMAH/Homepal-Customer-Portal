@@ -1,7 +1,12 @@
-import React from 'react'
+import { Container, } from "@mantine/core";
+import { AuthPage } from "../components/auth/authPage";
 
 export const Login = () => {
   return (
-    <div>login</div>
-  )
-}
+    <>
+      <Container size="xs" pt="xl">
+        <AuthPage />
+      </Container>
+    </>
+  );
+};

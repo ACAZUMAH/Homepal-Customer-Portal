@@ -5,9 +5,9 @@ import { theme as appTheme } from "../constants/theme";
 export const MantineThemeProvider = (props) => {
     const theme = createTheme({ ...appTheme })
     return (
-        <MantineProvider theme={theme}>
-            <Notifications position="top-right" />
-            { props.children }
-        </MantineProvider>
-    )
+      <MantineProvider theme={theme}>
+        <Notifications position="top-right" />
+        {props.children}
+      </MantineProvider>
+    );
 }
