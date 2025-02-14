@@ -44,9 +44,9 @@ export const SearchBar = (props) => {
           align="stretch"
         >
           <Select
-            flex="1"
+            flex="2"
             data={["Buy", "Rent"]}
-            placeholder="mode"
+            placeholder="Choose Mode"
             radius="xl"
             value={mode}
             onChange={setMode}

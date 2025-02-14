@@ -6,7 +6,7 @@ const middleware = setContext(async (_, { headers }) => {
     const token = store.getState().authentication.token
 
     return {
-        heaaders: {
+        headers: {
             ...headers,
             Authorization: token ? `Bearer ${token}` : ""
         }

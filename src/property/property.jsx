@@ -2,20 +2,10 @@ import {
   Container,
   Group,
   Button,
-  Box,
-  Image,
-  Stack,
-  Title,
-  Text,
-  Paper,
-  Flex,
-  Card,
 } from "@mantine/core";
 import {
   IconChevronLeft,
-  IconCurrencyDollar,
   IconHeart,
-  IconMapPin,
   IconShare,
 } from "@tabler/icons-react";
 import { useParams } from "react-router-dom";

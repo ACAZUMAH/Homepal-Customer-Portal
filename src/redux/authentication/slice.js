@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-    isAuthenticated: true,
+    isAuthenticated: false,
 }
 
 const slice = createSlice({
@@ -10,6 +10,9 @@ const slice = createSlice({
     reducers: {
         update: (state, action) => {
             return { ...state, ...action.payload }
+        },
+        reset: () => {
+            return initialState
         }
     }
 })

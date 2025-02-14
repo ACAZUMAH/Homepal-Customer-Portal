@@ -8,7 +8,6 @@ import {
   Pagination,
   Group,
   Select,
-  Space,
 } from "@mantine/core";
 import { useState } from "react";
 import {

@@ -4,9 +4,16 @@ import {
   IconLayoutDashboard,
   IconUserCircle,
 } from "@tabler/icons-react";
+
 import classes from "../CSS/index.module.css";
+import useAppAuthentication from "../../../hooks/useAppAuthentication";
 
 export const DropDownMenu = () => {
+
+  const { logoutUser, user } = useAppAuthentication();
+
+  const firstName = user?.firstName ?? ""
+
   return (
     <>
       <Menu
@@ -24,8 +31,9 @@ export const DropDownMenu = () => {
             classNames={{
               label: classes.button,
             }}
+            leftSection={<IconUserCircle stroke={1.5} />}
           >
-            <IconUserCircle size="2rem" stroke={1.5} />
+            {firstName}
           </Button>
         </Menu.Target>
         <Menu.Dropdown>
@@ -36,11 +44,15 @@ export const DropDownMenu = () => {
               </ThemeIcon>
             }
           >
-            <Text size="xl">Dash board</Text>
+            <Text size="md">Dashboard</Text>
           </Menu.Item>
 
-          <Menu.Item c="red" leftSection={<IconLogout stroke={1.5} />}>
-            <Text size="xl">Logout</Text>
+          <Menu.Item
+            c="red"
+            leftSection={<IconLogout stroke={1.5} />}
+            onClick={logoutUser}
+          >
+            <Text size="md">Logout</Text>
           </Menu.Item>
         </Menu.Dropdown>
       </Menu>

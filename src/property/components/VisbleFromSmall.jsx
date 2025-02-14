@@ -27,7 +27,14 @@ export const VisbleFromSm = (props) => {
           />
         </Box>
         <Group justify="center" mt="md">
-          <Carousel slideSize="20%" align="start" slideGap="md" controlsOffset="xs" withIndicators loop >
+          <Carousel
+            slideSize="20%"
+            align="start"
+            slideGap="md"
+            controlsOffset="xs"
+            withIndicators
+            loop
+          >
             {props.photos.map((photos, index) => (
               <Carousel.Slide key={index}>
                 <Image
@@ -40,7 +47,14 @@ export const VisbleFromSm = (props) => {
             ))}
           </Carousel>
         </Group>
-        <Flex mt={80} flex="grow" h="100%" gap={20} direction="row" align="stretch">
+        <Flex
+          mt={80}
+          flex="grow"
+          h="100%"
+          gap={20}
+          direction="row"
+          align="stretch"
+        >
           <Stack flex="2" gap={20}>
             <Stack>
               <Title order={2} fw="medium">
@@ -54,7 +68,7 @@ export const VisbleFromSm = (props) => {
                   {props.name}
                 </Title>
                 <Text fz="h2" c="#00c898">
-                  ${props.price}
+                  GH¢ {props.price}
                 </Text>
               </Group>
               <Group mt="xl">
@@ -95,7 +109,15 @@ export const VisbleFromSm = (props) => {
             ))}
           </Grid>
         </Card>
-        <Card shadow="sm" radius="md" p="lg" withBorder h="auto" w={816} mt={40}>
+        <Card
+          shadow="sm"
+          radius="md"
+          p="lg"
+          withBorder
+          h="auto"
+          w={816}
+          mt={40}
+        >
           <Group justify="space-between" mb={20}>
             <Title fw={500} order={3}>
               Address

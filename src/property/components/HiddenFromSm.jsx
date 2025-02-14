@@ -58,7 +58,7 @@ export const HiddenFromSm = (props) => {
                   {props.name}
                 </Title>
                 <Text fz="h3" c="#00c898">
-                  ${props.price}
+                  GH¢ {props.price}
                 </Text>
               </Group>
               <Group mt="xl">

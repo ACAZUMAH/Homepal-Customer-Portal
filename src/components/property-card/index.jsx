@@ -15,21 +15,42 @@ import {
   IconMapPin,
   IconPlus,
   IconHeart,
-  IconChevronRight
+  IconChevronRight,
 } from "@tabler/icons-react";
 import React from "react";
 import { useAppNavigation } from "../../hooks";
 import { getPropertytUrl } from "./helper";
 import { Conditional } from "../conditional";
 import useAppAuthentication from "../../hooks/useAppAuthentication";
-import classes from "./styles/inde.module.css"
+import classes from "./styles/inde.module.css";
+import { useSavePropertyMutation } from "./hooks/useSavePropertyMutation";
+import { useAppFavoriteProperty } from "../../hooks/useAppFavoriteProperty";
 
 export const PropertiesCard = (props) => {
   const propertyurl = getPropertytUrl(props._id);
 
   const navigateToProperty = useAppNavigation(propertyurl);
+
   const { isAuthenticated } = useAppAuthentication();
+
+  const { favorites, toggleFavorite } = useAppFavoriteProperty();
+
+  const isFavorite = favorites.includes(props._id);
+
+
   const photo = props.imageUrls[0] ? props.imageUrls[0] : "";
+
+  const { handleSaveProperty, loading } = useSavePropertyMutation();
+
+  const handleFavorite = (e) => {
+    e.preventDefault();
+    toggleFavorite(props._id);
+  };
+
+  const savePropertyHandler = (e) => {
+    e.preventDefault();
+    handleSaveProperty(props._id);
+  };
 
   return (
     <>
@@ -42,46 +63,43 @@ export const PropertiesCard = (props) => {
             variant="filled"
             radius="xl"
             size={40}
-            color="gray.2"
+            color={isFavorite ? "red" : "white"}
             component="a"
             underline="never"
-            onClick={(e) => {
-              e.preventDefault();
-            }}
+            onClick={handleFavorite}
             style={{
-              background: "#d8d8d8",
               position: "absolute",
               boxShadow: "0px 2px 5px rgba(0,0,0,0.2)",
               top: 15,
               right: 60,
             }}
           >
-            <IconHeart color="#00c898" stroke={1.5} size={20} />
+            <IconHeart color={isFavorite ? "white" : "#00c898"} stroke={1.5} size={20} />
           </ActionIcon>
           <ActionIcon
             variant="filled"
             radius="xl"
             size={40}
-            color="gray.2"
+            color="white"
             component="a"
             underline="never"
-            onClick={(e) => {
-              e.preventDefault();
-              navigateToProperty();
-            }}
+            onClick={savePropertyHandler}
             style={{
-              background: "#d8d8d8",
               position: "absolute",
               boxShadow: "0px 2px 5px rgba(0,0,0,0.2)",
               top: 15,
               right: 13,
             }}
+            loading={loading}
+            loaderProps={{ color: "#00c898" }}
           >
             <IconPlus color="#00c898" stroke={1.5} size={20} />
           </ActionIcon>
         </Conditional>
         <Stack justify="space-between" pt="10" gap={15}>
-          <Text fw="medium" size="md">{props.name}</Text>
+          <Text fw="medium" size="md">
+            {props.name}
+          </Text>
 
           <Group gap={4}>
             <IconMapPin size={20} stroke={1.5} />
@@ -96,12 +114,9 @@ export const PropertiesCard = (props) => {
             <Text fz="md">{props.bathrooms} bathrooms</Text>
           </Group>
           <Group justify="space-between">
-            <Group gap={0} spacing="xs">
-              <IconCurrencyDollar color="#00c898" stroke={1.5} />
-              <Text fw="bold" size="xl" c="#00c898">
-                {props.price}
-              </Text>
-            </Group>
+            <Text fw={400} size="xl" c="#00c898">
+              GH¢ {props.price}
+            </Text>
             <Button
               component="a"
               href={propertyurl}
@@ -117,7 +132,7 @@ export const PropertiesCard = (props) => {
               size="md"
               rightSection={<IconChevronRight size={15} stroke={1.5} />}
             >
-              view Details 
+              view Details
             </Button>
           </Group>
         </Stack>

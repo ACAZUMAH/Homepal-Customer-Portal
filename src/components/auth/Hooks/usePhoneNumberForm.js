@@ -7,7 +7,7 @@ const validationSchema = yup.object().shape({
     phoneNumber: yup.string().test(title, message, validatePhoneNumber).required("")
 })
 
-export const UsePhoneNumberForm = () =>{
+export const usePhoneNumberForm = () =>{
     const form = useFormik({
         initialValues: {
             phoneNumber: ""

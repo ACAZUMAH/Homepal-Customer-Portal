@@ -98,7 +98,7 @@ export const MainHeader = () => {
                   c="#00c898"
                   variant="transparent"
                 >
-                  <IconHome size="2rem" stroke={1.5} /> My list
+                  <IconHome stroke={1.5} /> My list
                 </Button>
 
                 <Button
@@ -108,10 +108,9 @@ export const MainHeader = () => {
                   c="#00c898"
                   variant="transparent"
                 >
-                  <IconHeart size="2rem" stroke={1.5} /> Fovorite
+                  <IconHeart stroke={1.5} /> Favorite
                 </Button>
               </Box>
-              <Space w="80" />
               <DropDownMenu />
             </Conditional>
           </Group>
