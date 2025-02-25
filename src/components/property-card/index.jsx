@@ -10,12 +10,12 @@ import {
 } from "@mantine/core";
 import {
   IconBed,
-  IconCurrencyDollar,
   IconBath,
   IconMapPin,
   IconPlus,
   IconHeart,
   IconChevronRight,
+  IconHeartFilled,
 } from "@tabler/icons-react";
 import React from "react";
 import { useAppNavigation } from "../../hooks";
@@ -26,6 +26,11 @@ import classes from "./styles/inde.module.css";
 import { useSavePropertyMutation } from "./hooks/useSavePropertyMutation";
 import { useAppFavoriteProperty } from "../../hooks/useAppFavoriteProperty";
 
+/**
+ * 
+ * @param {*} props 
+ * @returns 
+ */
 export const PropertiesCard = (props) => {
   const propertyurl = getPropertytUrl(props._id);
 
@@ -63,18 +68,23 @@ export const PropertiesCard = (props) => {
             variant="filled"
             radius="xl"
             size={40}
-            color={isFavorite ? "red" : "white"}
+            color="white"
             component="a"
             underline="never"
             onClick={handleFavorite}
             style={{
+              background: "white",
               position: "absolute",
               boxShadow: "0px 2px 5px rgba(0,0,0,0.2)",
               top: 15,
               right: 60,
             }}
           >
-            <IconHeart color={isFavorite ? "white" : "#00c898"} stroke={1.5} size={20} />
+            {isFavorite ? (
+              <IconHeartFilled color="#00c898" stroke={1.5} size={20} />
+            ) : (
+              <IconHeart color="#00c898" stroke={1.5} size={20} />
+            )}
           </ActionIcon>
           <ActionIcon
             variant="filled"
@@ -85,6 +95,7 @@ export const PropertiesCard = (props) => {
             underline="never"
             onClick={savePropertyHandler}
             style={{
+              background: "white",
               position: "absolute",
               boxShadow: "0px 2px 5px rgba(0,0,0,0.2)",
               top: 15,

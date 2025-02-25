@@ -1,5 +1,7 @@
 export const routesEndPoints = {
   HOME: "/",
+  FAVORITE: "/favorite",
+  LIST: "/saved",
   LOGIN: "/login",
   ABOUT: "/about",
   PROPERTIES: "/properties",

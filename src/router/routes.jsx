@@ -8,6 +8,8 @@ import { Login } from "../Authentication/login";
 import { RequestTour } from "../tour";
 import { MakeOffer } from "../offer/offer";
 import { routesEndPoints } from "../constants";
+import { Favorite } from "../favorite";
+import { List } from "../list";
 
 export const routes = [
   {
@@ -17,6 +19,14 @@ export const routes = [
       {
         index: true,
         element: <Home />,
+      },
+      {
+        path: routesEndPoints.FAVORITE,
+        element: <Favorite />
+      },
+      {
+        path: routesEndPoints.LIST,
+        element: <List />
       },
       {
         path: routesEndPoints.PROPERTIES,

@@ -7,7 +7,8 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "deploy": "vercel deploy && vercel --prod"
   },
   "dependencies": {
     "@apollo/client": "^3.12.8",
@@ -17,8 +18,10 @@
     "@mantine/hooks": "^7.16.2",
     "@mantine/notifications": "^7.16.3",
     "@reduxjs/toolkit": "^2.5.1",
+    "@rollbar/react": "^0.12.1",
     "@tabler/icons-react": "^3.29.0",
     "@tailwindcss/vite": "^4.0.0",
+    "@vercel/speed-insights": "^1.2.0",
     "awesome-phonenumber": "^7.2.0",
     "embla-carousel-react": "^7.1.0",
     "formik": "^2.4.6",
@@ -28,6 +31,7 @@
     "react-redux": "^9.2.0",
     "react-router-dom": "^7.1.5",
     "redux-persist": "^6.0.0",
+    "rollbar": "^2.26.4",
     "tailwindcss": "^4.0.0",
     "yup": "^1.6.1"
   },

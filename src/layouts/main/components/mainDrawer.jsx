@@ -1,5 +1,5 @@
 import { Drawer, NavLink } from "@mantine/core";
-import { IconHome, IconHeart, IconList, IconLogin, IconHomeDollar, IconLogout, IconBuilding } from "@tabler/icons-react";
+import { IconHome, IconHeart, IconList, IconLogin, IconLogout, IconBuilding } from "@tabler/icons-react";
 import { Conditional } from "../../../components/conditional";
 import useAppAuthentication from "../../../hooks/useAppAuthentication";
 import { useAppNavigation } from "../../../hooks";
@@ -8,6 +8,8 @@ import { routesEndPoints } from "../../../constants";
 export const MainDrawer = (props) => {
   const navigateToLogin = useAppNavigation(routesEndPoints.LOGIN);
   const navigateToProperties = useAppNavigation(routesEndPoints.PROPERTIES)
+  const navigateToFavorite = useAppNavigation(routesEndPoints.FAVORITE)
+  const navigateToSavedList = useAppNavigation(routesEndPoints.LIST)
   const { isAuthenticated } = useAppAuthentication();
 
   return (
@@ -42,19 +44,31 @@ export const MainDrawer = (props) => {
           label="Properties"
           href={routesEndPoints.PROPERTIES}
           onClick={() => {
-            navigateToProperties();
-            props.onClose();
+            navigateToProperties()
+            props.onClose()
           }}
           leftSection={<IconBuilding stroke={1.5} />}
         />
 
         <Conditional condition={isAuthenticated}>
           <NavLink
+          component="a"
             label="My list"
+            href={routesEndPoints.LIST}
+            onClick={() => {
+              navigateToSavedList()
+              props.onClose()
+            }}
             leftSection={<IconList  stroke={1.5} />}
           />
           <NavLink
+          component="a"
             label="favorite"
+            href={routesEndPoints.FAVORITE}
+            onClick={() => {
+              navigateToFavorite()
+              props.onClose()
+            }}
             leftSection={<IconHeart stroke={1.5} />}
           />
           <NavLink

@@ -6,7 +6,6 @@ import {
   Center,
   Container,
   Group,
-  Space,
   Title,
   Image,
 } from "@mantine/core";
@@ -22,17 +21,18 @@ import { DropDownMenu } from "./dropDownMenu";
 import logo from "../../../assets/images/HomePal Svg.svg";
 
 export const MainHeader = () => {
-
   const [opened, setOpened] = useState(false);
   const navigateToHome = useAppNavigation(routesEndPoints.HOME);
   const navigateToProperties = useAppNavigation(routesEndPoints.PROPERTIES);
-  const navigateToLogin = useAppNavigation(routesEndPoints.LOGIN)
+  const navigateToLogin = useAppNavigation(routesEndPoints.LOGIN);
+  const navigateToFavorite = useAppNavigation(routesEndPoints.FAVORITE);
+  const navigateToSavedList = useAppNavigation(routesEndPoints.LIST);
 
   const { isAuthenticated } = useAppAuthentication();
   return (
     <>
       <Container px="md" fluid h="100%" size="90%">
-        <Group justify="space-between" h="100%">
+        <Group justify="space-between" h="90%">
           <Center hiddenFrom="sm">
             <Burger
               color="#00c898"
@@ -40,7 +40,7 @@ export const MainHeader = () => {
               onClick={() => setOpened(!opened)}
             />
           </Center>
-          <Group gap="xs">
+          <Group gap="md">
             <Anchor
               href="/"
               underline="never"
@@ -49,9 +49,9 @@ export const MainHeader = () => {
                 navigateToHome();
               }}
             >
-              <Group gap={1}>
-                <Image h="xl" fit="contain" src={logo} />
-                <Title c="#00c898" fs="italic" order={1}>
+              <Group gap={0}>
+                <Image h="lg" visibleFrom="sm" fit="contain" src={logo} />
+                <Title c="#00c898" fs="italic" order={2}>
                   HomePal
                 </Title>
               </Group>
@@ -82,21 +82,25 @@ export const MainHeader = () => {
                   label: classes.button,
                 }}
                 onClick={(e) => {
-                  e.preventDefault()
-                  navigateToLogin()
+                  e.preventDefault();
+                  navigateToLogin();
                 }}
               >
                 Login
               </Button>
             </Conditional>
             <Conditional condition={isAuthenticated}>
-              <Box visibleFrom="lg">
+              <Box >
                 <Button
                   classNames={{
                     label: classes.button,
                   }}
                   c="#00c898"
                   variant="transparent"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    navigateToSavedList();
+                  }}
                 >
                   <IconHome stroke={1.5} /> My list
                 </Button>
@@ -107,6 +111,10 @@ export const MainHeader = () => {
                   }}
                   c="#00c898"
                   variant="transparent"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    navigateToFavorite();
+                  }}
                 >
                   <IconHeart stroke={1.5} /> Favorite
                 </Button>

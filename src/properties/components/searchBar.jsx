@@ -8,6 +8,12 @@ import {
   IconSearch,
 } from "@tabler/icons-react";
 
+
+/**
+ * 
+ * @param {*} props 
+ * @returns 
+ */
 export const SearchBar = (props) => {
   const [mode, setMode] = useState("");
   const [type, setType] = useState("");
