@@ -31,7 +31,7 @@ export const DropDownMenu = () => {
             classNames={{
               label: classes.button,
             }}
-            leftSection={<IconUserCircle stroke={1.5} />}
+            leftSection={<IconUserCircle stroke={1.5} size={30}/>}
           >
             {firstName}
           </Button>

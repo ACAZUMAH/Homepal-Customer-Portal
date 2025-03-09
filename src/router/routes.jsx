@@ -1,15 +1,14 @@
-import { About } from "../about/about";
 import { Home } from "../Home/home";
 import { MainLayout } from "../layouts/main";
 import { Navigate } from "react-router-dom";
-import { Properties } from "../properties/properties";
 import { Property } from "../property/property";
 import { Login } from "../Authentication/login";
 import { RequestTour } from "../tour";
 import { MakeOffer } from "../offer/offer";
 import { routesEndPoints } from "../constants";
 import { Favorite } from "../favorite";
-import { List } from "../list";
+import { Buy } from "../properties/buy";
+import { Rent } from "../properties/rent";
 
 export const routes = [
   {
@@ -22,38 +21,29 @@ export const routes = [
       },
       {
         path: routesEndPoints.FAVORITE,
-        element: <Favorite />
+        element: <Favorite />,
       },
       {
-        path: routesEndPoints.LIST,
-        element: <List />
+        path: routesEndPoints.BUY,
+        element: <Buy />,
       },
       {
-        path: routesEndPoints.PROPERTIES,
+        path: routesEndPoints.RENT,
+        element: <Rent />,
+      },
+      {
+        path: routesEndPoints.PROPERTY,
+        element: <Property />,
         children: [
           {
-            index: true,
-            element: <Properties />,
+            path: routesEndPoints.PROPERTY_TOUR,
+            element: <RequestTour />,
           },
           {
-            path: routesEndPoints.PROPERTY,
-            element: <Property />,
-            children: [
-              {
-                path: routesEndPoints.PROPERTY_TOUR,
-                element: <RequestTour />,
-              },
-              {
-                path: routesEndPoints.PROPERTY_OFFER,
-                element: <MakeOffer />,
-              },
-            ],
+            path: routesEndPoints.PROPERTY_OFFER,
+            element: <MakeOffer />,
           },
         ],
-      },
-      {
-        path: routesEndPoints.ABOUT,
-        element: <About />,
       },
     ],
   },

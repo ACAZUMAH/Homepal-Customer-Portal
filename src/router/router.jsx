@@ -5,8 +5,11 @@ import useAppAuthentication from "../hooks/useAppAuthentication";
 import { useEffect } from "react";
 
 export const AppRouter = () => {
+    
     const forceUpdate = useForceUpdate()
+
     const { isAuthenticated } = useAppAuthentication()
+
     const getRouter = () => {
         return createBrowserRouter([
             {
@@ -15,8 +18,10 @@ export const AppRouter = () => {
             },
         ])
     }
+
     useEffect(() => {
         forceUpdate()
     }, [isAuthenticated])
+
     return <RouterProvider router={getRouter()} />;
 }

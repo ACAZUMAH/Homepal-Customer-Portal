@@ -21,17 +21,20 @@ import { DropDownMenu } from "./dropDownMenu";
 import logo from "../../../assets/images/HomePal Svg.svg";
 
 export const MainHeader = () => {
+
   const [opened, setOpened] = useState(false);
+
   const navigateToHome = useAppNavigation(routesEndPoints.HOME);
-  const navigateToProperties = useAppNavigation(routesEndPoints.PROPERTIES);
   const navigateToLogin = useAppNavigation(routesEndPoints.LOGIN);
   const navigateToFavorite = useAppNavigation(routesEndPoints.FAVORITE);
-  const navigateToSavedList = useAppNavigation(routesEndPoints.LIST);
+  const navigateToBuy = useAppNavigation(routesEndPoints.BUY)
+  const navigateToRent = useAppNavigation(routesEndPoints.RENT)
 
   const { isAuthenticated } = useAppAuthentication();
+
   return (
     <>
-      <Container px="md" fluid h="100%" size="90%">
+      <Container px="xl" fluid h="100%" size="90%">
         <Group justify="space-between" h="90%">
           <Center hiddenFrom="sm">
             <Burger
@@ -51,25 +54,82 @@ export const MainHeader = () => {
             >
               <Group gap={0}>
                 <Image h="lg" visibleFrom="sm" fit="contain" src={logo} />
-                <Title c="#00c898" fs="italic" order={2}>
+                <Title c="#00c898" fs="italic" order={3}>
                   HomePal
                 </Title>
               </Group>
             </Anchor>
+          </Group>
+          <Group visibleFrom="sm" gap={4}>
             <Button
-              c="#00c898"
-              variant="transparent"
               component="a"
-              visibleFrom="sm"
-              classNames={{
-                label: classes.button,
-              }}
+              variant="transparent"
+              href="/"
               onClick={(e) => {
                 e.preventDefault();
-                navigateToProperties();
+                navigateToHome();
               }}
+              classNames={{ label: classes.button }}
             >
-              Properties
+              Home
+            </Button>
+            <Button
+              variant="transparent"
+              component="a"
+              href="/"
+              onClick={(e) => {
+                e.preventDefault();
+                navigateToBuy();
+              }}
+              classNames={{ label: classes.button }}
+            >
+              Buy
+            </Button>
+            <Button
+              component="a"
+              variant="transparent"
+              href="/"
+              onClick={(e) => {
+                e.preventDefault();
+                if (!isAuthenticated) navigateToLogin();
+              }}
+              classNames={{ label: classes.button }}
+            >
+              Sell
+            </Button>
+            <Button
+              component="a"
+              variant="transparent"
+              href={routesEndPoints.RENT}
+              onClick={(e) => {
+                e.preventDefault();
+                navigateToRent();
+              }}
+              classNames={{ label: classes.button }}
+            >
+              Rent
+            </Button>
+            <Button
+              component="a"
+              variant="transparent"
+              href="/"
+              onClick={(e) => {
+                e.preventDefault();
+              }}
+              classNames={{ label: classes.button }}
+            >
+              Find agent
+            </Button>
+            <Button
+              component="a"
+              variant="transparent"
+              href="/"
+              onClick={(e) => {
+                e.preventDefault();
+              }}
+              classNames={{ label: classes.button }}
+            >
+              Blog
             </Button>
           </Group>
           <Group visibleFrom="sm" gap={2} display="flex">
@@ -90,21 +150,7 @@ export const MainHeader = () => {
               </Button>
             </Conditional>
             <Conditional condition={isAuthenticated}>
-              <Box >
-                <Button
-                  classNames={{
-                    label: classes.button,
-                  }}
-                  c="#00c898"
-                  variant="transparent"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    navigateToSavedList();
-                  }}
-                >
-                  <IconHome stroke={1.5} /> My list
-                </Button>
-
+              <Box>
                 <Button
                   classNames={{
                     label: classes.button,
@@ -116,10 +162,10 @@ export const MainHeader = () => {
                     navigateToFavorite();
                   }}
                 >
-                  <IconHeart stroke={1.5} /> Favorite
+                  <IconHeart stroke={1.5} size={30} />
                 </Button>
+                <DropDownMenu />
               </Box>
-              <DropDownMenu />
             </Conditional>
           </Group>
           <Conditional condition={isAuthenticated}>

@@ -5,7 +5,9 @@ export const routesEndPoints = {
   LOGIN: "/login",
   ABOUT: "/about",
   PROPERTIES: "/properties",
-  PROPERTY: "/properties/property/:id",
-  PROPERTY_TOUR: "/properties/property/:id/tour",
-  PROPERTY_OFFER: "/properties/property/:id/offer",
+  BUY: "/properties/buy",
+  RENT: "/properties/Rent",
+  PROPERTY: "/property/:id",
+  PROPERTY_TOUR: "/property/:id/tour",
+  PROPERTY_OFFER: "/property/:id/offer",
 };

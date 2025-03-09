@@ -35,11 +35,10 @@ export const SearchBar = (props) => {
 
   return (
     <>
-      <Paper
-        shadow="md"
+      <Paper 
         radius="3rem"
         mt="xl"
-        p="md"
+        p="sm"
         bg="var(--mantine-color-white)"
         withBorder
       >
