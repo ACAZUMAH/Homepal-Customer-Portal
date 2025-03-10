@@ -12,8 +12,11 @@ import {
 } from "@mantine/core";
 import { IconMapPin, IconWalk, IconBus, IconBike } from "@tabler/icons-react";
 import { Carousel } from "@mantine/carousel";
+import { Conditional } from "../../components/conditional";
 
 export const VisbleFromSm = (props) => {
+  const showCarousel = props.photos?.length > 1;
+
   return (
     <>
       <Box visibleFrom="sm">
@@ -26,27 +29,29 @@ export const VisbleFromSm = (props) => {
             alt="featured"
           />
         </Box>
-        <Group justify="center" mt="md">
-          <Carousel
-            slideSize="20%"
-            align="start"
-            slideGap="md"
-            controlsOffset="xs"
-            withIndicators
-            loop
-          >
-            {props.photos.map((photos, index) => (
-              <Carousel.Slide key={index}>
-                <Image
-                  src={photos}
-                  alt={`thomnail${index}`}
-                  fit="cover"
-                  radius="md"
-                />
-              </Carousel.Slide>
-            ))}
-          </Carousel>
-        </Group>
+        <Conditional condition={showCarousel}>
+          <Group justify="center" mt="md">
+            <Carousel
+              slideSize="20%"
+              align="start"
+              slideGap="md"
+              controlsOffset="xs"
+              withIndicators
+              loop
+            >
+              {props.photos.map((photos, index) => (
+                <Carousel.Slide key={index}>
+                  <Image
+                    src={photos}
+                    alt={`thomnail${index}`}
+                    fit="cover"
+                    radius="md"
+                  />
+                </Carousel.Slide>
+              ))}
+            </Carousel>
+          </Group>
+        </Conditional>
         <Flex
           mt={80}
           flex="grow"

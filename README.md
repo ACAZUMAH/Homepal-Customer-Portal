@@ -1,8 +1,40 @@
-# React + Vite
+# HomePal
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This guide will walk you through the steps to clone and run a the project using Yarn.
 
-Currently, two official plugins are available:
+## Prerequisites
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Node.js**: 
+Make sure you have Node.js installed on your machine. You can download it from nodejs.org.
+
+- **Yarn**: 
+Ensure Yarn is installed. You can install it globally using npm:
+```bash
+   npm install -g yarn
+```
+
+## Cloning the Repository 
+
+1. **Clone the repository to your local machine**:
+```bash
+   git clone https://github.com/ACAZUMAH/Homepal-Customer-Portal.git
+```
+
+2. **Navigate to the project directory**:
+```bash
+   cd Homepal-Customer-Portal
+```
+
+## Installing Dependencies
+
+1. **Install the project dependencies using Yarn**:
+```bash
+   yarn install
+```
+
+2. **Running the Project**:
+```bash
+   yarn dev
+```
+
+This will start the Vite development server and open the project in your default browser. If it doesn't open automatically, you can visit http://localhost:5173 in your browser.

@@ -1,7 +1,7 @@
 import { gql, useQuery } from "@apollo/client";
 
 const useGetPropertiesGql = gql`
-  query GetListings($filter: listingFilter) {
+  query GetListings($filter: listingFilters) {
     listings(filters: $filter) {
       edges {
         _id
@@ -18,6 +18,7 @@ const useGetPropertiesGql = gql`
         total
         limit
         hasNextPage
+        totalCount
       }
     }
   }
@@ -30,8 +31,8 @@ export const useGetPropertiesWithPages = (filter = { }) => {
     notifyOnNetworkStatusChange: true,
   });
 
-  const properties = data?.listings.edges || [];
-  const pageInfo = data?.listings.PageInfo;
+  const properties = data?.listings?.edges || [];
+  const pageInfo = data?.listings?.PageInfo;
 
   return { properties, pageInfo, ...result };
 };

@@ -24,14 +24,17 @@ import { PropertiesError } from "./components/propertiesError";
 import { SearchBar } from "./components/searchBar";
 
 export const Properties = (props) => {
+
   const showErrorAlert = !props.loading && props.error;
   const showEmptyAlert = !props.properties.length && !props.loading && !props.error;
   const showPagenation =  props.properties.length && !props.loading && !props.error;
   const showSortAndData = props.properties.length || (props.loading && !props.error);
 
+  const totalPages = Math.abs(props.pageInfo?.totalCount / props.pageInfo?.limit) || 0
+
   return (
     <>
-      <Container size="87%" py="xl" pos="relative">
+      <Container size="xl" py="xl" pos="relative">
         <Center mt={30}>
           <Stack gap={15}>
             <Title c="#00c898" fw="bold" size="4rem" visibleFrom="sm">
@@ -58,7 +61,7 @@ export const Properties = (props) => {
               />
             </Group>
           </Group>
-          <SimpleGrid mt="xl" mb={50} cols={{ base: 1, xs: 2, md: 3, xl: 4 }}>
+          <SimpleGrid mt="xl" cols={{ base: 1, xs: 2, md: 3, xl: 4 }}>
             {props.properties.map((property, index) => (
               <PropertiesCard key={index} {...property} />
             ))}
@@ -78,12 +81,12 @@ export const Properties = (props) => {
           <EmptyProperties />
         </Conditional>
         <Conditional condition={showPagenation}>
-          <Group gap={10} pb={50} justify="center">
+          <Group gap={10} my={40} justify="flex-end">
             <Pagination
               color="#00c898"
-              size="xl"
-              total={2}
-              siblings={2}
+              size="md"
+              total={totalPages}
+              siblings={1}
               defaultValue={1}
               previousIcon={IconArrowLeft}
               nextIcon={IconArrowRight}

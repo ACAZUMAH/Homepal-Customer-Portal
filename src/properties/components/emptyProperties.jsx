@@ -15,10 +15,11 @@ export const EmptyProperties = () => {
             autoplay
           />
           <Title order={2} c="#00c898" ta="center">
-            No properties found
+            Oops! No properties found
           </Title>
           <Text size="md" ta="center">
             Didn't find what you're looking for? Contact us on our support mail.
+            Our support team will help you out.
           </Text>
         </Box>
         <Button

@@ -153,5 +153,5 @@ export const PropertiesCard = (props) => {
 };
 
 export const PropertiesLoader = () => {
-  return <Skeleton h={500} />;
+  return <Skeleton h={450} />;
 };
