@@ -49,7 +49,7 @@ export const Favorite = () => {
           </Flex>
         </Stack>
         <Conditional condition={showSortAndData}>
-          <SimpleGrid mt={40} cols={{ base: 1, xs: 2, md: 3, xl: 4 }}>
+          <SimpleGrid my={40} cols={{ base: 1, xs: 2, md: 3, xl: 4 }}>
             {properties.map((property, index) => (
               <PropertiesCard key={index} {...property} />
             ))}

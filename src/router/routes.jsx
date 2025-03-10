@@ -9,6 +9,9 @@ import { routesEndPoints } from "../constants";
 import { Favorite } from "../favorite";
 import { Buy } from "../properties/buy";
 import { Rent } from "../properties/rent";
+import { SellPage } from "../Sell";
+import { FindAgent } from "../findAgent";
+import { Blog } from "../Blog";
 
 export const routes = [
   {
@@ -45,6 +48,18 @@ export const routes = [
           },
         ],
       },
+      {
+        path: routesEndPoints.SELL,
+        element: <SellPage />
+      },
+      {
+        path: routesEndPoints.FIND_AGENT,
+        element: <FindAgent />
+      },
+      {
+        path: routesEndPoints.BLOG,
+        element: <Blog />
+      }
     ],
   },
   {

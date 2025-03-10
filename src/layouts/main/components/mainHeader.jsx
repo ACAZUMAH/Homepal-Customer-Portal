@@ -29,6 +29,9 @@ export const MainHeader = () => {
   const navigateToFavorite = useAppNavigation(routesEndPoints.FAVORITE);
   const navigateToBuy = useAppNavigation(routesEndPoints.BUY)
   const navigateToRent = useAppNavigation(routesEndPoints.RENT)
+  const navigateToBlog = useAppNavigation(routesEndPoints.BLOG)
+  const navigateToSell = useAppNavigation(routesEndPoints.SELL)
+  const navigateToFindAgent = useAppNavigation(routesEndPoints.FIND_AGENT)
 
   const { isAuthenticated } = useAppAuthentication();
 
@@ -92,6 +95,7 @@ export const MainHeader = () => {
               onClick={(e) => {
                 e.preventDefault();
                 if (!isAuthenticated) navigateToLogin();
+                navigateToSell();
               }}
               classNames={{ label: classes.button }}
             >
@@ -115,6 +119,7 @@ export const MainHeader = () => {
               href="/"
               onClick={(e) => {
                 e.preventDefault();
+                navigateToFindAgent()
               }}
               classNames={{ label: classes.button }}
             >
@@ -126,6 +131,7 @@ export const MainHeader = () => {
               href="/"
               onClick={(e) => {
                 e.preventDefault();
+                navigateToBlog();
               }}
               classNames={{ label: classes.button }}
             >

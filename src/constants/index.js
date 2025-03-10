@@ -3,11 +3,12 @@ export const routesEndPoints = {
   FAVORITE: "/favorite",
   LIST: "/saved",
   LOGIN: "/login",
-  ABOUT: "/about",
-  PROPERTIES: "/properties",
   BUY: "/properties/buy",
   RENT: "/properties/Rent",
   PROPERTY: "/property/:id",
   PROPERTY_TOUR: "/property/:id/tour",
   PROPERTY_OFFER: "/property/:id/offer",
+  SELL: '/sell',
+  FIND_AGENT: '/find-agent',
+  BLOG: '/blog'
 };

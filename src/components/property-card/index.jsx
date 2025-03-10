@@ -143,7 +143,7 @@ export const PropertiesCard = (props) => {
               size="md"
               rightSection={<IconChevronRight size={15} stroke={1.5} />}
             >
-              view Details
+              view more
             </Button>
           </Group>
         </Stack>
