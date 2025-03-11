@@ -25,12 +25,20 @@ import classes from "./styles/style.module.css";
 export const Favorite = () => {
   const [page, setPage] = useState(1);
   const [activeTab, setActiveTab] = useState("favorites");
+  const [filter, setFilter] = useState({});
+  const [search, setSearch] = useState(null);
 
   const { favorites } = useAppFavoriteProperty();
 
+  const onHandleSearch = () => {
+    if (activeTab !== "favorites") return;
+    setFilter({ search });
+    setSearch('')
+  };
+
   const { properties, pageInfo, loading, error } = useFetchFavoriteProperties({
     favoriteIds: favorites,
-    filters: { page, limit: 12 },
+    filters: { ...filter, page, limit: 12 },
   });
 
   const {
@@ -62,8 +70,14 @@ export const Favorite = () => {
               placeholder="Search Favorites"
               classNames={{ input: classes.favoriteInput }}
               leftSection={<IconSearch stroke={1.5} size={18} />}
+              value={search}
+              onChange={(e) => setSearch(e.currentTarget.value)}
             />
-            <Button color="#00c898" leftSection={<IconSearch stroke={1.5} size={20}/>}>
+            <Button
+              color="#00c898"
+              leftSection={<IconSearch stroke={1.5} size={20} />}
+              onClick={onHandleSearch}
+            >
               Search
             </Button>
           </Flex>
