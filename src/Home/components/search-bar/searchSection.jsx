@@ -61,17 +61,15 @@ export const SearchBar = (props) => {
             flex="3"
             size="sm"
             radius="xl"
-            styles={{
-              input: {
-                backgroundColor: "#f0f7fd",
-              },
-            }}
             placeholder="Property type"
             value={type}
             onChange={(event) => setType(event.target.value)}
             leftSection={
               <IconBuilding color="#005e83" stroke={1.5} size={20} />
             }
+            classNames={{
+              input: classes.searchInput,
+            }}
           />
           <TextInput
             w={{ base: "100%", md: "auto" }}
@@ -79,14 +77,12 @@ export const SearchBar = (props) => {
             size="sm"
             radius="xl"
             placeholder="location"
-            styles={{
-              input: {
-                backgroundColor: "#f0f7fd",
-              },
-            }}
             value={address}
             onChange={(event) => setAddress(event.target.value)}
             leftSection={<IconMapPin color="#005e83" stroke={1.5} size={20} />}
+            classNames={{
+              input: classes.searchInput,
+            }}
           />
           <TextInput
             w={{ base: "100%", md: "auto" }}
@@ -94,16 +90,14 @@ export const SearchBar = (props) => {
             size="sm"
             radius="xl"
             placeholder="Price"
-            styles={{
-              input: {
-                backgroundColor: "#f0f7fd",
-              },
-            }}
             value={price}
             onChange={(event) => setPrice(event.target.value)}
             leftSection={
               <IconCurrencyDollar color="#005e83" stroke={1.5} size={20} />
             }
+            classNames={{
+              input: classes.searchInput,
+            }}
           />
           <SegmentedControl
             w={{ base: "100%", md: "auto" }}

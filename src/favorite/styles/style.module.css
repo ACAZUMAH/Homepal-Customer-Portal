@@ -1,5 +1,8 @@
+.favoriteInput:focus {
+    border-color: #00c898 !important;
+}
 
-.primary{
+/* .primary{
     color: #A4EBBE;
     color: #90E1B1;
     color: #7ADCA4;
@@ -22,4 +25,4 @@
     color: #007C83;
     color: #00696F;
     color: #00575C;
-}
+} */
