@@ -16,6 +16,7 @@
     "@mantine/carousel": "^7.16.3",
     "@mantine/core": "^7.16.2",
     "@mantine/hooks": "^7.16.2",
+    "@mantine/modals": "^7.17.1",
     "@mantine/notifications": "^7.16.3",
     "@reduxjs/toolkit": "^2.5.1",
     "@rollbar/react": "^0.12.1",
