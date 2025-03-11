@@ -9,6 +9,7 @@ import { client } from "../services/apollo-client";
 import { SpeedInsights } from "@vercel/speed-insights/react";
 import { RollbarProvider } from "../providers/rollbar";
 
+
 function App() {
   return (
     <RollbarProvider>
@@ -23,7 +24,13 @@ function App() {
         </PersistGate>
       </Provider>
     </RollbarProvider>
+
   );
-}
+}  
+
+
+
+  
+
 
 export default App;
