@@ -1,6 +1,7 @@
 import React from 'react'
-import { Trends } from './componts/trends'
-import { OtherTrends } from './componts/otherTrends'
+import { Trends } from './components/trends'
+import { OtherTrends } from './components/otherTrends'
+
 
 export const Blog = () => {
   return (

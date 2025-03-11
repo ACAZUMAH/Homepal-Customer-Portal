@@ -1,3 +1,12 @@
+.searchInput{
+  background-color: #f0f7fd;
+}
+
+.searchInput:focus{
+  border-color: #00c898;
+}
+
+
 .custom {
   transition: color 0.2s ease;
 }
