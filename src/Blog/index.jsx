@@ -1,5 +1,5 @@
 import React from 'react'
-import { Trends } from './components/trends'
+import  Trends from './components/trends'
 import { OtherTrends } from './components/otherTrends'
 
 
