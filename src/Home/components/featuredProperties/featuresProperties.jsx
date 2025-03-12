@@ -17,7 +17,7 @@ import { PropertiesCard, PropertiesLoader } from "../../../components/property-c
 
 export const FeaturedProperties = (props) => {
 
-  const navigateToProperties = useAppNavigation(routesEndPoints.PROPERTIES);
+  const navigateToProperties = useAppNavigation(routesEndPoints.BUY);
 
   return (
     <Conditional condition={ props.loading || props.properties.length }>
@@ -42,7 +42,7 @@ export const FeaturedProperties = (props) => {
               classNames={{
                 label: classes.morePBtn,
               }}
-              href={routesEndPoints.PROPERTIES}
+              href={routesEndPoints.BUY}
               rightSection={<IconArrowRight stroke={1.5} />}
               onClick={(e) => {
                 e.preventDefault();

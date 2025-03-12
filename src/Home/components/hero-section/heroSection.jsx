@@ -14,17 +14,18 @@ export const HeroSection = ({ onSearch }) => {
 
   return (
     <>
-      <BackgroundImage fit="cover" src={background} h={500}>
+      <BackgroundImage fit="cover" src={background} h={510}>
         <Container size="xl">
           <Box pt={180} pb={50}>
-            <Title c="#00c898" fw="bold" size="3rem">
+            <Title c="#00c898" fw="bold" size="3.3rem">
               Discover The Home That <br /> You've Always Dreamt Of
             </Title>
             <Space h="10" />
             <Text size="lg" pb="40" visibleFrom="sm">
               Start your journey to discover the perfect property. Browse our
+              listings
               <br />
-              listings to find the home of your dreams
+              to find the home of your dreams
             </Text>
           </Box>
         </Container>

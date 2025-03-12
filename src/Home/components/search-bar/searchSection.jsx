@@ -68,7 +68,7 @@ export const SearchBar = (props) => {
               <IconBuilding color="#005e83" stroke={1.5} size={20} />
             }
             classNames={{
-              input: classes.searchInput,
+              input: "searchInput",
             }}
           />
           <TextInput
@@ -81,7 +81,7 @@ export const SearchBar = (props) => {
             onChange={(event) => setAddress(event.target.value)}
             leftSection={<IconMapPin color="#005e83" stroke={1.5} size={20} />}
             classNames={{
-              input: classes.searchInput,
+              input: "searchInput",
             }}
           />
           <TextInput
@@ -96,7 +96,7 @@ export const SearchBar = (props) => {
               <IconCurrencyDollar color="#005e83" stroke={1.5} size={20} />
             }
             classNames={{
-              input: classes.searchInput,
+              input: "searchInput",
             }}
           />
           <SegmentedControl

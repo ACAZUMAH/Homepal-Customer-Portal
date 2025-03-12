@@ -10,5 +10,6 @@ export const routesEndPoints = {
   PROPERTY_OFFER: "/property/:id/offer",
   SELL: '/sell',
   FIND_AGENT: '/find-agent',
-  BLOG: '/blog'
+  BLOG: '/blog',
+  USER: '/u'
 };

@@ -35,7 +35,7 @@ export const SearchBar = (props) => {
 
   return (
     <>
-      <Paper 
+      <Paper
         radius="3rem"
         mt="xl"
         p="sm"
@@ -56,11 +56,7 @@ export const SearchBar = (props) => {
             value={mode}
             onChange={setMode}
             rightSection={<IconChevronDown />}
-            styles={{
-              input: {
-                backgroundColor: "#f0f7fd",
-              },
-            }}
+            classNames={{ input: "searchInput" }}
           />
           <TextInput
             flex="2"
@@ -69,11 +65,7 @@ export const SearchBar = (props) => {
             leftSection={<IconBuilding stroke={1.5} />}
             value={type}
             onChange={(e) => setType(e.target.value)}
-            styles={{
-              input: {
-                backgroundColor: "#f0f7fd",
-              },
-            }}
+            classNames={{ input: "searchInput" }}
           />
           <TextInput
             flex="4"
@@ -82,24 +74,16 @@ export const SearchBar = (props) => {
             leftSection={<IconMapPin stroke={1.5} />}
             value={address}
             onChange={(e) => setAddress(e.target.value)}
-            styles={{
-              input: {
-                backgroundColor: "#f0f7fd",
-              },
-            }}
+            classNames={{ input: "searchInput" }}
           />
           <TextInput
             flex="3"
             radius="xl"
             placeholder="Price"
-            leftSection={<IconCurrencyDollar stroke={1.5} />}
+            leftSection={ "GH¢" }
             value={price}
             onChange={(e) => setPrice(e.target.value)}
-            styles={{
-              input: {
-                backgroundColor: "#f0f7fd",
-              },
-            }}
+            classNames={{ input: "searchInput" }}
           />
           <Button
             radius="xl"

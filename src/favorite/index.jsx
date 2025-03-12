@@ -20,13 +20,12 @@ import { Conditional } from "../components/conditional";
 import { EmptyProperties } from "../properties/components/emptyProperties";
 import { PropertiesError } from "../properties/components/propertiesError";
 import { useFetchSavedSearches } from "./hooks/useFetchSavedListings";
-import classes from "./styles/style.module.css";
 
 export const Favorite = () => {
   const [page, setPage] = useState(1);
   const [activeTab, setActiveTab] = useState("favorites");
   const [filter, setFilter] = useState({});
-  const [search, setSearch] = useState(null);
+  const [search, setSearch] = useState("");
 
   const { favorites } = useAppFavoriteProperty();
 
@@ -68,7 +67,7 @@ export const Favorite = () => {
             <TextInput
               flex={1}
               placeholder="Search Favorites"
-              classNames={{ input: classes.favoriteInput }}
+              classNames={{ input: "custom-input" }}
               leftSection={<IconSearch stroke={1.5} size={18} />}
               value={search}
               onChange={(e) => setSearch(e.currentTarget.value)}
