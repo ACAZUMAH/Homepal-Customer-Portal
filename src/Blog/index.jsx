@@ -1,5 +1,7 @@
-import  Trends  from './components/trends';
-import { OtherTrends } from './components/OtherTrends';
+import React from 'react'
+import { Trends } from './components/trends'
+import { OtherTrends } from './components/otherTrends'
+
 
 export const Blog = () => {
   return (
@@ -8,5 +10,5 @@ export const Blog = () => {
       <Trends />
       <OtherTrends />
     </div>
-  );
-};
+  )
+}
