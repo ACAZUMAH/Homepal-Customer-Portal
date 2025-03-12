@@ -1,14 +1,13 @@
-import React from 'react'
-import { Trends } from './components/trends'
-import { OtherTrends } from './components/otherTrends'
-
+import React from "react";
+import { OtherTrends } from "./components/otherTrends";
+import { Trends } from "./components/trends";
 
 export const Blog = () => {
   return (
     <div>
-        main blog
-        <Trends />
-        <OtherTrends />
+      main blog
+      <Trends />
+      <OtherTrends />
     </div>
-  )
-}
+  );
+};

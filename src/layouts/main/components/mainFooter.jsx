@@ -1,25 +1,21 @@
 import {
-  Text,
-  Container,
-  Stack,
   Anchor,
-  Flex,
   Button,
-  Grid,
   Center,
-  Image,
+  Container,
+  Flex,
+  Grid,
   Group,
+  Image,
+  Stack,
+  Text,
 } from "@mantine/core";
-import { useAppNavigation } from "../../../hooks";
-import { routesEndPoints } from "../../../constants";
-import {
-  IconBrandX,
-  IconBrandYoutube,
-  IconMail,
-} from "@tabler/icons-react";
-import classes from "../CSS/index.module.css";
-import logo from "../../../assets/images/HomePal Svg.svg";
 import { Notifications } from "@mantine/notifications";
+import { IconBrandX, IconBrandYoutube, IconMail } from "@tabler/icons-react";
+import logo from "../../../assets/images/HomePal Svg.svg";
+import { routesEndPoints } from "../../../constants";
+import { useAppNavigation } from "../../../hooks";
+import classes from "../CSS/index.module.css";
 
 export const MainFooter = () => {
   const navigateToProperties = useAppNavigation(routesEndPoints.PROPERTIES);

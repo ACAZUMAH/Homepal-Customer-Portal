@@ -7,11 +7,11 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-.custom-input {
+.customInput {
   border: 1.5px solid gray;
   transition: border-color 0.3s ease;
 }
 
-.custom-input:focus {
+.customInput:focus {
   border-color: #00c898 !important;
 }

@@ -12,7 +12,7 @@ import React from "react";
 
 export const FindAgent = () => {
   return (
-    <Container fluid size="xl" py="xl">
+    <Container fluid size="xl" py="sm">
       <Container py="xl">
         <Stack align="center" spacing="lg">
           <Title order={1} size="3rem" fw={600} c="#00c898">
@@ -26,7 +26,7 @@ export const FindAgent = () => {
               radius="md"
               w="250px"
               classNames={{
-                input: "custom-input",
+                input: "customInput",
               }}
             />
             <TextInput
@@ -35,7 +35,7 @@ export const FindAgent = () => {
               radius="md"
               w="250px"
               classNames={{
-                input: "custom-input",
+                input: "customInput",
               }}
             />
             <Button color="#00c898" size="md" radius="md">
@@ -52,22 +52,22 @@ export const FindAgent = () => {
 
         <Grid mt="md" gutter="md" justify="center" align="center">
           {[
-            "Toledo",
-            "Fairfield",
-            "Orange",
-            "Naperville",
-            "Toledo",
-            "Fairfield",
-            "Orange",
-            "Naperville",
-            "Toledo",
-            "Fairfield",
-            "Orange",
-            "Naperville",
-            "Toledo",
-            "Fairfield",
-            "Orange",
-            "Naperville",
+            "John F.Ken",
+            "Redmey Squidar",
+            "Asley Unory",
+            "Restfield Menz",
+            "Rick Wolf",
+            "Kenneth Smith",
+            "Phil Jones",
+            "Herman Lotts",
+            "Georgina Will",
+            "Micheal Jordan",
+            "James Ostwich",
+            "Hilary S.Dew",
+            "Whistler John",
+            "Michelle L.Blay",
+            "Cooper Brown",
+            "Jamie Clara",
           ].map((city, index) => (
             <Grid.Col key={index} span={{ base: 12, sm: 6, md: 3 }}>
               <Text c="gray.7" size="md" ta="center">
