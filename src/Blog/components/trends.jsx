@@ -30,15 +30,15 @@ const articles = [
 
 const Trends = () => {
   return (
-    <Container size="lg" mt="xl">
+    <Container size="lg" mt="xl" style={{backgroundColor:"white"}}>
       <Grid gutter="xl">
         
         <Grid.Col span={{ base: 12, md: 4 }}>
           <Stack spacing="xs">
-            <Title order={2} style={{ color: "#002147" }}>Latest News</Title>
+            <Title order={2} style={{ color: "#00c898" }}>Latest News</Title>
             {newsCategories.map((item, index) => (
               <Stack key={index} spacing={2}>
-                <Text fw={600} color="#002147">{item.title}</Text>
+                <Text fw={600} color="#00c898">{item.title}</Text>
                 <Text size="sm" color="gray.6">
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do ei usmod
                 </Text>
@@ -56,7 +56,7 @@ const Trends = () => {
               <div key={index}>
                 <Image src={article.image} radius="md" alt={article.category} />
                 <Stack mt="md" spacing="xs">
-                  <Text fw={600} color="#002147">{article.category}</Text>
+                  <Text fw={600} color="#00c898">{article.category}</Text>
                   <Title order={3}>{article.title}</Title>
                   <Text size="sm" color="gray.7">{article.content}</Text>
                   <Text size="xs" color="gray.5">{article.author}</Text>
