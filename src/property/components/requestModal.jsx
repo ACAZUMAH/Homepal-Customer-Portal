@@ -1,6 +1,5 @@
 import { Modal } from "@mantine/core";
 import { RequestModalForm } from "./modals/requestModalForm";
-import useAppAuthentication from "../../hooks/useAppAuthentication";
 import { useState } from "react";
 
 export const RequestModal = ({ property, opened, onClose }) => {
@@ -8,11 +7,9 @@ export const RequestModal = ({ property, opened, onClose }) => {
 
   const [callMode, setCallMode] = useState("google meet");
 
-  const [scheduleDate, setScheduleDate] = useState('')
+  const [scheduledDate, setScheduledDate] = useState('')
 
   const [contactDetails, setContactDetails] = useState('')
-
-  const { user } = useAppAuthentication();
 
   return (
     <>
@@ -28,6 +25,11 @@ export const RequestModal = ({ property, opened, onClose }) => {
           setMode={setMode}
           callMode={callMode}
           setCallMode={setCallMode}
+          scheduledDate={scheduledDate}
+          setScheduledDate={setScheduledDate}
+          contactDetails={contactDetails}
+          setContactDetails={setContactDetails}
+          property={property}
         />
       </Modal>
     </>

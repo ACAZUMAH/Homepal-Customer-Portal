@@ -29,9 +29,11 @@ export const useRequestTourMutation = () => {
     } catch (error) {
         showNotification({
             title: "Error",
-            message: error.message || "Oops! something went wrong",
+            message: "Oops! something went wrong",
             color: 'red'
         }) 
+
+        return false
     }
   }
 
