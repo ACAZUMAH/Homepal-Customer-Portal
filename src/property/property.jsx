@@ -81,7 +81,7 @@ export const Property = () => {
         <Conditional condition={loading}>
           <PropertyLoader />
         </Conditional>
-        <RequestModal opened={opened} onClose={() => setOpened(!opened)} />
+        <RequestModal property={property} opened={opened} onClose={() => setOpened(!opened)} />
         <MakeOfferModal
           location={property.address}
           price={property.price}
