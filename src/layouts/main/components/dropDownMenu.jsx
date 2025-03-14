@@ -7,10 +7,15 @@ import {
 
 import classes from "../CSS/index.module.css";
 import useAppAuthentication from "../../../hooks/useAppAuthentication";
+import { useAppNavigation } from "../../../hooks";
+import { useLocation } from "react-router-dom";
+import { routesEndPoints } from "../../../constants";
 
 export const DropDownMenu = () => {
 
   const { logoutUser, user } = useAppAuthentication();
+
+  const NavigateToUser = useAppNavigation(routesEndPoints.USER)
 
   const firstName = user?.firstName ?? ""
 
@@ -43,6 +48,7 @@ export const DropDownMenu = () => {
                 <IconLayoutDashboard stroke={1.5} />
               </ThemeIcon>
             }
+            onClick={() => NavigateToUser()}
           >
             <Text size="md">Dashboard</Text>
           </Menu.Item>
