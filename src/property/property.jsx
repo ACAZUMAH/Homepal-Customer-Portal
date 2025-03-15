@@ -1,36 +1,37 @@
-import {
-  Container,
-  Group,
-  Button,
-} from "@mantine/core";
-import {
-  IconChevronLeft,
-  IconHeart,
-  IconShare,
-} from "@tabler/icons-react";
+import { Container, Group, Button } from "@mantine/core";
+import { IconChevronLeft, IconHeart, IconShare } from "@tabler/icons-react";
 import { useParams } from "react-router-dom";
 import { usePropertyQuery } from "./hooks";
 import { Conditional } from "../components/conditional";
-import { useAppNavigation } from "../hooks";
-import { routesEndPoints } from "../constants";
 import { HiddenFromSm, VisbleFromSm } from "./components/";
 import { PropertyError } from "./components/propertyError";
 import { PropertyLoader } from "./components/propertyLoader";
+import { useEffect, useState } from "react";
+import { RequestModal } from "./components/requestModal";
+import { MakeOfferModal } from "./components/makeOfferModal";
+import { useLocation } from "react-router-dom";
+import { useAppNavigation } from "../hooks";
 
 export const Property = () => {
+  const [opened, setOpened] = useState(false);
+  const [openedMakeOffer, setOpendMakeOffer] = useState(false);
+
+  const location = useLocation()
+
+  const back = location.state?.from || '/'; 
+
+  const navigateBack = useAppNavigation(back)
+
   const parems = useParams();
-
-  const navigateToProperties = useAppNavigation(routesEndPoints.PROPERTIES);
-
   const { property, loading, error } = usePropertyQuery(parems.id);
 
   const photos = property.imageUrls ? property.imageUrls : [];
 
-  const data = { ...property, photos}
+  const data = { ...property, photos };
 
   const showData = !loading && !error;
 
-  const showError = error && !loading 
+  const showError = error && !loading;
 
   return (
     <>
@@ -42,10 +43,10 @@ export const Property = () => {
               color="#00c898"
               leftSection={<IconChevronLeft stroke={1.5} />}
               component="a"
-              href={routesEndPoints.PROPERTIES}
+              href={back}
               onClick={(e) => {
                 e.preventDefault();
-                navigateToProperties();
+                navigateBack();
               }}
             >
               Back
@@ -67,8 +68,16 @@ export const Property = () => {
               </Button>
             </Group>
           </Group>
-          <HiddenFromSm { ...data }/>
-          <VisbleFromSm { ...data }/>
+          <HiddenFromSm
+            {...data}
+            setOpened={() => setOpened(!opened)}
+            setOpendMakeOffer={() => setOpendMakeOffer(!openedMakeOffer)}
+          />
+          <VisbleFromSm
+            {...data}
+            setOpened={() => setOpened(!opened)}
+            setOpendMakeOffer={() => setOpendMakeOffer(!openedMakeOffer)}
+          />
         </Conditional>
         <Conditional condition={showError}>
           <PropertyError />
@@ -76,6 +85,16 @@ export const Property = () => {
         <Conditional condition={loading}>
           <PropertyLoader />
         </Conditional>
+        <RequestModal
+          property={property}
+          opened={opened}
+          onClose={() => setOpened(!opened)}
+        />
+        <MakeOfferModal
+          property={property}
+          opened={openedMakeOffer}
+          onClose={() => setOpendMakeOffer(!openedMakeOffer)}
+        />
       </Container>
     </>
   );

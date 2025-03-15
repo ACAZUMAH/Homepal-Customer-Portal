@@ -25,7 +25,7 @@ import useAppAuthentication from "../../hooks/useAppAuthentication";
 import classes from "./styles/inde.module.css";
 import { useSavePropertyMutation } from "./hooks/useSavePropertyMutation";
 import { useAppFavoriteProperty } from "../../hooks/useAppFavoriteProperty";
-
+import { useLocation } from "react-router-dom";
 /**
  * 
  * @param {*} props 
@@ -34,7 +34,9 @@ import { useAppFavoriteProperty } from "../../hooks/useAppFavoriteProperty";
 export const PropertiesCard = (props) => {
   const propertyurl = getPropertytUrl(props._id);
 
-  const navigateToProperty = useAppNavigation(propertyurl);
+  const location = useLocation()
+  
+  const navigateToProperty = useAppNavigation(propertyurl, location.pathname);
 
   const { isAuthenticated } = useAppAuthentication();
 

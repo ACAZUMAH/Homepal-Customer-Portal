@@ -1,7 +1,7 @@
 import { useQuery, gql } from "@apollo/client";
 
 const useGetPropertiesGql = gql`
-  query GetListings($filter: listingFilter) {
+  query GetListings($filter: listingFilters) {
     listings(filters: $filter) {
       edges {
         _id
