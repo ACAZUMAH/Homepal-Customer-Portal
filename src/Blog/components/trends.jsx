@@ -30,7 +30,7 @@ const articles = [
 
 const Trends = () => {
   return (
-    <Container size="lg" mt="xl" style={{backgroundColor:"white"}}>
+    <Container size="xl" mt="xl" style={{backgroundColor:"white"}}>
       <Grid gutter="xl">
         
         <Grid.Col span={{ base: 12, md: 4 }}>
@@ -38,11 +38,11 @@ const Trends = () => {
             <Title order={2} style={{ color: "#00c898" }}>Latest News</Title>
             {newsCategories.map((item, index) => (
               <Stack key={index} spacing={2}>
-                <Text fw={600} color="#00c898">{item.title}</Text>
-                <Text size="sm" color="gray.6">
+                <Text fw={600} c="#00c898">{item.title}</Text>
+                <Text size="sm" c="gray.6">
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do ei usmod
                 </Text>
-                <Text size="xs" color="gray.5">Wade Warren</Text>
+                <Text size="xs" cr="gray.5">Wade Warren</Text>
                 {index !== newsCategories.length - 1 && <Divider />}
               </Stack>
             ))}
@@ -56,10 +56,10 @@ const Trends = () => {
               <div key={index}>
                 <Image src={article.image} radius="md" alt={article.category} />
                 <Stack mt="md" spacing="xs">
-                  <Text fw={600} color="#00c898">{article.category}</Text>
+                  <Text fw={600} c="#00c898">{article.category}</Text>
                   <Title order={3}>{article.title}</Title>
-                  <Text size="sm" color="gray.7">{article.content}</Text>
-                  <Text size="xs" color="gray.5">{article.author}</Text>
+                  <Text size="sm" c="gray.7">{article.content}</Text>
+                  <Text size="xs" c="gray.5">{article.author}</Text>
                 </Stack>
               </div>
             ))}

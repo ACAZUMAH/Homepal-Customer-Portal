@@ -100,7 +100,7 @@ export const VisbleFromSm = (props) => {
                 yours, we're here to guide you. Choose your next move below
               </Text>
               <Button color="#00c898" onClick={props.setOpened}>
-                RequestTour
+                Request Tour
               </Button>
               <Button
                 variant="outline"

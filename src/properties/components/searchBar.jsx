@@ -15,7 +15,6 @@ import {
  * @returns 
  */
 export const SearchBar = (props) => {
-  const [mode, setMode] = useState("");
   const [type, setType] = useState("");
   const [address, setAddress] = useState("");
   const [price, setPrice] = useState("");
@@ -25,7 +24,6 @@ export const SearchBar = (props) => {
       type,
       address,
       price,
-      mode,
     };
     props.onSearch(filter);
     setType("");
@@ -53,8 +51,7 @@ export const SearchBar = (props) => {
             data={["Buy", "Rent"]}
             placeholder="Choose Mode"
             radius="xl"
-            value={mode}
-            onChange={setMode}
+            value={props.mode}
             rightSection={<IconChevronDown />}
             classNames={{ input: "searchInput" }}
           />
