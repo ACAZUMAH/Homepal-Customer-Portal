@@ -33,6 +33,7 @@ export const Buy = () => {
         setSort={setSort}
         setPage={setPage}
         setFilters={setFilters}
+        mode="Buy"
       />
     </>
   );

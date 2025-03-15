@@ -30,7 +30,6 @@ export const RequestModalForm = ({
   const {
     handleCreateRequestTour,
     loading,
-    error: isError,
   } = useRequestTourMutation();
   const { user } = useAppAuthentication();
   const requestTourForm = useRequestTourForm();

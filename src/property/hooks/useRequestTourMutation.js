@@ -20,7 +20,7 @@ export const useRequestTourMutation = () => {
         await createTourRequest({ variables:{ data } })
 
         showNotification({
-            title: "success",
+            title: "Success",
             message: "Request succesfully sent",
             color: "#00c898"
         })

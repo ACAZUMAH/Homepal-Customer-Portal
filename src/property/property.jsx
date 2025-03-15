@@ -91,8 +91,7 @@ export const Property = () => {
           onClose={() => setOpened(!opened)}
         />
         <MakeOfferModal
-          location={property.address}
-          price={property.price}
+          property={property}
           opened={openedMakeOffer}
           onClose={() => setOpendMakeOffer(!openedMakeOffer)}
         />

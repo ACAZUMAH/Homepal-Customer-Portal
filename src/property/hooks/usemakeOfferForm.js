@@ -22,6 +22,7 @@ export const useMakeOfferForm = () => {
 
   const form = useFormik({
     initialValues: {
+      clientId: user.id,
       firstName: user.firstName || "",
       lastName: user.lastName || "",
       email: user.email || "",
@@ -30,7 +31,9 @@ export const useMakeOfferForm = () => {
       message: "",
     },
     validationSchema,
-    validateOnMount: true,
+    validateOnMount: false,
+    validateOnBlur: true,
+    validateOnChange: true,
     onSubmit: () => {}
   });
 

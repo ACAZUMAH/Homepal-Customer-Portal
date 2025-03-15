@@ -42,7 +42,7 @@ export const Properties = (props) => {
             </Title>
           </Stack>
         </Center>
-        <SearchBar onSearch={props.search} />
+        <SearchBar onSearch={props.search} mode={props.mode}/>
         <Conditional condition={showSortAndData}>
           <Group justify="space-between" pt={50} gap="xs">
             <Title c="#00c898" order={1} size="2rem">

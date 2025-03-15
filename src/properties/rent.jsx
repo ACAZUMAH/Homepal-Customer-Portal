@@ -33,6 +33,7 @@ export const Rent = () => {
         setSort={setSort}
         setPage={setPage}
         setFilters={setFilters}
+        mode="Rent"
       />
     </>
   );

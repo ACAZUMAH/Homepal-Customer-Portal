@@ -30,6 +30,7 @@ export const useRequestTourForm = () => {
     validationSchema,
     validateOnMount: false,
     validateOnBlur: true,
+    validateOnChange: true,
     onSubmit: () => {},
   });
 

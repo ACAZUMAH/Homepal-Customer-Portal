@@ -2,12 +2,13 @@ import { Modal } from "@mantine/core";
 import { MakeOfferModalForm } from "./modals/makeOfferModalForm";
 import { useState } from "react";
 
-export const MakeOfferModal = ({ opened, onClose, location, price }) => {
+export const MakeOfferModal = ({ opened, onClose, property }) => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
   const [offerAmount, setOfferAmount] = useState("");
+  const [message, setMessage] = useState("")
 
   return (
     <>
@@ -18,8 +19,7 @@ export const MakeOfferModal = ({ opened, onClose, location, price }) => {
         size="xl"
       >
         <MakeOfferModalForm
-          location={location}
-          price={price}
+          property={property}
           onClose={onClose}
           firstName={firstName}
           setFirstName={setFirstName}
@@ -31,6 +31,8 @@ export const MakeOfferModal = ({ opened, onClose, location, price }) => {
           setPhoneNumber={setPhoneNumber}
           offerAmount={offerAmount}
           setOfferAmount={setOfferAmount}
+          message={message}
+          setMessage={setMessage}
         />
       </Modal>
     </>
