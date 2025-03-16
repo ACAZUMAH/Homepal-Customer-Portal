@@ -3,28 +3,49 @@ import trends2 from "../../assets/images/trends2.png";
 import trends1 from "../../assets/images/trends1.png";
 
 const newsCategories = [
-  { title: "Buying" },
-  { title: "Selling" },
-  { title: "Renting" },
-  { title: "Guides" },
-  { title: "Agents" },
+  { 
+    title: "Buying",
+    author: "Tech Property Review",
+    description: "2025 Forecast: AI-powered home valuation tools expected to reduce buyer research time by 60%"
+  },
+  { 
+    title: "Selling",
+    author: "Green Housing Digest",
+    description: "Coming 2025: New EU sustainability regulations that will impact home listings"
+  },
+  { 
+    title: "Renting",
+    author: "Future Cities Report",
+    description: "2025 Trend Alert: Co-living spaces predicted to dominate urban rental markets"
+  },
+  { 
+    title: "Guides",
+    author: "Financial Times Property",
+    description: "Preparing for 2025: How new property tax reforms will affect homeowners"
+  },
+  { 
+    title: "Agents",
+    author: "Pro Agent Magazine",
+    description: "2025 Career Outlook: VR certification becomes essential for real estate professionals"
+  }
 ];
+
 
 const articles = [
   {
     category: "Buying",
-    title: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do ei usmod",
-    content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    title: "Navigating Competitive Markets: Strategies for First-Time Homebuyers",
+    content: "With inventory levels at record lows, buyers are adopting new tactics including pre-inspection offers and flexible closing dates. Learn how to strengthen your bid in today's fast-paced market.",
     image: trends2,
-    author: "Wade Warren",
+    author: "Maria Gonzalez",
   },
   {
     category: "Renting",
-    title: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do ei usmod",
+    title: "The Rise of Flexi-Leases: How Landlords Are Adapting to New Demands",
     content:
-      "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "Property managers report 30% increase in requests for short-term leases and pet-friendly accommodations. Discover how adaptive leasing strategies benefit both tenants and owners.",
     image: trends1,
-    author: "Wade Warren",
+    author: "James Wilson",
   },
 ];
 
@@ -39,10 +60,8 @@ const Trends = () => {
             {newsCategories.map((item, index) => (
               <Stack key={index} spacing={2}>
                 <Text fw={600} c="#00c898">{item.title}</Text>
-                <Text size="sm" c="gray.6">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do ei usmod
-                </Text>
-                <Text size="xs" cr="gray.5">Wade Warren</Text>
+                <Text size="sm" c="gray.6">{item.description}</Text>
+                <Text size="xs" c="gray.5">{item.author}</Text>
                 {index !== newsCategories.length - 1 && <Divider />}
               </Stack>
             ))}
