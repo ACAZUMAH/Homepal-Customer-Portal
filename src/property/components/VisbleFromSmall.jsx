@@ -99,12 +99,13 @@ export const VisbleFromSm = (props) => {
                 Whether you want to explore the property in person or to make it
                 yours, we're here to guide you. Choose your next move below
               </Text>
-              <Button color="#00c898" onClick={props.setOpened}>
+              <Button color="#00c898" radius="md" onClick={props.setOpened}>
                 Request Tour
               </Button>
               <Button
                 variant="outline"
                 color="#00c898"
+                radius="md"
                 onClick={props.setOpendMakeOffer}
               >
                 Make an Offer

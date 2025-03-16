@@ -7,7 +7,7 @@ const { title, message, validatePhoneNumber } = usePhoneNumberValidator();
 
 const validationSchema = yup.object().shape({
   firstName: yup.string().required("First name required"),
-  lastName: yup.string(),
+  lastName: yup.string().optional(),
   email: yup.string().email().required("Email is required"),
   phoneNumber: yup
     .string()
@@ -32,8 +32,7 @@ export const useMakeOfferForm = () => {
     },
     validationSchema,
     validateOnMount: false,
-    validateOnBlur: true,
-    validateOnChange: true,
+    enableReinitialize: true,
     onSubmit: () => {}
   });
 
