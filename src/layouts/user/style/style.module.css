@@ -1,6 +1,6 @@
 .navbar {
   background-color: var(--mantine-color-white-0);
-  height: 1000px;
+  height: 970px;
   width: 220px;
   padding: var(--mantine-spacing-md);
   padding-bottom: 0;
@@ -16,6 +16,12 @@
 
   &:not(:last-of-type) {
     border-bottom: 1px solid light-dark(var(--mantine-color-gray-3), var(--mantine-color-dark-4));
+  }
+}
+
+@media (max-width: 1500px){
+  .navbar{
+      height: 100%;
   }
 }
 
