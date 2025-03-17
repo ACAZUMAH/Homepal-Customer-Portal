@@ -75,21 +75,21 @@ export const HiddenFromSm = (props) => {
             <Card shadow="sm" radius="md" p="lg" withBorder mt={20}>
               <Stack>
                 <Title order={3}>Ready to take the next Step?</Title>
-                <Button color="#00c898" >RequestTour</Button>
-                <Button variant="outline" color="#00c898">
+                <Button color="#00c898" radius="md" onClick={props.setOpened}>
+                  RequestTour
+                </Button>
+                <Button
+                  variant="outline"
+                  color="#00c898"
+                  radius="md"
+                  onClick={props.setOpendMakeOffer}
+                >
                   Make an Offer
                 </Button>
               </Stack>
             </Card>
           </Stack>
-          <Card
-            radius="md"
-            p="lg"
-            withBorder
-            h="50%"
-            w="100%"
-            mt={40}
-          >
+          <Card radius="md" p="lg" withBorder h="50%" w="100%" mt={40}>
             <Title fw={500} order={4}>
               Amenities
             </Title>
@@ -101,14 +101,7 @@ export const HiddenFromSm = (props) => {
               ))}
             </Grid>
           </Card>
-          <Card
-            radius="md"
-            p="lg"
-            withBorder
-            h="auto"
-            w="100%"
-            mt={40}
-          >
+          <Card radius="md" p="lg" withBorder h="auto" w="100%" mt={40}>
             <Group justify="space-between" mb={20}>
               <Title fw={500} order={3}>
                 Address

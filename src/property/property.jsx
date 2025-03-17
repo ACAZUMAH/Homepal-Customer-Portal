@@ -41,6 +41,7 @@ export const Property = () => {
             <Button
               variant="outline"
               color="#00c898"
+              radius="md"
               leftSection={<IconChevronLeft stroke={1.5} />}
               component="a"
               href={back}
@@ -55,6 +56,7 @@ export const Property = () => {
               <Button
                 variant="outline"
                 color="#00c898"
+                radius="md"
                 leftSection={<IconHeart troke={1.5} />}
               >
                 Save
@@ -62,6 +64,7 @@ export const Property = () => {
               <Button
                 variant="outline"
                 color="#00c898"
+                radius="md"
                 leftSection={<IconShare troke={1.5} />}
               >
                 Share

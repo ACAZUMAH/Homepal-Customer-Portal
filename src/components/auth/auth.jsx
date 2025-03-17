@@ -92,6 +92,7 @@ export const Auth = ({ phoneNumber, onChangePhoneNumber, onSuccess }) => {
               }
               loading={sendLoading}
               onClick={handleSendOTP}
+              radius="md"
             >
               continue
             </Button>
@@ -122,6 +123,7 @@ export const Auth = ({ phoneNumber, onChangePhoneNumber, onSuccess }) => {
               disabled={!otpForm.values.otp || !otpForm.isValid}
               loading={verifyLoading}
               onClick={handleVerifyOtp}
+              radius="md"
             >
               verify
             </Button>

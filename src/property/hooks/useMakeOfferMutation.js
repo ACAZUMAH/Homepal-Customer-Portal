@@ -10,11 +10,11 @@ const makeofferMutationGql = gql`
 `;
 
 export const useMakeOfferMutation = () => {
-  const [createOffer, { loading, error }] = useMutation(makeofferMutationGql);
+  const [mutate, result] = useMutation(makeofferMutationGql);
 
   const handleSubmitOffer = async (data) => {
     try {
-      await createOffer({ variables: { data } });
+      await mutate({ variables: { data } });
 
       showNotification({
         title: "Success",
@@ -26,7 +26,7 @@ export const useMakeOfferMutation = () => {
     } catch (error) {
       showNotification({
         title: "Error",
-        message: "Oops! something went wrong",
+        message: "There was an error sending offer",
         color: "red",
       });
 
@@ -34,5 +34,5 @@ export const useMakeOfferMutation = () => {
     }
   };
 
-  return { handleSubmitOffer, loading, error }
+  return { handleSubmitOffer, ...result }
 };

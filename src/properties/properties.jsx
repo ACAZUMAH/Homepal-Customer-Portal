@@ -8,9 +8,6 @@ import {
   Pagination,
   Group,
   Select,
-  Flex,
-  TextInput,
-  Button,
 } from "@mantine/core";
 import {
   IconArrowLeft,

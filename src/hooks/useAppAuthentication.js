@@ -19,7 +19,7 @@ const useAppAuthentication = () => {
         dispatch(authenticationActions.reset())
     }, [dispatch])
 
-    const updateUser = useCallback(() => {
+    const updateUser = useCallback((user) => {
         dispatch(authenticationActions.update({ user }))
     }, [dispatch])
 

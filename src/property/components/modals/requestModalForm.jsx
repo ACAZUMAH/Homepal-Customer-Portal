@@ -85,7 +85,6 @@ export const RequestModalForm = ({
         contactDetails: user.phoneNumber,
         scheduledDate: scheduledDate,
       };
-      console.log(scheduledDate)
     }
 
     if (mode === "Video call tour") {
@@ -128,61 +127,56 @@ export const RequestModalForm = ({
             rightSection={<IconChevronDown stroke={1.5} />}
             classNames={{ input: "custom-input" }}
             withAsterisk
-            radius="md"
           />
           <Conditional condition={mode === "In person tour"}>
             <DateTimePicker
               label="Choose date and time"
+              name="scheduledDate"
               placeholder="choose date and time"
-              onBlur={requestTourForm.handleBlur}
               value={requestTourForm.values.scheduledDate}
               onChange={handleChangeScheduleDate}
               error={requestTourForm.errors.scheduledDate}
               classNames={{ input: "custom-input" }}
               withAsterisk
-              radius="md"
             />
           </Conditional>
           <Conditional condition={mode === "Video call tour"}>
             <Select
-              label="select call mode"
+              label="Select call mode"
               data={["google meet", "whatsApp", "face time"]}
               rightSection={<IconChevronDown stroke={1.5} />}
               value={callMode}
               onChange={setCallMode}
               classNames={{ input: "custom-input" }}
               withAsterisk
-              radius="md"
             />
             <TextInput
               label={inputLabel}
+              name="contacDetails"
               placeholder={placeHolder}
               value={value}
               onChange={HandleChangeContact}
               error={error}
-              onBlur={requestTourForm.handleBlur}
               classNames={{ input: "custom-input" }}
               withAsterisk
-              radius="md"
             />
             <DateTimePicker
               label="Choose date and time"
               placeholder="choose date and time"
-              onBlur={requestTourForm.handleBlur}
+              name="scheduledDate"
               value={requestTourForm.values.scheduledDate}
               onChange={handleChangeScheduleDate}
               error={requestTourForm.errors.scheduledDate}
               classNames={{ input: "custom-input" }}
               withAsterisk
-              radius="md"
             />
           </Conditional>
           <Group justify="flex-end" py={10}>
-            <Button variant="default" onClick={onClose}>
-              cancel
+            <Button variant="default" radius="md" onClick={onClose}>
+              Cancel
             </Button>
-            <Button color="#00c898" onClick={handleSubmitRequest}>
-              confirm Booking
+            <Button color="#00c898" radius="md" onClick={handleSubmitRequest}>
+              Confirm Booking
             </Button>
           </Group>
         </Stack>

@@ -1,7 +1,7 @@
 .navbar {
-  background-color: var(--mantine-color-teal-0);
-  height: 800px;
-  width: 200px;
+  background-color: var(--mantine-color-white-0);
+  height: 1000px;
+  width: 220px;
   padding: var(--mantine-spacing-md);
   padding-bottom: 0;
   display: flex;
@@ -23,6 +23,7 @@
   flex: 1;
   margin-left: calc(var(--mantine-spacing-md) * -1);
   margin-right: calc(var(--mantine-spacing-md) * -1);
+  gap: 8;
 }
 
 .linksInner {
