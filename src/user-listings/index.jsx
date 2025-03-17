@@ -35,7 +35,6 @@ export const UserListings = () => {
     Math.ceil(pageInfo?.totalCount / pageInfo?.limit) || 0;
 
   // const openModal = location.pathname === routesEndPoints.NEW;
-  
   return (
     <>
       <Container size="xl">
