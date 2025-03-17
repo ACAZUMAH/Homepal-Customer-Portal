@@ -8,6 +8,8 @@ import {
   TextInput,
   Title,
 } from "@mantine/core";
+import { IconArrowRight } from "@tabler/icons-react";
+
 import React from "react";
 
 export const FindAgent = () => {
@@ -15,7 +17,7 @@ export const FindAgent = () => {
     <Container fluid size="xl" py="sm">
       <Container py="xl">
         <Stack align="center" spacing="lg">
-          <Title order={1} size="3rem" fw={600} c="#00c898">
+          <Title order={1} size="3rem" fw={700} c="#00c898">
             Find an agent
           </Title>
 
@@ -38,7 +40,12 @@ export const FindAgent = () => {
                 input: "customInput",
               }}
             />
-            <Button color="#00c898" size="md" radius="md">
+            <Button
+              color="#00c898"
+              size="md"
+              radius="md"
+              rightSection={<IconArrowRight size={18} />}
+            >
               Search
             </Button>
           </Group>

@@ -21,7 +21,7 @@
     "@mantine/notifications": "^7.16.3",
     "@reduxjs/toolkit": "^2.5.1",
     "@rollbar/react": "^0.12.1",
-    "@tabler/icons-react": "^3.29.0",
+    "@tabler/icons-react": "^3.31.0",
     "@tailwindcss/vite": "^4.0.0",
     "@vercel/speed-insights": "^1.2.0",
     "awesome-phonenumber": "^7.2.0",
