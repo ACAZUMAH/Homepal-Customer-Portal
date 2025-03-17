@@ -13,14 +13,10 @@ import {
 import { IconMapPin, IconWalk, IconBus, IconBike } from "@tabler/icons-react";
 import { Carousel } from "@mantine/carousel";
 import { Conditional } from "../../components/conditional";
-import { useAppNavigation } from "../../hooks";
-import { routesEndPoints } from "../../constants";
+import classes from '../styles/index.module.css'
 
 export const VisbleFromSm = (props) => {
-
   const showCarousel = props.photos?.length > 1;
-
-  const navigateToRequestTour = useAppNavigation(routesEndPoints.PROPERTY_TOUR)
 
   return (
     <>
@@ -41,6 +37,7 @@ export const VisbleFromSm = (props) => {
               align="start"
               slideGap="md"
               controlsOffset="xs"
+              withControls
               withIndicators
               loop
             >

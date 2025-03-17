@@ -1,14 +1,7 @@
 
-.carousel {
-  & :global(.mantine-Carousel-indicator) {
-    background-color: var(--mantine-color-brand-5) !important;
-  }
-}
-
 .carousel:hover .carouselControls {
   opacity: 1;
 }
-
 
 .carouselControls {
   transition: opacity 150ms ease;

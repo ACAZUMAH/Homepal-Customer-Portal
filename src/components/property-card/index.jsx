@@ -61,7 +61,7 @@ export const PropertiesCard = (props) => {
 
   return (
     <>
-      <Card shadow="sm" padding="xs" radius="md" withBorder h={450}>
+      <Card shadow="xs" padding="xs" radius="md" withBorder h={450}>
         <Card.Section>
           <Image src={photo} h={250} alt={props.name} />
         </Card.Section>
@@ -110,7 +110,7 @@ export const PropertiesCard = (props) => {
           </ActionIcon>
         </Conditional>
         <Stack justify="space-between" pt="10" gap={15}>
-          <Text fw="medium" size="md">
+          <Text fw="medium" size="lg">
             {props.name}
           </Text>
 
@@ -154,6 +154,6 @@ export const PropertiesCard = (props) => {
   );
 };
 
-export const PropertiesLoader = () => {
-  return <Skeleton h={450} />;
+export const PropertiesLoader = ({ h }) => {
+  return <Skeleton h={h || 450} />;
 };

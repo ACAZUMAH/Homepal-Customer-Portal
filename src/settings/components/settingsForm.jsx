@@ -52,6 +52,8 @@ export const SettingsForm = ({ form, handleSubmit, loading }) => {
         <Group pt={20} justify="flex-end">
           <Button
             color="#00c898"
+            size="md"
+            radius="md"
             loading={loading}
             leftSection={<IconDeviceFloppy />}
             disabled={!form.isValid}
