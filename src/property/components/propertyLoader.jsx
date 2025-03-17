@@ -1,5 +1,4 @@
 import { Group, Skeleton, Box, Flex, Stack, Card, Grid } from "@mantine/core";
-import { IconChevronLeft, IconHeart, IconShare } from "@tabler/icons-react";
 
 export const PropertyLoader = () => {
   return (
@@ -35,7 +34,7 @@ export const PropertyLoader = () => {
               <Skeleton height={8} radius="xl" />
               <Skeleton height={8} radius="xl" width="50%" />
             </Stack>
-            <Card shadow="sm" radius="md" p="lg" mt={70} withBorder>
+            <Card radius="md" p="lg" mt={70} withBorder>
               <Group justify="space-between">
                 <Skeleton height={15} radius="xl" width="18%" />
                 <Skeleton height={15} radius="xl" width="15%" />
@@ -46,7 +45,7 @@ export const PropertyLoader = () => {
               </Group>
             </Card>
           </Stack>
-          <Card shadow="sm" radius="md" p="lg" withBorder flex="1" w="30%">
+          <Card radius="md" p="lg" withBorder flex="1" w="30%">
             <Stack>
               <Skeleton height={15} radius="xl" />
               <Skeleton height={15} radius="xl" width="30%" />
@@ -58,7 +57,7 @@ export const PropertyLoader = () => {
             </Stack>
           </Card>
         </Flex>
-        <Card shadow="sm" radius="md" p="lg" withBorder h="50%" w={816} mt={40}>
+        <Card radius="md" p="lg" withBorder h="50%" w={816} mt={40}>
           <Skeleton height={15} radius="xl" width="18%" />
           <Grid mt="sm">
             {Array(5)
@@ -71,7 +70,6 @@ export const PropertyLoader = () => {
           </Grid>
         </Card>
         <Card
-          shadow="sm"
           radius="md"
           p="lg"
           withBorder
@@ -101,7 +99,7 @@ export const PropertyLoader = () => {
             <Skeleton height={8} radius="xl" />
             <Skeleton height={8} radius="xl" />
             <Skeleton height={8} radius="xl" width="20%" />
-            <Card shadow="sm" radius="md" p="lg" withBorder>
+            <Card radius="md" p="lg" withBorder>
               <Group justify="space-between">
                 <Skeleton height={13} radius="xl" width="30%" />
                 <Skeleton height={13} radius="xl" width="25%" />
@@ -111,7 +109,7 @@ export const PropertyLoader = () => {
                 <Skeleton height={10} radius="xl" width="20%" />
               </Group>
             </Card>
-            <Card shadow="sm" radius="md" p="lg" withBorder>
+            <Card radius="md" p="lg" withBorder>
               <Stack>
                 <Skeleton height={15} radius="xl" />
                 <Skeleton height={36} radius="sm" />
@@ -119,7 +117,7 @@ export const PropertyLoader = () => {
               </Stack>
             </Card>
           </Stack>
-          <Card shadow="sm" radius="md" p="lg" withBorder h="50%" w="100%">
+          <Card radius="md" p="lg" withBorder h="50%" w="100%">
             <Skeleton height={15} radius="xl" width="18%" />
             <Grid mt="sm">
               {Array(5)
@@ -131,7 +129,7 @@ export const PropertyLoader = () => {
                 ))}
             </Grid>
           </Card>
-          <Card shadow="sm" radius="md" p="lg" withBorder h="auto" w="100%" mt={40}>
+          <Card radius="md" p="lg" withBorder h="auto" w="100%" mt={40}>
             <Group justify="space-between" mb={20}>
               <Skeleton height={15} radius="xl" width="18%" />
               <Skeleton height={15} radius="xl" width="30%" />

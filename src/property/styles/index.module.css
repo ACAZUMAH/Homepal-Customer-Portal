@@ -4,3 +4,23 @@
     background-color: var(--mantine-color-brand-5) !important;
   }
 }
+
+.carousel:hover .carouselControls {
+  opacity: 1;
+}
+
+
+.carouselControls {
+  transition: opacity 150ms ease;
+  opacity: 0;
+}
+
+.carouselIndicator {
+  width: 4px;
+  height: 4px;
+  transition: width 250ms ease;
+
+  &[data-active] {
+    width: 16px;
+  }
+}

@@ -3,7 +3,6 @@ import { MainLayout } from "../layouts/main";
 import { Navigate } from "react-router-dom";
 import { Property } from "../property/property";
 import { Login } from "../Authentication/login";
-import { RequestTour } from "../tour";
 import { MakeOffer } from "../offer/offer";
 import { routesEndPoints } from "../constants";
 import { Favorite } from "../favorite";
@@ -12,6 +11,10 @@ import { Rent } from "../properties/rent";
 import { SellPage } from "../Sell";
 import { FindAgent } from "../findAgent";
 import { Blog } from "../Blog";
+import { RequestTour } from "../RequestTour";
+import { UserLayout } from "../layouts/user";
+import { Settings } from "../settings";
+import { UserListings } from "../user-listings";
 
 export const routes = [
   {
@@ -50,16 +53,30 @@ export const routes = [
       },
       {
         path: routesEndPoints.SELL,
-        element: <SellPage />
+        element: <SellPage />,
       },
       {
         path: routesEndPoints.FIND_AGENT,
-        element: <FindAgent />
+        element: <FindAgent />,
       },
       {
         path: routesEndPoints.BLOG,
-        element: <Blog />
-      }
+        element: <Blog />,
+      },
+      {
+        path: routesEndPoints.USER,
+        element: <UserLayout />,
+        children: [
+          {
+            index: true,
+            element: <UserListings />
+          },
+          {
+            path: routesEndPoints.SETTINGS,
+            element: <Settings />
+          },
+        ],
+      },
     ],
   },
   {

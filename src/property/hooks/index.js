@@ -14,6 +14,7 @@ const usePropertyGql = gql`
       mode
       amenities
       imageUrls
+      userRef
     }
   }
 `;

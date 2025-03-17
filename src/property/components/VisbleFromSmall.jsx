@@ -13,6 +13,7 @@ import {
 import { IconMapPin, IconWalk, IconBus, IconBike } from "@tabler/icons-react";
 import { Carousel } from "@mantine/carousel";
 import { Conditional } from "../../components/conditional";
+import classes from '../styles/index.module.css'
 
 export const VisbleFromSm = (props) => {
   const showCarousel = props.photos?.length > 1;
@@ -36,6 +37,7 @@ export const VisbleFromSm = (props) => {
               align="start"
               slideGap="md"
               controlsOffset="xs"
+              withControls
               withIndicators
               loop
             >
@@ -67,7 +69,7 @@ export const VisbleFromSm = (props) => {
               </Title>
               <Text>{props.description}</Text>
             </Stack>
-            <Card shadow="sm" radius="md" p="lg" mt={70} withBorder>
+            <Card radius="md" p="lg" mt={70} withBorder>
               <Group justify="space-between">
                 <Title fw={400} order={3}>
                   {props.name}
@@ -94,15 +96,22 @@ export const VisbleFromSm = (props) => {
                 Whether you want to explore the property in person or to make it
                 yours, we're here to guide you. Choose your next move below
               </Text>
-              <Button color="#00c898">RequestTour</Button>
-              <Button variant="outline" color="#00c898">
+              <Button color="#00c898" radius="md" onClick={props.setOpened}>
+                Request Tour
+              </Button>
+              <Button
+                variant="outline"
+                color="#00c898"
+                radius="md"
+                onClick={props.setOpendMakeOffer}
+              >
                 Make an Offer
               </Button>
             </Stack>
           </Card>
         </Flex>
 
-        <Card shadow="sm" radius="md" p="lg" withBorder h="50%" w={816} mt={40}>
+        <Card radius="md" p="lg" withBorder h="50%" w={816} mt={30}>
           <Title fw={500} order={3}>
             Amenities
           </Title>
@@ -114,15 +123,7 @@ export const VisbleFromSm = (props) => {
             ))}
           </Grid>
         </Card>
-        <Card
-          shadow="sm"
-          radius="md"
-          p="lg"
-          withBorder
-          h="auto"
-          w={816}
-          mt={40}
-        >
+        <Card radius="md" p="lg" withBorder h="auto" w={816} mt={30}>
           <Group justify="space-between" mb={20}>
             <Title fw={500} order={3}>
               Address

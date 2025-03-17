@@ -7,11 +7,24 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+<<<<<<< HEAD
 .customInput {
   border: 1.5px solid gray;
+=======
+.custom-input {
+  border: 1.5px solid rgb(189, 188, 188);
+>>>>>>> main
   transition: border-color 0.3s ease;
 }
 
 .customInput:focus {
   border-color: #00c898 !important;
+}
+
+.searchInput{
+  background-color: #f0f7fd;
+}
+
+.searchInput:focus{
+  border-color: #00c898;
 }

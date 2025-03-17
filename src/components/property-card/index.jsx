@@ -25,7 +25,7 @@ import useAppAuthentication from "../../hooks/useAppAuthentication";
 import classes from "./styles/inde.module.css";
 import { useSavePropertyMutation } from "./hooks/useSavePropertyMutation";
 import { useAppFavoriteProperty } from "../../hooks/useAppFavoriteProperty";
-
+import { useLocation } from "react-router-dom";
 /**
  * 
  * @param {*} props 
@@ -34,7 +34,9 @@ import { useAppFavoriteProperty } from "../../hooks/useAppFavoriteProperty";
 export const PropertiesCard = (props) => {
   const propertyurl = getPropertytUrl(props._id);
 
-  const navigateToProperty = useAppNavigation(propertyurl);
+  const location = useLocation()
+  
+  const navigateToProperty = useAppNavigation(propertyurl, location.pathname);
 
   const { isAuthenticated } = useAppAuthentication();
 
@@ -59,7 +61,7 @@ export const PropertiesCard = (props) => {
 
   return (
     <>
-      <Card shadow="sm" padding="xs" radius="md" withBorder h={450}>
+      <Card shadow="xs" padding="xs" radius="md" withBorder h={450}>
         <Card.Section>
           <Image src={photo} h={250} alt={props.name} />
         </Card.Section>
@@ -108,7 +110,7 @@ export const PropertiesCard = (props) => {
           </ActionIcon>
         </Conditional>
         <Stack justify="space-between" pt="10" gap={15}>
-          <Text fw="medium" size="md">
+          <Text fw="medium" size="lg">
             {props.name}
           </Text>
 
@@ -152,6 +154,6 @@ export const PropertiesCard = (props) => {
   );
 };
 
-export const PropertiesLoader = () => {
-  return <Skeleton h={450} />;
+export const PropertiesLoader = ({ h }) => {
+  return <Skeleton h={h || 450} />;
 };

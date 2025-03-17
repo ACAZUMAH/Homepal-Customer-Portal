@@ -82,6 +82,7 @@ export const Auth = ({ phoneNumber, onChangePhoneNumber, onSuccess }) => {
               onChange={handlePhoneNumberChange}
               value={phoneNumberForm.values.phoneNumber}
               error={phoneNumberForm.errors.phoneNumber}
+              classNames={{ input: "custom-input" }}
             />
             <Button
               size="md"
@@ -91,6 +92,7 @@ export const Auth = ({ phoneNumber, onChangePhoneNumber, onSuccess }) => {
               }
               loading={sendLoading}
               onClick={handleSendOTP}
+              radius="md"
             >
               continue
             </Button>
@@ -112,6 +114,7 @@ export const Auth = ({ phoneNumber, onChangePhoneNumber, onSuccess }) => {
               type="number"
               onChange={(value) => otpForm.setFieldValue("otp", value)}
               value={otpForm.values.otp}
+              classNames={{ input: "custom-input" }}
             />
             <Button
               size="md"
@@ -120,10 +123,15 @@ export const Auth = ({ phoneNumber, onChangePhoneNumber, onSuccess }) => {
               disabled={!otpForm.values.otp || !otpForm.isValid}
               loading={verifyLoading}
               onClick={handleVerifyOtp}
+              radius="md"
             >
               verify
             </Button>
-          <ResendOtp onShowOTP={setShowOtpForm} onResendOTP={handleResendOTP} initialCount={50}/>
+            <ResendOtp
+              onShowOTP={setShowOtpForm}
+              onResendOTP={handleResendOTP}
+              initialCount={50}
+            />
           </Stack>
         </Conditional>
       </Box>
