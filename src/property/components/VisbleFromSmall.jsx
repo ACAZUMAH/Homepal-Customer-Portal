@@ -13,14 +13,10 @@ import {
 import { IconMapPin, IconWalk, IconBus, IconBike } from "@tabler/icons-react";
 import { Carousel } from "@mantine/carousel";
 import { Conditional } from "../../components/conditional";
-import { useAppNavigation } from "../../hooks";
-import { routesEndPoints } from "../../constants";
+import classes from '../styles/index.module.css'
 
 export const VisbleFromSm = (props) => {
-
   const showCarousel = props.photos?.length > 1;
-
-  const navigateToRequestTour = useAppNavigation(routesEndPoints.PROPERTY_TOUR)
 
   return (
     <>
@@ -41,6 +37,7 @@ export const VisbleFromSm = (props) => {
               align="start"
               slideGap="md"
               controlsOffset="xs"
+              withControls
               withIndicators
               loop
             >
@@ -99,12 +96,13 @@ export const VisbleFromSm = (props) => {
                 Whether you want to explore the property in person or to make it
                 yours, we're here to guide you. Choose your next move below
               </Text>
-              <Button color="#00c898" onClick={props.setOpened}>
+              <Button color="#00c898" radius="md" onClick={props.setOpened}>
                 Request Tour
               </Button>
               <Button
                 variant="outline"
                 color="#00c898"
+                radius="md"
                 onClick={props.setOpendMakeOffer}
               >
                 Make an Offer

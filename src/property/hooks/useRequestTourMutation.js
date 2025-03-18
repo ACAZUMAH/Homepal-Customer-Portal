@@ -10,14 +10,14 @@ const requestTourMutationGql = gql`
 `;
 
 export const useRequestTourMutation = () => {
-  const [createTourRequest, { loading, error }] = useMutation(
+  const [mutate, result] = useMutation(
     requestTourMutationGql,
     {}
   );
 
   const handleCreateRequestTour = async (data) => {
     try {
-        await createTourRequest({ variables:{ data } })
+        await mutate({ variables:{ data } })
 
         showNotification({
             title: "Success",
@@ -29,7 +29,7 @@ export const useRequestTourMutation = () => {
     } catch (error) {
         showNotification({
             title: "Error",
-            message: "Oops! something went wrong",
+            message: "There was an error sending request",
             color: 'red'
         }) 
 
@@ -37,5 +37,5 @@ export const useRequestTourMutation = () => {
     }
   }
 
-  return { handleCreateRequestTour, loading, error }
+  return { handleCreateRequestTour, ...result }
 };

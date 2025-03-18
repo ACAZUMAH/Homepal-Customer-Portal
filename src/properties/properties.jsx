@@ -8,9 +8,6 @@ import {
   Pagination,
   Group,
   Select,
-  Flex,
-  TextInput,
-  Button,
 } from "@mantine/core";
 import {
   IconArrowLeft,
@@ -30,7 +27,7 @@ export const Properties = (props) => {
   const showPagenation =  props.properties.length && !props.loading && !props.error;
   const showSortAndData = props.properties.length || (props.loading && !props.error);
 
-  const totalPages = Math.abs(props.pageInfo?.totalCount / props.pageInfo?.limit) || 0
+  const totalPages = Math.ceil(props.pageInfo?.totalCount / props.pageInfo?.limit) || 0
 
   return (
     <>

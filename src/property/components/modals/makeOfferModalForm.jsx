@@ -11,10 +11,9 @@ import {
   TextInput,
 } from "@mantine/core";
 import { IconCurrencyCent, IconMapPinFilled } from "@tabler/icons-react";
-import React from "react";
-import useAppAuthentication from "../../../hooks/useAppAuthentication";
-import { useMakeOfferForm } from "../../hooks/usemakeOfferForm";
 import { useMakeOfferMutation } from "../../hooks/useMakeOfferMutation";
+import { useMakeOfferForm } from "../../hooks/usemakeOfferForm";
+
 
 export const MakeOfferModalForm = ({
   property,
@@ -32,7 +31,6 @@ export const MakeOfferModalForm = ({
   message,
   setMessage,
 }) => {
-  const { user } = useAppAuthentication();
 
   const { handleSubmitOffer, loading } = useMakeOfferMutation();
 
@@ -100,11 +98,11 @@ export const MakeOfferModalForm = ({
             a tour to answering your questions.
           </Text>
           <Card withBorder>
-            <SimpleGrid cols={{ base: 1, md: 2, lg: 2 }}>
+            <SimpleGrid cols={{ base: 1, sm: 2 }}>
               <TextInput
                 label="First Name"
+                name="firstName"
                 placeholder="Enter First Name"
-                onBlur={makeOfferForm.handleBlur}
                 value={makeOfferForm.values.firstName}
                 error={makeOfferForm.errors.firstName}
                 onChange={handleChangeFirstName}
@@ -113,8 +111,8 @@ export const MakeOfferModalForm = ({
               />
               <TextInput
                 label="Last Name"
+                name="lastName"
                 placeholder="Enter last Name"
-                onBlur={makeOfferForm.handleBlur}
                 value={makeOfferForm.values.lastName}
                 error={makeOfferForm.errors.lastName}
                 onChange={handleChangeLastName}
@@ -122,8 +120,8 @@ export const MakeOfferModalForm = ({
               />
               <TextInput
                 label="Email"
+                name="email"
                 placeholder="Enter your Email"
-                onBlur={makeOfferForm.handleBlur}
                 value={makeOfferForm.values.email}
                 error={makeOfferForm.errors.email}
                 onChange={handleChangeEmail}
@@ -132,8 +130,8 @@ export const MakeOfferModalForm = ({
               />
               <TextInput
                 label="Phone Number"
+                name="phoneNumber"
                 placeholder="Enter Phone Number"
-                onBlur={makeOfferForm.handleBlur}
                 value={makeOfferForm.values.phoneNumber}
                 error={makeOfferForm.errors.phoneNumber}
                 onChange={handleChangePhoneNumber}
@@ -145,7 +143,7 @@ export const MakeOfferModalForm = ({
               pt={15}
               label="Selected Property Location"
               value={property.address}
-              readOnly
+              disabled
               rightSection={<IconMapPinFilled stroke={1.5} />}
               classNames={{ input: "custom-input" }}
             />
@@ -153,15 +151,15 @@ export const MakeOfferModalForm = ({
               pt={15}
               label="Asking Price"
               value={`GH¢ ${property.price}`}
-              readOnly
+              disabled
               rightSection={<IconCurrencyCent />}
               classNames={{ input: "custom-input" }}
             />
             <TextInput
               pt={15}
               label="Enter your Offer Amount"
+              name="offerAmount"
               placeholder="e.g. GH¢ 350,000"
-              onBlur={makeOfferForm.handleBlur}
               value={makeOfferForm.values.offerAmount}
               error={makeOfferForm.errors.offerAmount}
               onChange={handleChangeOfferAmount}
@@ -172,7 +170,6 @@ export const MakeOfferModalForm = ({
               pt={15}
               label="A message to the agent (optional)"
               placeholder="Reasons for your offer or conditions"
-              onBlur={makeOfferForm.handleBlur}
               value={makeOfferForm.values.message}
               error={makeOfferForm.errors.message}
               onChange={handleChangeMessage}
@@ -180,10 +177,10 @@ export const MakeOfferModalForm = ({
             />
           </Card>
           <Group justify="flex-end">
-            <Button variant="default" onClick={onClose}>
+            <Button variant="default" radius="md" onClick={onClose}>
               Cancel
             </Button>
-            <Button color="#00c898" onClick={onSubmitHandler}>
+            <Button color="#00c898" radius="md" onClick={onSubmitHandler}>
               Submit
             </Button>
           </Group>

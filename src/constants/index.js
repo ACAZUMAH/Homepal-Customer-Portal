@@ -11,5 +11,7 @@ export const routesEndPoints = {
   SELL: '/sell',
   FIND_AGENT: '/find-agent',
   BLOG: '/blog',
-  USER: '/u'
+  USER: '/u',
+  SETTINGS: '/u/settings',
+  NEW: '/u/new'
 };
