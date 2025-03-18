@@ -12,5 +12,6 @@ export const routesEndPoints = {
   FIND_AGENT: '/find-agent',
   BLOG: '/blog',
   USER: '/u',
-  SETTINGS: '/u/settings'
+  SETTINGS: '/u/settings',
+  NEW: '/u/new'
 };

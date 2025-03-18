@@ -56,7 +56,7 @@ export const Favorite = () => {
   const showPagenation = propertiesList?.length && !isLoading && !isError;
   const showSortAndData = propertiesList?.length || (isLoading && !isError);
 
-  const totalPages = Math.abs(pageInfos?.totalCount / pageInfos?.limit) || 0;
+  const totalPages = Math.ceil(pageInfos?.totalCount / pageInfos?.limit) || 0;
 
   return (
     <>
