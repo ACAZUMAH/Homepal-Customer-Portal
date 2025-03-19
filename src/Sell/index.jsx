@@ -15,7 +15,7 @@ export const SellPage = () => {
     <Container py="xl" my="90">
       <Stack align="center" spacing="lg">
         <Title order={1} size="3rem" fw={700} c="#00c898">
-          Sell Your Property with <br />
+          Sell Your Property With <br />
           <span style={{ display: "block", textAlign: "center" }}>
             Confidence
           </span>

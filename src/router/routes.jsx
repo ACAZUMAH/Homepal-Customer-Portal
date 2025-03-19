@@ -15,6 +15,7 @@ import { RequestTour } from "../RequestTour";
 import { UserLayout } from "../layouts/user";
 import { Settings } from "../settings";
 import { UserListings } from "../user-listings";
+import { NewListing } from "../user-listings/components/new-listing/new-listing";
 
 export const routes = [
   {
@@ -70,6 +71,10 @@ export const routes = [
           {
             index: true,
             element: <UserListings />
+          },
+          {
+            path: routesEndPoints.NEW,
+            element: <NewListing />
           },
           {
             path: routesEndPoints.SETTINGS,
