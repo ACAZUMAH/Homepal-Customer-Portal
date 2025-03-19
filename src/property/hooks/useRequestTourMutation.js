@@ -27,11 +27,13 @@ export const useRequestTourMutation = () => {
 
         return true
     } catch (error) {
-        showNotification({
-            title: "Error",
-            message: "There was an error sending request",
-            color: 'red'
-        }) 
+    showNotification({
+        title: "Error",
+        message: "There was an error sending request",
+        color: 'red'
+    }) 
+
+
 
         return false
     }
