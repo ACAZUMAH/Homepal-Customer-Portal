@@ -13,5 +13,9 @@ export const routesEndPoints = {
   BLOG: '/blog',
   USER: '/u',
   SETTINGS: '/u/settings',
-  NEW: '/u/new'
+  NEW: '/u/new',
+  UPDATE: '/u/update/:id',
+  REQUESTED: '/u/rquested',
+  REQUEST: '/u/request',
+  OFFERS: '/u/offers'
 };

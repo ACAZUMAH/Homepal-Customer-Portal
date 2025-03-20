@@ -17,24 +17,22 @@ import { routesEndPoints } from "../constants";
 import { useLocation, useNavigate } from "react-router-dom";
 
 export const UserListings = () => {
-  const [page, setPage] = useState(1)
-  
+  const [page, setPage] = useState(1);
+
   // const location = useLocation()
 
   // const navigate = useNavigate()
 
-  const navigateToNewListings = useAppNavigation(routesEndPoints.NEW)
+  const navigateToNewListings = useAppNavigation(routesEndPoints.NEW);
 
   const { Listings, pageInfo, loading, error } = useFetchUserListing({
     limit: 8,
-    page
+    page,
   });
-  const showPagenation = !loading && !error && Listings.length
+  const showPagenation = !loading && !error && Listings.length;
 
-  const totalPages =
-    Math.ceil(pageInfo?.totalCount / pageInfo?.limit) || 0;
+  const totalPages = Math.ceil(pageInfo?.totalCount / pageInfo?.limit) || 0;
 
-  // const openModal = location.pathname === routesEndPoints.NEW;
   return (
     <>
       <Container size="xl">
@@ -83,3 +81,7 @@ export const UserListings = () => {
     </>
   );
 };
+
+
+
+

@@ -1,7 +1,7 @@
 import { gql, useQuery } from "@apollo/client";
 
 const getFavoriteGql = gql`
-  query GetFavoriteProperties($ids: [ID!], $filters: listingFilters) {
+  query GetFavoriteProperties($ids: [ID!], $filters: ListingFilters) {
     getFavoriteProperties(ids: $ids, filters: $filters) {
       edges {
         _id

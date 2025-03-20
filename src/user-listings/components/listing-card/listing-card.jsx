@@ -1,10 +1,34 @@
 import { Carousel } from "@mantine/carousel";
-import { Button, Card, Group, Image, Stack, Text } from "@mantine/core";
+import {
+  ActionIcon,
+  Card,
+  Group,
+  Image,
+  Menu,
+  Stack,
+  Text,
+} from "@mantine/core";
 import React from "react";
 import classes from "../../styles/index.module.css";
-import { IconBath, IconBed, IconChevronRight, IconMapPin } from "@tabler/icons-react";
+import {
+  IconBath,
+  IconBed,
+  IconDotsVertical,
+  IconEye,
+  IconMapPin,
+  IconTrash,
+} from "@tabler/icons-react";
+import { useAppNavigation } from "../../../hooks";
+import { useLocation } from "react-router-dom";
+import { getListingtUrl } from "../../helper/helper";
 
 export const ListingCard = ({ listings }) => {
+  const listingUrl = getListingtUrl(listings._id)
+
+  const location = useLocation()
+
+  const navigateToUpdate = useAppNavigation(listingUrl, location.pathname);
+
   return (
     <>
       <Card radius="md" withBorder padding="xs">
@@ -15,7 +39,7 @@ export const ListingCard = ({ listings }) => {
             classNames={{
               root: classes.carousel,
               controls: classes.carouselControls,
-              indicator: classes.carouselIndicator
+              indicator: classes.carouselIndicator,
             }}
           >
             {listings.imageUrls.map((img, index) => (
@@ -25,6 +49,34 @@ export const ListingCard = ({ listings }) => {
             ))}
           </Carousel>
         </Card.Section>
+        <Menu shadow="md" width="Auto">
+          <Menu.Target>
+            <ActionIcon
+              variant="filled"
+              radius="xl"
+              size={30}
+              color="white"
+              component="a"
+              underline="never"
+              onClick={() => {}}
+              style={{
+                background: "white",
+                position: "absolute",
+                boxShadow: "0px 2px 5px rgba(0,0,0,0.2)",
+                top: 15,
+                right: 13,
+              }}
+            >
+              <IconDotsVertical color="#00c898" stroke={1.5} size={20} />
+            </ActionIcon>
+          </Menu.Target>
+          <Menu.Dropdown>
+            <Menu.Item leftSection={<IconEye />} color="dimmed" onClick={navigateToUpdate}>
+              View Listing
+            </Menu.Item>
+            <Menu.Item color="red" leftSection={<IconTrash />}>Delete Listing</Menu.Item>
+          </Menu.Dropdown>
+        </Menu>
         <Stack justify="space-between" pt="10" gap={10}>
           <Text fw="medium" size="lg">
             {listings.name}
@@ -52,3 +104,5 @@ export const ListingCard = ({ listings }) => {
     </>
   );
 };
+
+

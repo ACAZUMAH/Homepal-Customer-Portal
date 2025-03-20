@@ -69,7 +69,7 @@ export const PropertiesCard = (props) => {
           <ActionIcon
             variant="filled"
             radius="xl"
-            size={40}
+            size={35}
             color="white"
             component="a"
             underline="never"
@@ -91,7 +91,7 @@ export const PropertiesCard = (props) => {
           <ActionIcon
             variant="filled"
             radius="xl"
-            size={40}
+            size={35}
             color="white"
             component="a"
             underline="never"

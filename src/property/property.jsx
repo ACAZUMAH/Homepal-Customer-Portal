@@ -6,7 +6,7 @@ import { Conditional } from "../components/conditional";
 import { HiddenFromSm, VisbleFromSm } from "./components/";
 import { PropertyError } from "./components/propertyError";
 import { PropertyLoader } from "./components/propertyLoader";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { RequestModal } from "./components/requestModal";
 import { MakeOfferModal } from "./components/makeOfferModal";
 import { useLocation } from "react-router-dom";

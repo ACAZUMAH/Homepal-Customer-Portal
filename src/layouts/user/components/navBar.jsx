@@ -26,6 +26,12 @@ export const UserNavBar = () => {
 
   const navigateToSettings = useAppNavigation(routesEndPoints.SETTINGS);
 
+  const navigateToRequestedTours = useAppNavigation(routesEndPoints.REQUESTED)
+
+  const NavigateToTourRequest = useAppNavigation(routesEndPoints.REQUEST)
+
+  const navigateToOffers = useAppNavigation(routesEndPoints.OFFERS)
+
   const isActive = (path) => {
     return location.pathname === path
   }
@@ -35,7 +41,7 @@ export const UserNavBar = () => {
       <div className={classes.section}>
         <Group justify="flex-start" ml="xs" mb="xs">
           <IconUserCircle stroke={1.5} size={35} />
-          <Text>{user.firstName || user.phoneNumber}</Text>
+          <Text>{user?.firstName || user?.phoneNumber || ""}</Text>
         </Group>
       </div>
       <div className={classes.links}>
@@ -50,24 +56,24 @@ export const UserNavBar = () => {
         <NavLink
           label="Requested Tours"
           p={10}
+          active={isActive(routesEndPoints.REQUESTED)}
+          onClick={navigateToRequestedTours}
           leftSection={<IconCalendarEvent />}
           color="#00c898"
         />
         <NavLink
           label="Tour Requests"
           p={10}
+          active={isActive(routesEndPoints.REQUEST)}
+          onClick={NavigateToTourRequest}
           leftSection={<IconHomeSearch />}
-          color="#00c898"
-        />
-        <NavLink
-          label="Made Offers"
-          p={10}
-          leftSection={<IconBrandTelegram />}
           color="#00c898"
         />
         <NavLink
           label="Received Offers"
           p={10}
+          active={isActive(routesEndPoints.OFFERS)}
+          onClick={navigateToOffers}
           leftSection={<IconHeartHandshake />}
           color="#00c898"
         />
