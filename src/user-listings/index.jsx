@@ -14,14 +14,9 @@ import { Conditional } from "../components/conditional";
 import { PropertiesLoader } from "../components/property-card";
 import { useAppNavigation } from "../hooks";
 import { routesEndPoints } from "../constants";
-import { useLocation, useNavigate } from "react-router-dom";
 
 export const UserListings = () => {
   const [page, setPage] = useState(1);
-
-  // const location = useLocation()
-
-  // const navigate = useNavigate()
 
   const navigateToNewListings = useAppNavigation(routesEndPoints.NEW);
 
@@ -29,6 +24,7 @@ export const UserListings = () => {
     limit: 8,
     page,
   });
+
   const showPagenation = !loading && !error && Listings.length;
 
   const totalPages = Math.ceil(pageInfo?.totalCount / pageInfo?.limit) || 0;

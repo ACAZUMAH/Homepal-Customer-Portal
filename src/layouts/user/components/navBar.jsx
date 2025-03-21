@@ -1,9 +1,7 @@
 import React from "react";
 import classes from "../style/style.module.css";
 import {
-  IconBrandTelegram,
   IconCalendarEvent,
-  IconFileInvoice,
   IconHeartHandshake,
   IconHomeSearch,
   IconList,

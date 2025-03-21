@@ -31,8 +31,8 @@ export const useMakeOfferForm = () => {
       message: "",
     },
     validationSchema,
-    validateOnMount: false,
-    enableReinitialize: true,
+    validateOnMount: true,
+    // enableReinitialize: true,
     onSubmit: () => {}
   });
 
