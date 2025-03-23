@@ -2,7 +2,7 @@ import React, { useCallback } from "react";
 import { SettingsForm } from "./components/settingsForm";
 import { useUpdateUserForm } from "./hooks/updateUserForm";
 import useAppAuthentication from "../hooks/useAppAuthentication";
-import { useUpdateUserMutation } from "./hooks/useUpdateUseMutation";
+import { useUpdateUserMutation } from "./hooks/useUpdateUserMutation";
 import { getPhoneNumberWithCode } from "../helpers/phone-numbers";
 import { Container } from "@mantine/core";
 

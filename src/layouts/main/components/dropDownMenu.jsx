@@ -16,6 +16,7 @@ export const DropDownMenu = () => {
   const { logoutUser, user } = useAppAuthentication();
 
   const NavigateToUser = useAppNavigation(routesEndPoints.USER)
+  const navigateToHome = useAppNavigation(routesEndPoints.HOME)
 
   const firstName = user?.firstName ?? ""
 
@@ -56,7 +57,10 @@ export const DropDownMenu = () => {
           <Menu.Item
             c="red"
             leftSection={<IconLogout stroke={1.5} />}
-            onClick={logoutUser}
+            onClick={() => {
+              logoutUser()
+              navigateToHome()
+            }}
           >
             <Text size="md">Logout</Text>
           </Menu.Item>

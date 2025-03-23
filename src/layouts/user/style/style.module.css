@@ -19,11 +19,11 @@
   }
 }
 
-@media (max-width: 1500px){
+/* @media (max-width: 1500px){
   .navbar{
       height: 100%;
   }
-}
+} */
 
 .links {
   flex: 1;

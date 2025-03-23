@@ -73,6 +73,7 @@ export const ListingForm = ({ form, handleBack, handleNext }) => {
           onBlur={form.handleBLur}
           onChange={form.handleChange}
           error={form.touched.bedrooms && form.errors.bedrooms}
+          withAsterisk
           mb="md"
           classNames={{ input: "custom-input" }}
         />
@@ -84,6 +85,7 @@ export const ListingForm = ({ form, handleBack, handleNext }) => {
           onBlur={form.handleBLur}
           onChange={form.handleChange}
           error={form.touched.bathrooms && form.errors.bathrooms}
+          withAsterisk
           mb="md"
           classNames={{ input: "custom-input" }}
         />

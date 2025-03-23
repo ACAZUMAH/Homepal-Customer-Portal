@@ -1,5 +1,5 @@
 import { Drawer, NavLink } from "@mantine/core";
-import { IconHome, IconHeart, IconList, IconLogin, IconLogout, IconBuilding } from "@tabler/icons-react";
+import { IconHome, IconHeart, IconList, IconLogin, IconLogout, IconBuilding, IconHomeDollar, IconUsers, IconNews, IconUserCircle } from "@tabler/icons-react";
 import { Conditional } from "../../../components/conditional";
 import useAppAuthentication from "../../../hooks/useAppAuthentication";
 import { useAppNavigation } from "../../../hooks";
@@ -7,15 +7,18 @@ import { routesEndPoints } from "../../../constants";
 
 export const MainDrawer = (props) => {
   const navigateToLogin = useAppNavigation(routesEndPoints.LOGIN);
-  const navigateToProperties = useAppNavigation(routesEndPoints.PROPERTIES)
+  const navigateToRent = useAppNavigation(routesEndPoints.RENT)
   const navigateToFavorite = useAppNavigation(routesEndPoints.FAVORITE)
-  const navigateToSavedList = useAppNavigation(routesEndPoints.LIST)
-  const { isAuthenticated } = useAppAuthentication();
+  const navigateToBuy = useAppNavigation(routesEndPoints.BUY)
+  const navigateToFindAgent = useAppNavigation(routesEndPoints.FIND_AGENT);
+  const navigateToBlog = useAppNavigation(routesEndPoints.BLOG)
+  const navigateToUser = useAppNavigation(routesEndPoints.USER)
+  const { isAuthenticated, logoutUser } = useAppAuthentication();
 
   return (
     <>
       <Drawer
-        size="xl"
+        size="md"
         padding="xl"
         opened={props.opened}
         onClose={props.onClose}
@@ -38,44 +41,73 @@ export const MainDrawer = (props) => {
           label="Home"
           leftSection={<IconHome stroke={1.5}></IconHome>}
         />
+        <NavLink
+          component="a"
+          label="Buy"
+          href={routesEndPoints.BUY}
+          onClick={() => {
+            navigateToBuy();
+            props.onClose();
+          }}
+          leftSection={<IconHomeDollar stroke={1.5} />}
+        />
 
         <NavLink
           component="a"
-          label="Properties"
-          href={routesEndPoints.PROPERTIES}
+          label="Rent"
+          href={routesEndPoints.RENT}
           onClick={() => {
-            navigateToProperties()
-            props.onClose()
+            navigateToRent();
+            props.onClose();
           }}
           leftSection={<IconBuilding stroke={1.5} />}
         />
-
+        <NavLink
+          component="a"
+          label="Find Agent"
+          href={routesEndPoints.FIND_AGENT}
+          onClick={() => {
+            navigateToFindAgent();
+            props.onClose();
+          }}
+          leftSection={<IconUsers stroke={1.5} />}
+        />
+        <NavLink
+          component="a"
+          label="Blog"
+          href={routesEndPoints.BLOG}
+          onClick={() => {
+            navigateToBlog();
+            props.onClose();
+          }}
+          leftSection={<IconNews stroke={1.5} />}
+        />
         <Conditional condition={isAuthenticated}>
           <NavLink
-          component="a"
-            label="My list"
-            href={routesEndPoints.LIST}
-            onClick={() => {
-              navigateToSavedList()
-              props.onClose()
-            }}
-            leftSection={<IconList  stroke={1.5} />}
-          />
-          <NavLink
-          component="a"
+            component="a"
             label="favorite"
             href={routesEndPoints.FAVORITE}
             onClick={() => {
-              navigateToFavorite()
-              props.onClose()
+              navigateToFavorite();
+              props.onClose();
             }}
             leftSection={<IconHeart stroke={1.5} />}
+          />
+          <NavLink
+            component="a"
+            label="User"
+            onClick={() => {
+              navigateToUser()
+              props.onClose();
+            }}
+            leftSection={<IconUserCircle stroke={1.5} />}
           />
           <NavLink
             component="a"
             c="red"
             label="Logout"
             onClick={() => {
+              logoutUser()
               props.onClose();
             }}
             leftSection={<IconLogout stroke={1.5} />}

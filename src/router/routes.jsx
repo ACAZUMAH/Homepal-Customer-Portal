@@ -18,6 +18,7 @@ import { UpdateListing } from "../user-listings/components/update-listing/update
 import { TourRequest } from "../user-tours/tourRequest";
 import { RequestedTours } from "../user-tours/RequestedTours";
 import { ReceivedOffers } from "../user-offers/offer";
+import { Loader } from "@mantine/core";
 
 
 export const routes = [

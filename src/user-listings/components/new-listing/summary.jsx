@@ -14,9 +14,11 @@ export const Summary = ({ listingForm, filesForm, handleBack, handleSubmit, load
 
   return (
     <>
-      <Title order={3} mb="xl">
-        Review and submit your listing
-      </Title>
+      <Title order={3}>Review and submit your listing</Title>
+      <Text size="sm" c="dimmed" mb="xl">
+        Please review the information below and submit your listing
+      </Text>
+
       <Paper p="sm" my="lg" withBorder>
         <Conditional condition={filesForm.values.files?.length}>
           <Text size="md" mb={3} c="dimmed">

@@ -12,9 +12,6 @@ const Card = ({ image }) => {
       style={{ backgroundImage: `url(${image})` }}
       className={classes.card}
     >
-      <Button variant="white" color="dark">
-        Delete
-      </Button>
     </Paper>
   );
 }

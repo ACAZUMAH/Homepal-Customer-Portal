@@ -1,9 +1,12 @@
 import { Carousel } from "@mantine/carousel";
 import {
   ActionIcon,
+  Box,
   Card,
   Group,
   Image,
+  Loader,
+  LoadingOverlay,
   Menu,
   Stack,
   Text,
@@ -21,13 +24,17 @@ import {
 import { useAppNavigation } from "../../../hooks";
 import { useLocation } from "react-router-dom";
 import { getListingtUrl } from "../../helper/helper";
+import { useDeleteListingMutation } from "../../hooks";
+import { Conditional } from "../../../components/conditional";
 
 export const ListingCard = ({ listings }) => {
-  const listingUrl = getListingtUrl(listings._id)
+  const listingUrl = getListingtUrl(listings._id);
 
-  const location = useLocation()
+  const location = useLocation();
 
   const navigateToUpdate = useAppNavigation(listingUrl, location.pathname);
+
+  const { onDeleteHandler, loading } = useDeleteListingMutation();
 
   return (
     <>
@@ -58,7 +65,6 @@ export const ListingCard = ({ listings }) => {
               color="white"
               component="a"
               underline="never"
-              onClick={() => {}}
               style={{
                 background: "white",
                 position: "absolute",
@@ -71,10 +77,22 @@ export const ListingCard = ({ listings }) => {
             </ActionIcon>
           </Menu.Target>
           <Menu.Dropdown>
-            <Menu.Item leftSection={<IconEye />} color="dimmed" onClick={navigateToUpdate}>
+            <Menu.Item
+              leftSection={<IconEye />}
+              color="dimmed"
+              onClick={navigateToUpdate}
+            >
               View Listing
             </Menu.Item>
-            <Menu.Item color="red" leftSection={<IconTrash />}>Delete Listing</Menu.Item>
+            <Menu.Item
+              color="red"
+              leftSection={<IconTrash />}
+              onClick={() => {
+                onDeleteHandler(listings?._id);
+              }}
+            >
+              Delete Listing
+            </Menu.Item>
           </Menu.Dropdown>
         </Menu>
         <Stack justify="space-between" pt="10" gap={10}>
@@ -100,9 +118,10 @@ export const ListingCard = ({ listings }) => {
             </Text>
           </Group>
         </Stack>
+        <Conditional condition={loading}>
+          <Loader color="#00c898" size="lg" type="dots" />
+        </Conditional>
       </Card>
     </>
   );
 };
-
-
