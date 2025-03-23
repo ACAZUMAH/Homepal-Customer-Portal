@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState } from "react"; // Importing React and useState hook for managing component state
 import {
   Container,
   Stack,
@@ -6,13 +6,20 @@ import {
   Group,
   Button,
   TextInput,
-} from "@mantine/core";
-import { IconSearch } from "@tabler/icons-react";
-import Trends from "./components/trends";
-import { OtherTrends } from "./components/otherTrends";
+} from "@mantine/core"; // Importing Mantine UI components for layout and styling
+import { IconSearch } from "@tabler/icons-react"; // Importing search icon from Tabler Icons
+import Trends from "./components/trends"; // Importing Trends component
+import { OtherTrends } from "./components/otherTrends"; // Importing OtherTrends component
 
 export const Blog = () => {
-  const [searchText, setSearchText] = useState("");
+  const [searchText, setSearchText] = useState(""); // State variable to manage search input
+
+  const scrollToSection = (sectionId) => { // Function to scroll to a specific section
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth", block: "start" }); // Smooth scrolling to the section
+    }
+  };
 
   return (
     <div
@@ -49,19 +56,49 @@ export const Blog = () => {
               spacing="sm"
               style={{ width: "100%", justifyContent: "center" }}
             >
-              <Button variant="filled" color="#00c898" radius="xl" size="md">
+              <Button 
+                onClick={() => scrollToSection("trends")}
+                variant="filled" 
+                color="#00c898" 
+                radius="xl" 
+                size="md"
+              >
                 Trends
               </Button>
-              <Button variant="outline" color="#00c898" radius="xl" size="md">
+              <Button 
+                onClick={() => scrollToSection("buying")}
+                variant="outline" 
+                color="#00c898" 
+                radius="xl" 
+                size="md"
+              >
                 Buying
               </Button>
-              <Button variant="outline" color="#00c898" radius="xl" size="md">
+              <Button 
+                onClick={() => scrollToSection("selling")}
+                variant="outline" 
+                color="#00c898" 
+                radius="xl" 
+                size="md"
+              >
                 Selling
               </Button>
-              <Button variant="outline" color="#00c898" radius="xl" size="md">
+              <Button 
+                onClick={() => scrollToSection("renting")}
+                variant="outline" 
+                color="#00c898" 
+                radius="xl" 
+                size="md"
+              >
                 Renting
               </Button>
-              <Button variant="outline" color="#00c898" radius="xl" size="md">
+              <Button 
+                onClick={() => scrollToSection("guide")}
+                variant="outline" 
+                color="#00c898" 
+                radius="xl" 
+                size="md"
+              >
                 Guides
               </Button>
               <Button variant="outline" color="#00c898" radius="xl" size="md">

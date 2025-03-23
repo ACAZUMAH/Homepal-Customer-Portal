@@ -1,0 +1,48 @@
+.Image{
+    width: 450px;
+    height: 300px;
+    border-radius: 15px;
+    display: inline-block;
+    margin-right: 20px;
+  }
+  
+  .h1{
+    margin-bottom: 30px;
+    color: #00c898; 
+    font-family: sans-serif;
+    font-size: 20px;
+  
+  }
+  
+  .ImageTitle{
+    color: #00c898;
+    font-size: 15px;
+    font-family: sans-serif;
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+  
+  .ImageData{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+    width: 400px;
+  }
+  
+  .ImageAuthor{
+    font-size: 15px;
+    font-weight: bold;
+    vertical-align: top;
+    margin-bottom: 10px;
+    color: rgb(153,153,153);
+  }
+  
+  .row-one,.row-two,.row-three,.row-four{
+    display: flex;
+  }
+  
+  .elements{
+    margin-left: 60px;
+  }
+  
+  

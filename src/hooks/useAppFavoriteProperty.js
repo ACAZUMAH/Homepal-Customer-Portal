@@ -1,15 +1,15 @@
-import { useCallback } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { favoritesActions } from "../redux/favorite/slice";
+import { useCallback } from "react"; // Importing React hooks
+import { useSelector, useDispatch } from "react-redux"; // Importing Redux hooks
+import { favoritesActions } from "../redux/favorite/slice"; // Importing actions for favorite properties
 
 export const useAppFavoriteProperty = () => {
-    const dispatch = useDispatch()
+    const dispatch = useDispatch(); // Getting dispatch function from Redux
 
-    const toggleFavorite = useCallback((propertyId) => {
-        dispatch(favoritesActions.toggle(propertyId))
-    }, [dispatch])
+    const toggleFavorite = useCallback((propertyId) => { // Function to toggle favorite status
+        dispatch(favoritesActions.toggle(propertyId)); // Dispatching action to toggle favorite
+    }, [dispatch]);
 
-    const favorites = useSelector(state => state.favorites)
+    const favorites = useSelector(state => state.favorites); // Selecting favorites from Redux state
 
-    return { ...favorites, toggleFavorite }
+    return { ...favorites, toggleFavorite }; // Returning favorites and toggle function
 }
