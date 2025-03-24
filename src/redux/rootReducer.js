@@ -4,5 +4,5 @@ import favorites from "./favorite/slice"
 
 export const rootReducer = combineReducers({
     authentication,
-    favorites
+    favorites,
 })

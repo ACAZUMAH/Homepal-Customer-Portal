@@ -2,7 +2,7 @@ import { gql, useMutation } from "@apollo/client";
 import { showNotification } from "@mantine/notifications";
 
 const requestTourMutationGql = gql`
-  mutation CreateRequest($data: createTourInput) {
+  mutation CreateRequest($data: CreateTourInput) {
     createTourRequest(data: $data) {
       _id
     }

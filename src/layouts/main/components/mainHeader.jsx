@@ -39,7 +39,7 @@ export const MainHeader = () => {
     <>
       <Container px="xl" fluid h="100%" size="90%">
         <Group justify="space-between" h="90%">
-          <Center hiddenFrom="sm">
+          <Center hiddenFrom="md">
             <Burger
               color="#00c898"
               opened={opened}
@@ -63,7 +63,7 @@ export const MainHeader = () => {
               </Group>
             </Anchor>
           </Group>
-          <Group visibleFrom="sm" gap={4}>
+          <Group visibleFrom="md" gap={4}>
             <Button
               component="a"
               variant="transparent"
@@ -87,19 +87,6 @@ export const MainHeader = () => {
               classNames={{ label: classes.button }}
             >
               Buy
-            </Button>
-            <Button
-              component="a"
-              variant="transparent"
-              href="/"
-              onClick={(e) => {
-                e.preventDefault();
-                if (!isAuthenticated) navigateToLogin();
-                navigateToSell();
-              }}
-              classNames={{ label: classes.button }}
-            >
-              Sell
             </Button>
             <Button
               component="a"

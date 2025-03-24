@@ -8,10 +8,27 @@ export const routesEndPoints = {
   PROPERTY: "/property/:id",
   PROPERTY_TOUR: "/property/:id/tour",
   PROPERTY_OFFER: "/property/:id/offer",
-  SELL: '/sell',
-  FIND_AGENT: '/find-agent',
-  BLOG: '/blog',
-  USER: '/u',
-  SETTINGS: '/u/settings',
-  NEW: '/u/new'
+  SELL: "/sell",
+  FIND_AGENT: "/find-agent",
+  BLOG: "/blog",
+  USER: "/u",
+  SETTINGS: "/u/settings",
+  NEW: "/u/new",
+  UPDATE: "/u/update/:id",
+  REQUESTED: "/u/rquested",
+  REQUEST: "/u/request",
+  OFFERS: "/u/offers",
 };
+
+export const amenitiesData = [
+  "Wi-Fi",
+  "Swimming Pool",
+  "Gym",
+  "Parking",
+  "Air Conditioning",
+  "Heating",
+  "Laundry",
+  "Elevator",
+  "Garage",
+  "garden",
+];

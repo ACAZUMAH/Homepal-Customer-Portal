@@ -14,24 +14,29 @@ import { Conditional } from "../components/conditional";
 import { PropertiesLoader } from "../components/property-card";
 import { useAppNavigation } from "../hooks";
 import { routesEndPoints } from "../constants";
-import { useLocation, useNavigate } from "react-router-dom";
+import { FetchError } from "../components/Errors/fetchError";
+import { EmptyListing } from "./components/empty";
 
 export const UserListings = () => {
-  const [page, setPage] = useState(1)
-  
-  
-  const navigateToNewListings = useAppNavigation(routesEndPoints.NEW)
+  const [page, setPage] = useState(1);
+
+  const navigateToNewListings = useAppNavigation(routesEndPoints.NEW);
 
   const { Listings, pageInfo, loading, error } = useFetchUserListing({
     limit: 8,
-    page
+    page,
   });
-  const showPagenation = !loading && !error && Listings.length
 
-  const totalPages =
-    Math.ceil(pageInfo?.totalCount / pageInfo?.limit) || 0;
+  const showData = Listings.length && !loading && !error
 
-  
+  const showError = !loading && error
+
+  const showEmpty = !Listings.length && !loading && !error
+
+  const showPagenation = !loading && !error && Listings.length;
+
+  const totalPages = Math.ceil(pageInfo?.totalCount / pageInfo?.limit) || 0;
+
   return (
     <>
       <Container size="xl">
@@ -48,7 +53,7 @@ export const UserListings = () => {
           </Button>
         </Group>
         <SimpleGrid cols={{ base: 1, sm: 2, md: 3, lg: 4 }}>
-          <Conditional condition={!loading}>
+          <Conditional condition={showData}>
             {Listings.map((listings, index) => (
               <ListingCard listings={listings} key={index} />
             ))}
@@ -60,7 +65,16 @@ export const UserListings = () => {
                 <PropertiesLoader key={index} h="350" />
               ))}
           </Conditional>
-        </SimpleGrid>{" "}
+        </SimpleGrid>
+        <Conditional condition={showError}>
+          <FetchError
+            message="We encountered an issue while fetching your listing. Our technical
+            team is working to resolve it as quickly as possible."
+          />
+        </Conditional>
+        <Conditional condition={showEmpty}>
+          <EmptyListing />
+        </Conditional>
         <Conditional condition={showPagenation}>
           <Group gap={10} my={40} justify="flex-end">
             <Pagination

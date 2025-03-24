@@ -49,7 +49,7 @@ export const SettingsForm = ({ form, handleSubmit, loading }) => {
             withAsterisk
           />
         </SimpleGrid>
-        <Group pt={20} justify="flex-end">
+        <Group mt={20} justify="flex-end">
           <Button
             color="#00c898"
             size="md"

@@ -2,7 +2,7 @@ import { gql, useMutation } from "@apollo/client";
 import { showNotification } from "@mantine/notifications";
 
 const makeofferMutationGql = gql`
-  mutation CreateOffer($data: createOfferInput) {
+  mutation CreateOffer($data: CreateOfferInput) {
     createOffer(data: $data) {
       _id
     }

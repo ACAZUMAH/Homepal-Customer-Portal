@@ -1,21 +1,17 @@
-import { Stack, Box, Title, Text, Button } from "@mantine/core";
-import { DotLottieReact } from "@lottiefiles/dotlottie-react";
+import { Stack, Box, Title, Text, Button, Image } from "@mantine/core";
 import { useAppNavigation } from "../../hooks";
 import { routesEndPoints } from "../../constants";
+import notfound from '../../assets/images/not-found.png'
 
 export const EmptyProperties = () => {
   const navigateToHome = useAppNavigation(routesEndPoints.HOME);
   return (
     <>
-      <Stack gap="lg" justify="center" align="center" h="auto" my="xl">
+      <Stack justify="center" align="center" my="xl">
         <Box>
-          <DotLottieReact
-            src="https://lottie.host/97f03811-a9d0-4a08-8b19-4924812d6841/AUaFLucjy1.lottie"
-            loop
-            autoplay
-          />
-          <Title order={2} c="#00c898" ta="center">
-            Oops! No properties found
+          <Image src={notfound} h={300} fit="contain" />
+          <Title order={3} c="#00c898" ta="center">
+            No properties found
           </Title>
           <Text size="md" ta="center">
             Didn't find what you're looking for? Contact us on our support mail.

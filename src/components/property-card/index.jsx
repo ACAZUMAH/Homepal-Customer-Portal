@@ -12,30 +12,31 @@ import {
   IconBed,
   IconBath,
   IconMapPin,
-  IconPlus,
   IconHeart,
   IconChevronRight,
   IconHeartFilled,
 } from "@tabler/icons-react";
 import React from "react";
-import { useAppNavigation } from "../../hooks";
+import {
+  useAppFavoriteProperty,
+  useAppNavigation,
+} from "../../hooks";
 import { getPropertytUrl } from "./helper";
 import { Conditional } from "../conditional";
 import useAppAuthentication from "../../hooks/useAppAuthentication";
 import classes from "./styles/inde.module.css";
-import { useSavePropertyMutation } from "./hooks/useSavePropertyMutation";
-import { useAppFavoriteProperty } from "../../hooks/useAppFavoriteProperty";
 import { useLocation } from "react-router-dom";
+
 /**
- * 
- * @param {*} props 
- * @returns 
+ *
+ * @param {*} props
+ * @returns
  */
 export const PropertiesCard = (props) => {
   const propertyurl = getPropertytUrl(props._id);
 
-  const location = useLocation()
-  
+  const location = useLocation();
+
   const navigateToProperty = useAppNavigation(propertyurl, location.pathname);
 
   const { isAuthenticated } = useAppAuthentication();
@@ -44,19 +45,11 @@ export const PropertiesCard = (props) => {
 
   const isFavorite = favorites.includes(props._id);
 
-
   const photo = props.imageUrls[0] ? props.imageUrls[0] : "";
 
-  const { handleSaveProperty, loading } = useSavePropertyMutation();
-
-  const handleFavorite = (e) => {
+  const handleAddFavorite = (e) => {
     e.preventDefault();
     toggleFavorite(props._id);
-  };
-
-  const savePropertyHandler = (e) => {
-    e.preventDefault();
-    handleSaveProperty(props._id);
   };
 
   return (
@@ -69,17 +62,17 @@ export const PropertiesCard = (props) => {
           <ActionIcon
             variant="filled"
             radius="xl"
-            size={40}
+            size={35}
             color="white"
             component="a"
             underline="never"
-            onClick={handleFavorite}
+            onClick={handleAddFavorite}
             style={{
               background: "white",
               position: "absolute",
               boxShadow: "0px 2px 5px rgba(0,0,0,0.2)",
               top: 15,
-              right: 60,
+              right: 20,
             }}
           >
             {isFavorite ? (
@@ -87,26 +80,6 @@ export const PropertiesCard = (props) => {
             ) : (
               <IconHeart color="#00c898" stroke={1.5} size={20} />
             )}
-          </ActionIcon>
-          <ActionIcon
-            variant="filled"
-            radius="xl"
-            size={40}
-            color="white"
-            component="a"
-            underline="never"
-            onClick={savePropertyHandler}
-            style={{
-              background: "white",
-              position: "absolute",
-              boxShadow: "0px 2px 5px rgba(0,0,0,0.2)",
-              top: 15,
-              right: 13,
-            }}
-            loading={loading}
-            loaderProps={{ color: "#00c898" }}
-          >
-            <IconPlus color="#00c898" stroke={1.5} size={20} />
           </ActionIcon>
         </Conditional>
         <Stack justify="space-between" pt="10" gap={15}>

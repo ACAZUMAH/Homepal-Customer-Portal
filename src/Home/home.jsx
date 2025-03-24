@@ -23,10 +23,12 @@ export const Home = () => {
 
   return (
     <>
-      <HeroSection onSearch={getSerachData} /> // Render HeroSection with search handler
-      <FeatureGrid /> // Render FeatureGrid component
-      <FeaturedProperties properties={properties} loading={loading} /> // Render FeaturedProperties with fetched data
-      <FAQSection /> // Render FAQSection component
+      <HeroSection onSearch={getSerachData} />{/*Render HeroSection with search
+      handler */}
+      <FeatureGrid /> {/*Render FeatureGrid component */}
+      <FeaturedProperties properties={properties} loading={loading} />{/*Render
+      FeaturedProperties with fetched data*/}
+      <FAQSection /> {/*Render FAQSection component */}
     </>
   );
 };

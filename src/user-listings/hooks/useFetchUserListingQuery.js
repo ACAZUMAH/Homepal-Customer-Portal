@@ -1,7 +1,7 @@
 import { gql, useQuery } from "@apollo/client";
 
 const userListingQueryGql = gql`
-  query GetUserListings($filters: listingFilters) {
+  query GetUserListings($filters: ListingFilters) {
     getUserListings(filters: $filters) {
       edges {
         _id
