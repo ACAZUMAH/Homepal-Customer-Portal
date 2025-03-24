@@ -1,27 +1,26 @@
 import { Stack, Box, Title, Text, Button, Image } from "@mantine/core";
 import { useAppNavigation } from "../../hooks";
 import { routesEndPoints } from "../../constants";
-import notfound from '../../assets/images/not-found.png'
+import errorImage from '../../assets/images/Error.svg'
 
-export const EmptyProperties = () => {
+export const FetchError = ({ message }) => {
+
   const navigateToHome = useAppNavigation(routesEndPoints.HOME);
+  
   return (
     <>
-      <Stack justify="center" align="center" my="xl">
+      <Stack justify="center" align="center" mb="xl">
         <Box>
-          <Image src={notfound} h={300} fit="contain" />
+          <Image src={errorImage} h={300} fit="contain" />
           <Title order={3} c="#00c898" ta="center">
-            No properties found
+            Oops! Something went wrong
           </Title>
-          <Text size="md" ta="center">
-            Didn't find what you're looking for? Contact us on our support mail.
-            Our support team will help you out.
-          </Text>
+          <Text size="sm" ta="center">{message}</Text>
         </Box>
         <Button
           color="#00c898"
           radius="xl"
-          size="md"
+          size="sm"
           component="a"
           href={routesEndPoints.HOME}
           onClick={(e) => {

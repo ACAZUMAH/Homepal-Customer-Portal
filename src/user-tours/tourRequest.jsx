@@ -5,10 +5,16 @@ import {
 } from "../components/offerAndTourCard";
 import { Conditional } from "../components/conditional";
 import { useFetchTourRequest } from "./hooks/useFetchRequest";
+import { FetchError } from "../components/Errors/fetchError";
+import { EmptyTours } from "./components/emptyTours";
 
 export const TourRequest = () => {
   
   const { requestData, loading, error } = useFetchTourRequest();
+
+  const showError = !loading && error
+
+  const showEmpty = !requestData.length && !loading && !error;
 
   return (
     <>
@@ -24,10 +30,19 @@ export const TourRequest = () => {
             {Array(4)
               .fill(1)
               .map((_, index) => (
-                <TourAndOfferCardSkeleton key={index}/>
+                <TourAndOfferCardSkeleton key={index} />
               ))}
           </Conditional>
         </SimpleGrid>
+        <Conditional condition={showEmpty}>
+          <EmptyTours message="No tour request has been made on any of your properties yet" />
+        </Conditional>
+        <Conditional condition={showError}>
+          <FetchError
+            message="We encountered an issue while fetching your tour requests. Our technical
+            team is working to resolve it as quickly as possible."
+          />
+        </Conditional>
       </Container>
     </>
   );

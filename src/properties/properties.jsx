@@ -17,17 +17,20 @@ import {
 import { PropertiesCard, PropertiesLoader } from "../components/property-card";
 import { Conditional } from "../components/conditional";
 import { EmptyProperties } from "./components/emptyProperties";
-import { PropertiesError } from "./components/propertiesError";
 import { SearchBar } from "./components/searchBar";
+import { FetchError } from "../components/Errors/fetchError";
 
 export const Properties = (props) => {
-
   const showErrorAlert = !props.loading && props.error;
-  const showEmptyAlert = !props.properties.length && !props.loading && !props.error;
-  const showPagenation =  props.properties.length && !props.loading && !props.error;
-  const showSortAndData = props.properties.length || (props.loading && !props.error);
+  const showEmptyAlert =
+    !props.properties.length && !props.loading && !props.error;
+  const showPagenation =
+    props.properties.length && !props.loading && !props.error;
+  const showSortAndData =
+    props.properties.length || (props.loading && !props.error);
 
-  const totalPages = Math.ceil(props.pageInfo?.totalCount / props.pageInfo?.limit) || 0
+  const totalPages =
+    Math.ceil(props.pageInfo?.totalCount / props.pageInfo?.limit) || 0;
 
   return (
     <>
@@ -39,7 +42,7 @@ export const Properties = (props) => {
             </Title>
           </Stack>
         </Center>
-        <SearchBar onSearch={props.search} mode={props.mode}/>
+        <SearchBar onSearch={props.search} mode={props.mode} />
         <Conditional condition={showSortAndData}>
           <Group justify="space-between" pt={50} gap="xs">
             <Title c="#00c898" order={1} size="2rem">
@@ -72,7 +75,10 @@ export const Properties = (props) => {
           </SimpleGrid>
         </Conditional>
         <Conditional condition={showErrorAlert}>
-          <PropertiesError />
+          <FetchError
+            message="We encountered an issue while fetching properties. Our technical
+            team is working to resolve it as quickly as possible."
+          />
         </Conditional>
         <Conditional condition={showEmptyAlert}>
           <EmptyProperties />

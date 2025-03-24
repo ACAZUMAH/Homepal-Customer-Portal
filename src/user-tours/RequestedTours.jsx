@@ -5,9 +5,16 @@ import {
   TourAndOfferCardSkeleton,
 } from "../components/offerAndTourCard";
 import { Conditional } from "../components/conditional";
+import { FetchError } from "../components/Errors/fetchError";
+import { EmptyTours } from "./components/emptyTours";
 
 export const RequestedTours = () => {
   const { requestData, loading, error } = useFetchRequestedTours();
+
+  const showError = !loading && error;
+
+  const showEmpty = !requestData.length && !loading && !error
+
   return (
     <>
       <Container size="xl">
@@ -26,6 +33,15 @@ export const RequestedTours = () => {
               ))}
           </Conditional>
         </SimpleGrid>
+        <Conditional condition={showEmpty}>
+          <EmptyTours message="You have not made any tour request on any property yet" />
+        </Conditional>
+        <Conditional condition={showError}>
+          <FetchError
+            message="We encountered an issue while fetching your requested tours. Our technical
+            team is working to resolve it as quickly as possible."
+          />
+        </Conditional>
       </Container>
     </>
   );

@@ -1,9 +1,10 @@
-import { Stack, Box, Title, Text, Button, Image } from "@mantine/core";
-import { useAppNavigation } from "../../hooks";
-import { routesEndPoints } from "../../constants";
+import React from 'react'
+import { useAppNavigation } from '../../hooks';
+import { routesEndPoints } from '../../constants';
+import { Box, Button, Image, Stack, Text, Title } from '@mantine/core';
 import notfound from '../../assets/images/not-found.png'
 
-export const EmptyProperties = () => {
+export const EmptyOffers = () => {
   const navigateToHome = useAppNavigation(routesEndPoints.HOME);
   return (
     <>
@@ -11,11 +12,10 @@ export const EmptyProperties = () => {
         <Box>
           <Image src={notfound} h={300} fit="contain" />
           <Title order={3} c="#00c898" ta="center">
-            No properties found
+            No received offers
           </Title>
           <Text size="md" ta="center">
-            Didn't find what you're looking for? Contact us on our support mail.
-            Our support team will help you out.
+            No offers have been made on any of your listing yet
           </Text>
         </Box>
         <Button
@@ -34,4 +34,4 @@ export const EmptyProperties = () => {
       </Stack>
     </>
   );
-};
+}

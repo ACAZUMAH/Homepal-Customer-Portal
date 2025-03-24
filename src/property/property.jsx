@@ -4,13 +4,13 @@ import { useParams } from "react-router-dom";
 import { usePropertyQuery } from "./hooks";
 import { Conditional } from "../components/conditional";
 import { HiddenFromSm, VisbleFromSm } from "./components/";
-import { PropertyError } from "./components/propertyError";
 import { PropertyLoader } from "./components/propertyLoader";
 import { useState } from "react";
 import { RequestModal } from "./components/requestModal";
 import { MakeOfferModal } from "./components/makeOfferModal";
 import { useLocation } from "react-router-dom";
 import { useAppNavigation } from "../hooks";
+import { FetchError } from "../components/Errors/fetchError";
 
 export const Property = () => {
   const [opened, setOpened] = useState(false);
@@ -83,7 +83,10 @@ export const Property = () => {
           />
         </Conditional>
         <Conditional condition={showError}>
-          <PropertyError />
+          <FetchError
+            message="We encountered an issue while fetching this property. Our technical
+            team is working to resolve it as quickly as possible."
+          />
         </Conditional>
         <Conditional condition={loading}>
           <PropertyLoader />

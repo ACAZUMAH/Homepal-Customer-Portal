@@ -19,7 +19,7 @@
 }
 
 .card {
-  height: 600px;
+  height: 650px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
