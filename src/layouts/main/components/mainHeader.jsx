@@ -91,19 +91,6 @@ export const MainHeader = () => {
             <Button
               component="a"
               variant="transparent"
-              href="/"
-              onClick={(e) => {
-                e.preventDefault();
-                if (!isAuthenticated) navigateToLogin();
-                navigateToSell();
-              }}
-              classNames={{ label: classes.button }}
-            >
-              Sell
-            </Button>
-            <Button
-              component="a"
-              variant="transparent"
               href={routesEndPoints.RENT}
               onClick={(e) => {
                 e.preventDefault();

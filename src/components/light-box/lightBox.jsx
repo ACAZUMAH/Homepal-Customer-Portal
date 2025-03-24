@@ -1,6 +1,6 @@
-import styles from "./Styles.module.css";
 import { Image, Modal } from "@mantine/core";
 import React from "react";
+import styles from "./styles.module.css";
 
 export const LightBox = ({ url, opened, onClose }) => {
   return (

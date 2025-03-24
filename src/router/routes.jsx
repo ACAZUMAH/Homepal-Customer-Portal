@@ -47,10 +47,6 @@ export const routes = [
         element: <Property />,
       },
       {
-        path: routesEndPoints.SELL,
-        element: <SellPage />,
-      },
-      {
         path: routesEndPoints.FIND_AGENT,
         element: <FindAgent />,
       },
