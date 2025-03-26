@@ -12,17 +12,15 @@ import {
 } from "@mantine/core";
 import { useAppNavigation } from "../../../hooks";
 import { routesEndPoints } from "../../../constants";
-import {
-  IconBrandX,
-  IconBrandYoutube,
-  IconMail,
-} from "@tabler/icons-react";
+import { IconBrandX, IconBrandYoutube, IconMail } from "@tabler/icons-react";
 import classes from "../CSS/index.module.css";
 import logo from "../../../assets/images/HomePal Svg.svg";
 import { Notifications } from "@mantine/notifications";
 
 export const MainFooter = () => {
-  const navigateToProperties = useAppNavigation(routesEndPoints.PROPERTIES);
+  const navigateToBuy = useAppNavigation(routesEndPoints.BUY);
+  const navigateToBlog = useAppNavigation(routesEndPoints.BLOG);
+  const navigateToRent = useAppNavigation(routesEndPoints.RENT);
 
   return (
     <>
@@ -46,13 +44,22 @@ export const MainFooter = () => {
                   <Anchor c="#00c898" href={routesEndPoints.HOME}>
                     Home
                   </Anchor>
-                  <Anchor c="#00c898" onClick={() => {}}>
+                  <Anchor
+                    c="#00c898"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      navigateToBuy();
+                    }}
+                  >
                     Buy
                   </Anchor>
-                  <Anchor c="#00c898" onClick={() => {}}>
-                    Sell
-                  </Anchor>
-                  <Anchor c="#00c898" onClick={() => {}}>
+                  <Anchor
+                    c="#00c898"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      navigateToRent();
+                    }}
+                  >
                     Rent
                   </Anchor>
                   <Anchor c="#00c898" onClick={() => {}}>
@@ -69,7 +76,10 @@ export const MainFooter = () => {
                     size="md"
                     c="#00c898"
                     component="a"
-                    onClick={() => null}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      navigateToBlog();
+                    }}
                   >
                     Blog
                   </Anchor>
@@ -78,11 +88,8 @@ export const MainFooter = () => {
                     c="#00c898"
                     component="a"
                     onClick={() => {
-                      Notifications.show({
-                        title: "",
-                        message: "Admin portal is under development",
-                        color: "#00c898",
-                      });
+                      e.preventDefault();
+                      navigateToBlog();
                     }}
                   >
                     Testimonial
